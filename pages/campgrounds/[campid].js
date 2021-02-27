@@ -3,6 +3,10 @@ import Head from 'next/head';
 import { getAllCampgrounds, getSingleCampground, getAllFeatures, getAllTypes, getAllRegions } from '../../lib/api';
 
 const Campground = ({ campground }) => {
+
+  Campground.getInitialProps = async function () {
+
+  }
   const router = useRouter();
 
   console.log(campground.ownerships)

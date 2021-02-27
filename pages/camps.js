@@ -8,23 +8,9 @@ import {
   getAllZipcodes,
   getAllCities,
 } from "../lib/api";
-import {getCampByCity} from '../lib/getCitiesParams'
 import Map from '../components/map';
-import { useRouter } from 'next/router';
 
 let totalPages = 0;
-
-const withPageRouter = (router) => {
-  router.query = { ...queryString.parse(router.asPath.split(/\?/)[1]) };
-  return router;
-};
-
-const getRouterParams = (towns) => {
-  const router = useRouter();
-  router = withPageRouter(router);
-  return router;
-}
-
 
 
 export default function CampList({
@@ -34,7 +20,6 @@ export default function CampList({
   zipcodes,
   graphCampgrounds,
   cities,
-  campbycity
 }) {
 
 
@@ -74,7 +59,6 @@ export async function getStaticProps() {
   // retrieve all zip codes of campgrounds
   const zipcodes = await getAllZipcodes();
   const cities = await getAllCities();
-  const campbycity = await getCampByCity();
   // retrieve all campgrounds
   const graphCampgrounds = await getAllCampgrounds();
 
@@ -86,7 +70,6 @@ export async function getStaticProps() {
       zipcodes,
       graphCampgrounds,
       cities,
-      campbycity
     },
     revalidate: 1,
   };
