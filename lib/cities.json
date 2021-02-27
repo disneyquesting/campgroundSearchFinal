@@ -1,0 +1,2552 @@
+[
+    {
+      "ID": 16606,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Acworth",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.217778,
+      "LONGITUDE": -72.2925 
+    },
+    {
+      "ID": 16607,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Alstead",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.126484,
+      "LONGITUDE": -72.328052
+    },
+    {
+      "ID": 16608,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Alton",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.46302,
+      "LONGITUDE": -71.229709
+    },
+    {
+      "ID": 16609,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Alton Bay",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.484468,
+      "LONGITUDE": -71.24888
+    },
+    {
+      "ID": 16610,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Amherst",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.856944,
+      "LONGITUDE": -71.607536
+    },
+    {
+      "ID": 16611,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Andover",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.428668,
+      "LONGITUDE": -71.782952
+    },
+    {
+      "ID": 16612,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Antrim",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.059547,
+      "LONGITUDE": -71.938698
+    },
+    {
+      "ID": 16613,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Ashland",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.703428,
+      "LONGITUDE": -71.612085
+    },
+    {
+      "ID": 16614,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Ashuelot",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.785057,
+      "LONGITUDE": -72.434899
+    },
+    {
+      "ID": 16615,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Atkinson",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.836981,
+      "LONGITUDE": -71.1603
+    },
+    {
+      "ID": 16616,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Auburn",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.992529,
+      "LONGITUDE": -71.344892
+    },
+    {
+      "ID": 16617,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Barnstead",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.36513,
+      "LONGITUDE": -71.286946
+    },
+    {
+      "ID": 16618,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Barrington",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.2027,
+      "LONGITUDE": -71.037675
+    },
+    {
+      "ID": 16619,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bartlett",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 44.08656,
+      "LONGITUDE": -71.2491
+    },
+    {
+      "ID": 16620,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bath",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.173419,
+      "LONGITUDE": -71.956741
+    },
+    {
+      "ID": 16621,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bedford",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.940307,
+      "LONGITUDE": -71.52127
+    },
+    {
+      "ID": 16622,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Belmont",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.451189,
+      "LONGITUDE": -71.488991
+    },
+    {
+      "ID": 16623,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bennington",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.010309,
+      "LONGITUDE": -71.91534
+    },
+    {
+      "ID": 16624,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Berlin",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.48107,
+      "LONGITUDE": -71.189236
+    },
+    {
+      "ID": 16625,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bethlehem",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.280846,
+      "LONGITUDE": -71.682929
+    },
+    {
+      "ID": 16626,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bow",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.138788,
+      "LONGITUDE": -71.544814
+    },
+    {
+      "ID": 16627,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bradford",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.294343,
+      "LONGITUDE": -71.985048
+    },
+    {
+      "ID": 16628,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bretton Woods",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.258056,
+      "LONGITUDE": -71.441667
+    },
+    {
+      "ID": 16629,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Bristol",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.611994,
+      "LONGITUDE": -71.750664
+    },
+    {
+      "ID": 16630,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Brookline",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.738442,
+      "LONGITUDE": -71.666254
+    },
+    {
+      "ID": 16631,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Campton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.888507,
+      "LONGITUDE": -71.636142
+    },
+    {
+      "ID": 16632,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Canaan",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.660092,
+      "LONGITUDE": -72.029724
+    },
+    {
+      "ID": 16633,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Candia",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.058514,
+      "LONGITUDE": -71.304857
+    },
+    {
+      "ID": 16634,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Canterbury",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.357041,
+      "LONGITUDE": -71.557008
+    },
+    {
+      "ID": 16635,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Center Barnstead",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.356563,
+      "LONGITUDE": -71.24244
+    },
+    {
+      "ID": 16636,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Center Harbor",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.710688,
+      "LONGITUDE": -71.47973
+    },
+    {
+      "ID": 16637,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Center Ossipee",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.768189,
+      "LONGITUDE": -71.134882
+    },
+    {
+      "ID": 16638,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Center Sandwich",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.816169,
+      "LONGITUDE": -71.450614
+    },
+    {
+      "ID": 16639,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Center Strafford",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.262888,
+      "LONGITUDE": -71.107122
+    },
+    {
+      "ID": 16640,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Center Tuftonboro",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.690205,
+      "LONGITUDE": -71.265059
+    },
+    {
+      "ID": 16641,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Charlestown",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.257339,
+      "LONGITUDE": -72.40638
+    },
+    {
+      "ID": 16642,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Chatham",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.98776,
+      "LONGITUDE": -71.060677
+    },
+    {
+      "ID": 16643,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Chester",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.967756,
+      "LONGITUDE": -71.244962
+    },
+    {
+      "ID": 16644,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Chesterfield",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.900785,
+      "LONGITUDE": -72.487219
+    },
+    {
+      "ID": 16645,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Chichester",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.249167,
+      "LONGITUDE": -71.400278
+    },
+    {
+      "ID": 16646,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Chocorua",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.890851,
+      "LONGITUDE": -71.240716
+    },
+    {
+      "ID": 16647,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Claremont",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.367942,
+      "LONGITUDE": -72.342186
+    },
+    {
+      "ID": 16648,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Colebrook",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.907776,
+      "LONGITUDE": -71.479341
+    },
+    {
+      "ID": 16649,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Concord",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.218525,
+      "LONGITUDE": -71.527734
+    },
+    {
+      "ID": 16650,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Contoocook",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.218898,
+      "LONGITUDE": -71.696299
+    },
+    {
+      "ID": 16651,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Conway",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.974161,
+      "LONGITUDE": -71.15028
+    },
+    {
+      "ID": 16652,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Cornish",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.496339,
+      "LONGITUDE": -72.339426
+    },
+    {
+      "ID": 16653,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Cornish Flat",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.497222,
+      "LONGITUDE": -72.28
+    },
+    {
+      "ID": 16654,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Danbury",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.5115,
+      "LONGITUDE": -71.869074
+    },
+    {
+      "ID": 16655,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Danville",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.923432,
+      "LONGITUDE": -71.120985
+    },
+    {
+      "ID": 16656,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Deerfield",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.137756,
+      "LONGITUDE": -71.251264
+    },
+    {
+      "ID": 16657,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Derry",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.887404,
+      "LONGITUDE": -71.301971
+    },
+    {
+      "ID": 16658,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Dover",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.190006,
+      "LONGITUDE": -70.884881
+    },
+    {
+      "ID": 16659,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Drewsville",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.128056,
+      "LONGITUDE": -72.3925
+    },
+    {
+      "ID": 16660,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Dublin",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.897198,
+      "LONGITUDE": -72.050538
+    },
+    {
+      "ID": 16661,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Dunbarton",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.109444,
+      "LONGITUDE": -71.599167
+    },
+    {
+      "ID": 16662,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Durham",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.133821,
+      "LONGITUDE": -70.952333
+    },
+    {
+      "ID": 16663,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "East Andover",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.47766,
+      "LONGITUDE": -71.759606
+    },
+    {
+      "ID": 16664,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "East Candia",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.048056,
+      "LONGITUDE": -71.249167
+    },
+    {
+      "ID": 16665,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "East Derry",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.894444,
+      "LONGITUDE": -71.291667
+    },
+    {
+      "ID": 16666,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "East Hampstead",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.887656,
+      "LONGITUDE": -71.127978
+    },
+    {
+      "ID": 16667,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "East Wakefield",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.641022,
+      "LONGITUDE": -71.007712
+    },
+    {
+      "ID": 16668,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Eaton Center",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.909167,
+      "LONGITUDE": -71.084167
+    },
+    {
+      "ID": 16669,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Effingham",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.721216,
+      "LONGITUDE": -71.002109
+    },
+    {
+      "ID": 16670,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Elkins",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.420833,
+      "LONGITUDE": -71.937778
+    },
+    {
+      "ID": 16671,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Enfield",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.625584,
+      "LONGITUDE": -72.127014
+    },
+    {
+      "ID": 16672,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Enfield Center",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.59,
+      "LONGITUDE": -72.111389
+    },
+    {
+      "ID": 16673,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Epping",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.041052,
+      "LONGITUDE": -71.076367
+    },
+    {
+      "ID": 16674,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Epsom",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.217398,
+      "LONGITUDE": -71.354576
+    },
+    {
+      "ID": 16675,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Errol",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.800273,
+      "LONGITUDE": -71.143612
+    },
+    {
+      "ID": 16676,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Etna",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.711333,
+      "LONGITUDE": -72.212479
+    },
+    {
+      "ID": 16677,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Exeter",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.977169,
+      "LONGITUDE": -70.964306
+    },
+    {
+      "ID": 16678,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Farmington",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.388373,
+      "LONGITUDE": -71.064693
+    },
+    {
+      "ID": 16679,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Fitzwilliam",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.7611,
+      "LONGITUDE": -72.145014
+    },
+    {
+      "ID": 16680,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Francestown",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.991952,
+      "LONGITUDE": -71.81131
+    },
+    {
+      "ID": 16681,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Franconia",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.205273,
+      "LONGITUDE": -71.751822
+    },
+    {
+      "ID": 16682,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Franklin",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.442569,
+      "LONGITUDE": -71.649122
+    },
+    {
+      "ID": 16683,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Freedom",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.817242,
+      "LONGITUDE": -71.062815
+    },
+    {
+      "ID": 16684,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Fremont",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.984016,
+      "LONGITUDE": -71.121836
+    },
+    {
+      "ID": 16685,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Georges Mills",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.431667,
+      "LONGITUDE": -72.067778
+    },
+    {
+      "ID": 16686,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Gilford",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.5475,
+      "LONGITUDE": -71.407222
+    },
+    {
+      "ID": 16687,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Gilmanton",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.417476,
+      "LONGITUDE": -71.412063
+    },
+    {
+      "ID": 16688,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Gilmanton Iron Works",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.425281,
+      "LONGITUDE": -71.330315
+    },
+    {
+      "ID": 16689,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Gilsum",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.043105,
+      "LONGITUDE": -72.263272
+    },
+    {
+      "ID": 16690,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Glen",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 44.101777,
+      "LONGITUDE": -71.192457
+    },
+    {
+      "ID": 16691,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Glencliff",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.982778,
+      "LONGITUDE": -71.893889
+    },
+    {
+      "ID": 16692,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Goffstown",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.018224,
+      "LONGITUDE": -71.56264
+    },
+    {
+      "ID": 16693,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Gorham",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.399601,
+      "LONGITUDE": -71.179983
+    },
+    {
+      "ID": 16694,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Goshen",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.302623,
+      "LONGITUDE": -72.124117
+    },
+    {
+      "ID": 16695,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Grafton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.572743,
+      "LONGITUDE": -71.963389
+    },
+    {
+      "ID": 16696,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Grantham",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.510324,
+      "LONGITUDE": -72.133437
+    },
+    {
+      "ID": 16697,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Greenfield",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.949277,
+      "LONGITUDE": -71.872755
+    },
+    {
+      "ID": 16698,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Greenland",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.035294,
+      "LONGITUDE": -70.847476
+    },
+    {
+      "ID": 16699,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Greenville",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.7489,
+      "LONGITUDE": -71.784487
+    },
+    {
+      "ID": 16700,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Guild",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.376667,
+      "LONGITUDE": -72.138611
+    },
+    {
+      "ID": 16701,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hampstead",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.881957,
+      "LONGITUDE": -71.175802
+    },
+    {
+      "ID": 16702,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hampton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.935883,
+      "LONGITUDE": -70.824336
+    },
+    {
+      "ID": 16703,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hampton Falls",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.926323,
+      "LONGITUDE": -70.887608
+    },
+    {
+      "ID": 16704,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hancock",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.976817,
+      "LONGITUDE": -71.981858
+    },
+    {
+      "ID": 16705,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hanover",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.704532,
+      "LONGITUDE": -72.28496
+    },
+    {
+      "ID": 16706,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Harrisville",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.939874,
+      "LONGITUDE": -72.097243
+    },
+    {
+      "ID": 16707,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Haverhill",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.039438,
+      "LONGITUDE": -72.057276
+    },
+    {
+      "ID": 16708,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hebron",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.718571,
+      "LONGITUDE": -71.82696
+    },
+    {
+      "ID": 16709,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Henniker",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.179091,
+      "LONGITUDE": -71.815921
+    },
+    {
+      "ID": 16710,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hill",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.527422,
+      "LONGITUDE": -71.729168
+    },
+    {
+      "ID": 16711,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hillsborough",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.120709,
+      "LONGITUDE": -71.902818
+    },
+    {
+      "ID": 16712,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hinsdale",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.802714,
+      "LONGITUDE": -72.501474
+    },
+    {
+      "ID": 16713,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Holderness",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.731944,
+      "LONGITUDE": -71.588889
+    },
+    {
+      "ID": 16714,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hollis",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.748513,
+      "LONGITUDE": -71.577206
+    },
+    {
+      "ID": 16715,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hooksett",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.061708,
+      "LONGITUDE": -71.444446
+    },
+    {
+      "ID": 16716,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Hudson",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.769038,
+      "LONGITUDE": -71.412144
+    },
+    {
+      "ID": 16717,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Intervale",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 44.095479,
+      "LONGITUDE": -71.119415
+    },
+    {
+      "ID": 16718,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Jackson",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 44.166989,
+      "LONGITUDE": -71.187808
+    },
+    {
+      "ID": 16719,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Jaffrey",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.81779,
+      "LONGITUDE": -72.027514
+    },
+    {
+      "ID": 16720,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Jefferson",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.399907,
+      "LONGITUDE": -71.451834
+    },
+    {
+      "ID": 16721,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Kearsarge",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 44.075278,
+      "LONGITUDE": -71.118056
+    },
+    {
+      "ID": 16722,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Keene",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.943127,
+      "LONGITUDE": -72.28954
+    },
+    {
+      "ID": 16723,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Kingston",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.913258,
+      "LONGITUDE": -71.063914
+    },
+    {
+      "ID": 16724,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Laconia",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.538713,
+      "LONGITUDE": -71.452907
+    },
+    {
+      "ID": 16725,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lancaster",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.492074,
+      "LONGITUDE": -71.559115
+    },
+    {
+      "ID": 16726,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lebanon",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.642222,
+      "LONGITUDE": -72.252222
+    },
+    {
+      "ID": 16727,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lee",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.1231401,
+      "LONGITUDE": -71.0114497
+    },
+    {
+      "ID": 16728,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lempster",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.21863,
+      "LONGITUDE": -72.166205
+    },
+    {
+      "ID": 16729,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lincoln",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.058159,
+      "LONGITUDE": -71.672707
+    },
+    {
+      "ID": 16730,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lisbon",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.214837,
+      "LONGITUDE": -71.896565
+    },
+    {
+      "ID": 16731,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Litchfield",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.844167,
+      "LONGITUDE": -71.480278
+    },
+    {
+      "ID": 16732,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Littleton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.311187,
+      "LONGITUDE": -71.776816
+    },
+    {
+      "ID": 16733,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lochmere",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.471111,
+      "LONGITUDE": -71.530556
+    },
+    {
+      "ID": 16734,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Londonderry",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.865555,
+      "LONGITUDE": -71.37719
+    },
+    {
+      "ID": 16735,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Loudon",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.285556,
+      "LONGITUDE": -71.467778
+    },
+    {
+      "ID": 16736,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lyme",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.791327,
+      "LONGITUDE": -72.161993
+    },
+    {
+      "ID": 16737,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lyme Center",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.799167,
+      "LONGITUDE": -72.123333
+    },
+    {
+      "ID": 16738,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Lyndeborough",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.895449,
+      "LONGITUDE": -71.774373
+    },
+    {
+      "ID": 16739,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Madbury",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.169167,
+      "LONGITUDE": -70.924444
+    },
+    {
+      "ID": 16740,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Madison",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.915206,
+      "LONGITUDE": -71.125412
+    },
+    {
+      "ID": 16741,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Manchester",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.992858,
+      "LONGITUDE": -71.463255
+    },
+    {
+      "ID": 16742,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Marlborough",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.898804,
+      "LONGITUDE": -72.201292
+    },
+    {
+      "ID": 16743,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Marlow",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.132585,
+      "LONGITUDE": -72.210879
+    },
+    {
+      "ID": 16744,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Melvin Village",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.688889,
+      "LONGITUDE": -71.304722
+    },
+    {
+      "ID": 16745,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Meredith",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.650208,
+      "LONGITUDE": -71.511327
+    },
+    {
+      "ID": 16746,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Meriden",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.529873,
+      "LONGITUDE": -72.275644
+    },
+    {
+      "ID": 16747,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Merrimack",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.866689,
+      "LONGITUDE": -71.51278
+    },
+    {
+      "ID": 16748,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Milan",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.586968,
+      "LONGITUDE": -71.181031
+    },
+    {
+      "ID": 16749,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Milford",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.828497,
+      "LONGITUDE": -71.660569
+    },
+    {
+      "ID": 16750,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Milton",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.409722,
+      "LONGITUDE": -70.988889
+    },
+    {
+      "ID": 16751,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Milton Mills",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.502494,
+      "LONGITUDE": -70.969729
+    },
+    {
+      "ID": 16752,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Mirror Lake",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.636552,
+      "LONGITUDE": -71.272858
+    },
+    {
+      "ID": 16753,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Monroe",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.273358,
+      "LONGITUDE": -72.025028
+    },
+    {
+      "ID": 16754,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Mont Vernon",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.897597,
+      "LONGITUDE": -71.676243
+    },
+    {
+      "ID": 16755,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Moultonborough",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.728133,
+      "LONGITUDE": -71.392245
+    },
+    {
+      "ID": 16756,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Mount Washington",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.345833,
+      "LONGITUDE": -71.554722
+    },
+    {
+      "ID": 16757,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Nashua",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.756395,
+      "LONGITUDE": -71.466684
+    },
+    {
+      "ID": 16758,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Nelson",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.998646,
+      "LONGITUDE": -72.133702
+    },
+    {
+      "ID": 16759,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "New Boston",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.97217,
+      "LONGITUDE": -71.686402
+    },
+    {
+      "ID": 16760,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "New Castle",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.068114,
+      "LONGITUDE": -70.719922
+    },
+    {
+      "ID": 16761,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "New Durham",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.443045,
+      "LONGITUDE": -71.140828
+    },
+    {
+      "ID": 16762,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "New Hampton",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.618393,
+      "LONGITUDE": -71.643513
+    },
+    {
+      "ID": 16763,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "New Ipswich",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.751142,
+      "LONGITUDE": -71.870318
+    },
+    {
+      "ID": 16764,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "New London",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.414501,
+      "LONGITUDE": -71.985674
+    },
+    {
+      "ID": 16765,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newbury",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.340556,
+      "LONGITUDE": -72.071389
+    },
+    {
+      "ID": 16766,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newfields",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.036944,
+      "LONGITUDE": -70.938889
+    },
+    {
+      "ID": 16767,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newington",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.236111,
+      "LONGITUDE": -70.820833
+    },
+    {
+      "ID": 16768,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newmarket",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.072628,
+      "LONGITUDE": -70.955317
+    },
+    {
+      "ID": 16769,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newport",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.353228,
+      "LONGITUDE": -72.183789
+    },
+    {
+      "ID": 16770,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.867805,
+      "LONGITUDE": -71.042021
+    },
+    {
+      "ID": 16771,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Newton Junction",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.867222,
+      "LONGITUDE": -71.066389
+    },
+    {
+      "ID": 16772,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Conway",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 44.033613,
+      "LONGITUDE": -71.123811
+    },
+    {
+      "ID": 16773,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Hampton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.977625,
+      "LONGITUDE": -70.826738
+    },
+    {
+      "ID": 16774,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Haverhill",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.097841,
+      "LONGITUDE": -72.019112
+    },
+    {
+      "ID": 16775,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Salem",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.836944,
+      "LONGITUDE": -71.221111
+    },
+    {
+      "ID": 16776,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Sandwich",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.845182,
+      "LONGITUDE": -71.385025
+    },
+    {
+      "ID": 16777,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Stratford",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.714915,
+      "LONGITUDE": -71.564368
+    },
+    {
+      "ID": 16778,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Sutton",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.363889,
+      "LONGITUDE": -71.94
+    },
+    {
+      "ID": 16779,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Walpole",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.142759,
+      "LONGITUDE": -72.448253
+    },
+    {
+      "ID": 16780,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "North Woodstock",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.019831,
+      "LONGITUDE": -71.697684
+    },
+    {
+      "ID": 16781,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Northumberland",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.598367,
+      "LONGITUDE": -71.506421
+    },
+    {
+      "ID": 16782,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Northwood",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.206965,
+      "LONGITUDE": -71.200423
+    },
+    {
+      "ID": 16783,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Nottingham",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.119632,
+      "LONGITUDE": -71.110983
+    },
+    {
+      "ID": 16784,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Orford",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.894101,
+      "LONGITUDE": -72.097846
+    },
+    {
+      "ID": 16785,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Ossipee",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.694506,
+      "LONGITUDE": -71.112873
+    },
+    {
+      "ID": 16786,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Pelham",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.72881,
+      "LONGITUDE": -71.304551
+    },
+    {
+      "ID": 16787,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Peterborough",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.88559,
+      "LONGITUDE": -71.946964
+    },
+    {
+      "ID": 16788,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Piermont",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.990572,
+      "LONGITUDE": -72.081299
+    },
+    {
+      "ID": 16789,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Pike",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.025511,
+      "LONGITUDE": -72.009587
+    },
+    {
+      "ID": 16790,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Pittsburg",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 45.086564,
+      "LONGITUDE": -71.363593
+    },
+    {
+      "ID": 16791,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Pittsfield",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.287384,
+      "LONGITUDE": -71.33303
+    },
+    {
+      "ID": 16792,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Plainfield",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.551919,
+      "LONGITUDE": -72.270398
+    },
+    {
+      "ID": 16793,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Plaistow",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.835551,
+      "LONGITUDE": -71.093397
+    },
+    {
+      "ID": 16794,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Plymouth",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.763524,
+      "LONGITUDE": -71.684714
+    },
+    {
+      "ID": 16795,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Portsmouth",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.066524,
+      "LONGITUDE": -70.780412
+    },
+    {
+      "ID": 16796,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Randolph",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.375278,
+      "LONGITUDE": -71.280278
+    },
+    {
+      "ID": 16797,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Raymond",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.032512,
+      "LONGITUDE": -71.191159
+    },
+    {
+      "ID": 16798,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Rindge",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.754391,
+      "LONGITUDE": -72.019038
+    },
+    {
+      "ID": 16799,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Rochester",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.268374,
+      "LONGITUDE": -70.976642
+    },
+    {
+      "ID": 16800,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Rollinsford",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.226936,
+      "LONGITUDE": -70.833207
+    },
+    {
+      "ID": 16801,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Rumney",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.804389,
+      "LONGITUDE": -71.848019
+    },
+    {
+      "ID": 16802,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Rye",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.009468,
+      "LONGITUDE": -70.765153
+    },
+    {
+      "ID": 16803,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Rye Beach",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.976667,
+      "LONGITUDE": -70.766111
+    },
+    {
+      "ID": 16804,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Salem",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.78465,
+      "LONGITUDE": -71.21761
+    },
+    {
+      "ID": 16805,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Salisbury",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.406652,
+      "LONGITUDE": -71.704468
+    },
+    {
+      "ID": 16806,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Sanbornton",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.549552,
+      "LONGITUDE": -71.600348
+    },
+    {
+      "ID": 16807,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Sanbornville",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.551278,
+      "LONGITUDE": -71.020005
+    },
+    {
+      "ID": 16808,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Sandown",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.930819,
+      "LONGITUDE": -71.18606
+    },
+    {
+      "ID": 16809,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Seabrook",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.88536,
+      "LONGITUDE": -70.86464
+    },
+    {
+      "ID": 16810,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Silver Lake",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.878974,
+      "LONGITUDE": -71.190501
+    },
+    {
+      "ID": 16811,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Somersworth",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.252546,
+      "LONGITUDE": -70.875589
+    },
+    {
+      "ID": 16812,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "South Acworth",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.176942,
+      "LONGITUDE": -72.341053
+    },
+    {
+      "ID": 16813,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "South Hampton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.911289,
+      "LONGITUDE": -70.976904
+    },
+    {
+      "ID": 16814,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "South Newbury",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.295556,
+      "LONGITUDE": -71.997222
+    },
+    {
+      "ID": 16815,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "South Sutton",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.32,
+      "LONGITUDE": -71.934722
+    },
+    {
+      "ID": 16816,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "South Tamworth",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.833613,
+      "LONGITUDE": -71.311654
+    },
+    {
+      "ID": 16817,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Spofford",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.911973,
+      "LONGITUDE": -72.410277
+    },
+    {
+      "ID": 16818,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Springfield",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.491615,
+      "LONGITUDE": -72.057855
+    },
+    {
+      "ID": 16819,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Stinson Lake",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.861111,
+      "LONGITUDE": -71.808889
+    },
+    {
+      "ID": 16820,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Stoddard",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.073944,
+      "LONGITUDE": -72.108811
+    },
+    {
+      "ID": 16821,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Strafford",
+      "COUNTY": "Strafford", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 43.250575,
+      "LONGITUDE": -71.162475
+    },
+    {
+      "ID": 16822,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Stratham",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.019432,
+      "LONGITUDE": -70.899714
+    },
+    {
+      "ID": 16823,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Sugar Hill",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.606667,
+      "LONGITUDE": -71.736944
+    },
+    {
+      "ID": 16824,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Sullivan",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.994005,
+      "LONGITUDE": -72.191778
+    },
+    {
+      "ID": 16825,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Sunapee",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.386816,
+      "LONGITUDE": -72.095044
+    },
+    {
+      "ID": 16826,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Suncook",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.147554,
+      "LONGITUDE": -71.439663
+    },
+    {
+      "ID": 16827,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Swanzey",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.884137,
+      "LONGITUDE": -72.249298
+    },
+    {
+      "ID": 16828,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Tamworth",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.862049,
+      "LONGITUDE": -71.264454
+    },
+    {
+      "ID": 16829,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Temple",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.820035,
+      "LONGITUDE": -71.852347
+    },
+    {
+      "ID": 16830,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Thornton",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.8928475,
+      "LONGITUDE": -71.6759125
+    },
+    {
+      "ID": 16831,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Tilton",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.46033,
+      "LONGITUDE": -71.577413
+    },
+    {
+      "ID": 16832,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Troy",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.82697,
+      "LONGITUDE": -72.184753
+    },
+    {
+      "ID": 16833,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Twin Mountain",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.272222,
+      "LONGITUDE": -71.539444
+    },
+    {
+      "ID": 16834,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Union",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.4382,
+      "LONGITUDE": -71.020857
+    },
+    {
+      "ID": 16835,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Walpole",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 43.076533,
+      "LONGITUDE": -72.415489
+    },
+    {
+      "ID": 16836,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Warner",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.303512,
+      "LONGITUDE": -71.835349
+    },
+    {
+      "ID": 16837,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Warren",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.944667,
+      "LONGITUDE": -71.89013
+    },
+    {
+      "ID": 16838,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Washington",
+      "COUNTY": "Sullivan", 
+      "REGION":["Dartmouth / Sunapee","Lakes Region"],
+      "LATITUDE": 43.174705,
+      "LONGITUDE": -72.082407
+    },
+    {
+      "ID": 16839,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Waterville Valley",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.95,
+      "LONGITUDE": -71.5
+    },
+    {
+      "ID": 16840,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Weare",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.071422,
+      "LONGITUDE": -71.70376
+    },
+    {
+      "ID": 16841,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Wentworth",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.868456,
+      "LONGITUDE": -71.909651
+    },
+    {
+      "ID": 16842,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Chesterfield",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.873152,
+      "LONGITUDE": -72.511216
+    },
+    {
+      "ID": 16843,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Lebanon",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.64401,
+      "LONGITUDE": -72.300735
+    },
+    {
+      "ID": 16844,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Nottingham",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.133971,
+      "LONGITUDE": -71.111006
+    },
+    {
+      "ID": 16845,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Ossipee",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.835956,
+      "LONGITUDE": -71.205141
+    },
+    {
+      "ID": 16846,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Peterborough",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.887222,
+      "LONGITUDE": -71.985833
+    },
+    {
+      "ID": 16847,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Stewartstown",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.995278,
+      "LONGITUDE": -71.531667
+    },
+    {
+      "ID": 16848,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "West Swanzey",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.870313,
+      "LONGITUDE": -72.297688
+    },
+    {
+      "ID": 16849,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Westmoreland",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.968999,
+      "LONGITUDE": -72.435784
+    },
+    {
+      "ID": 16850,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Whitefield",
+      "COUNTY": "Coos", 
+      "REGION":["White Mountains","Lakes Region"],
+      "LATITUDE": 44.36811,
+      "LONGITUDE": -71.603453
+    },
+    {
+      "ID": 16851,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Wilmot",
+        "COUNTY": "Merrimack", 
+      "REGION":["Lakes Region", "White Mountains"],
+      "LATITUDE": 43.432177,
+      "LONGITUDE": -71.900983
+    },
+    {
+      "ID": 16852,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Wilton",
+      "COUNTY": "Hillsborough", 
+      "REGION":["Lakes Region", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.836761,
+      "LONGITUDE": -71.754066
+    },
+    {
+      "ID": 16853,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Winchester",
+      "COUNTY": "Cheshire", 
+      "REGION":["Dartmouth / Sunapee", "Lakes Region"],
+      "LATITUDE": 42.773922,
+      "LONGITUDE": -72.363672
+    },
+    {
+      "ID": 16854,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Windham",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 42.805106,
+      "LONGITUDE": -71.306735
+    },
+    {
+      "ID": 16855,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Winnisquam",
+      "COUNTY": "Belknap", 
+      "REGION":["Lakes Region","White Mountains"],
+      "LATITUDE": 43.501389,
+      "LONGITUDE": -71.5125
+    },
+    {
+      "ID": 16856,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Wolfeboro",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.594996,
+      "LONGITUDE": -71.190843
+    },
+    {
+      "ID": 16857,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Wolfeboro Falls",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.591944,
+      "LONGITUDE": -71.206111
+    },
+    {
+      "ID": 16858,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Wonalancet",
+      "COUNTY": "Carroll",
+      "REGION": ["White Mountains","Lakes Region", "Great North Woods"],
+      "LATITUDE": 43.907222,
+      "LONGITUDE": -71.351111
+    },
+    {
+      "ID": 16859,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Woodstock",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 43.9775,
+      "LONGITUDE": -71.685556
+    },
+    {
+      "ID": 16860,
+      "STATE_CODE": "NH",
+      "STATE_NAME": "New Hampshire",
+      "CITY": "Woodsville",
+       "COUNTY": "Grafton",
+      "REGION":["Lakes Region","White Mountains", "Dartmouth / Sunapee"],
+      "LATITUDE": 44.138549,
+      "LONGITUDE": -71.989215
+    }
+  ]

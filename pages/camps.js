@@ -1,6 +1,4 @@
-import styles from "../styles/Home.module.css";
-import CampgroundCards from "../components/campgroundcards";
-import Head from "next/head";
+import { Grid} from "@material-ui/core";
 import SearchBox from "../components/searchbox";
 import {
   getAllCampgrounds,
@@ -10,53 +8,63 @@ import {
   getAllZipcodes,
   getAllCities,
 } from "../lib/api";
+import {getCampByCity} from '../lib/getCitiesParams'
+import Map from '../components/map';
+import { useRouter } from 'next/router';
+
+let totalPages = 0;
+
+const withPageRouter = (router) => {
+  router.query = { ...queryString.parse(router.asPath.split(/\?/)[1]) };
+  return router;
+};
+
+const getRouterParams = (towns) => {
+  const router = useRouter();
+  router = withPageRouter(router);
+  return router;
+}
 
 
-import dynamic from "next/dynamic";
 
-const MapComponent = dynamic(() => import("../components/map"), {
-  ssr: false,
-});
-
-
-export default function Home({
+export default function CampList({
   regions,
   features,
   camptypes,
   zipcodes,
   graphCampgrounds,
   cities,
+  campbycity
 }) {
+
+
   return (
-    <>
-      <Head>
-        <title>NH Campground Association</title>
-        <link
-          href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-          rel="stylesheet"
-        />
-        <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' rel='stylesheet' />
-      </Head>
-      <CampgroundCards campgrounds={graphCampgrounds} />
-      <br />
-      {
+    <Grid container spacing={3}>
+    <Grid item xs={12} sm={5} md={3} lg={2}>
         <SearchBox
-          cities={cities}
+          singleColumn
           regions={regions}
           features={features}
           camptypes={camptypes}
           zipcodes={zipcodes}
           graphCampgrounds={graphCampgrounds}
+          cities={cities}
         />
-      }
-      <br />
-      <MapComponent />
-    </>
+      </Grid>
+      <Grid item xs={12} sm={7} md={9} lg={10}>
+        RIGHT
+        
+        <Map />
+        <pre style={{fontSize: '2.5rem'}}>{
+      
+        }</pre>
+      </Grid>
+    </Grid>
   );
 }
 
-//gets us front page of campgrounds
 export async function getStaticProps() {
+
   // retreive the regions form prisma
   const regions = await getAllRegions();
   // retrieve all features in existance
@@ -65,9 +73,8 @@ export async function getStaticProps() {
   const camptypes = await getAllTypes();
   // retrieve all zip codes of campgrounds
   const zipcodes = await getAllZipcodes();
-  // retrieve all cities
   const cities = await getAllCities();
-
+  const campbycity = await getCampByCity();
   // retrieve all campgrounds
   const graphCampgrounds = await getAllCampgrounds();
 
@@ -79,6 +86,7 @@ export async function getStaticProps() {
       zipcodes,
       graphCampgrounds,
       cities,
+      campbycity
     },
     revalidate: 1,
   };
