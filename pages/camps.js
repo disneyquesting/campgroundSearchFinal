@@ -1,5 +1,6 @@
-import { Grid} from "@material-ui/core";
-import SearchBox from "../components/searchbox";
+import { Grid } from '@material-ui/core';
+import { useRouter } from 'next/router';
+import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -7,11 +8,12 @@ import {
   getAllTypes,
   getAllZipcodes,
   getAllCities,
-} from "../lib/api";
+  getCampgroundsByCity,
+} from '../lib/api';
 import Map from '../components/map';
+import { useGeoContext } from '../lib/state';
 
-let totalPages = 0;
-
+const totalPages = 0;
 
 export default function CampList({
   regions,
@@ -20,12 +22,13 @@ export default function CampList({
   zipcodes,
   graphCampgrounds,
   cities,
+  campgroundsbycity,
 }) {
-
+  console.log(campgroundsbycity.nodes);
 
   return (
     <Grid container spacing={3}>
-    <Grid item xs={12} sm={5} md={3} lg={2}>
+      <Grid item xs={12} sm={5} md={3} lg={2}>
         <SearchBox
           singleColumn
           regions={regions}
@@ -34,22 +37,21 @@ export default function CampList({
           zipcodes={zipcodes}
           graphCampgrounds={graphCampgrounds}
           cities={cities}
+          campgroundsbycity={campgroundsbycity}
         />
       </Grid>
       <Grid item xs={12} sm={7} md={9} lg={10}>
         RIGHT
-        
         <Map />
-        <pre style={{fontSize: '2.5rem'}}>{
-      
-        }</pre>
+        <pre style={{ fontSize: '2.5rem' }}>{}</pre>
       </Grid>
     </Grid>
   );
 }
 
-export async function getStaticProps() {
-
+export async function getServerSideProps(query) {
+  const info = query.query;
+  console.log('info is: ', info);
   // retreive the regions form prisma
   const regions = await getAllRegions();
   // retrieve all features in existance
@@ -58,9 +60,14 @@ export async function getStaticProps() {
   const camptypes = await getAllTypes();
   // retrieve all zip codes of campgrounds
   const zipcodes = await getAllZipcodes();
+  // get all cities of campgrounds
   const cities = await getAllCities();
   // retrieve all campgrounds
   const graphCampgrounds = await getAllCampgrounds();
+
+  // retrieve all campgrounds by a city
+
+  const campgroundsbycity = await getCampgroundsByCity(info.city);
 
   return {
     props: {
@@ -70,7 +77,7 @@ export async function getStaticProps() {
       zipcodes,
       graphCampgrounds,
       cities,
+      campgroundsbycity,
     },
-    revalidate: 1,
   };
 }

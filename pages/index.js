@@ -1,7 +1,9 @@
-import styles from "../styles/Home.module.css";
-import CampgroundCards from "../components/campgroundcards";
-import Head from "next/head";
-import SearchBox from "../components/searchbox";
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import styles from '../styles/Home.module.css';
+import CampgroundCards from '../components/campgroundcards';
+
+import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -9,15 +11,11 @@ import {
   getAllTypes,
   getAllZipcodes,
   getAllCities,
-} from "../lib/api";
+} from '../lib/api';
 
-
-import dynamic from "next/dynamic";
-
-const MapComponent = dynamic(() => import("../components/map"), {
+const MapComponent = dynamic(() => import('../components/map'), {
   ssr: false,
 });
-
 
 export default function Home({
   regions,
@@ -35,27 +33,28 @@ export default function Home({
           href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
           rel="stylesheet"
         />
-        <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' rel='stylesheet' />
+        <link
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css"
+          rel="stylesheet"
+        />
       </Head>
       <CampgroundCards campgrounds={graphCampgrounds} />
       <br />
-      {
-        <SearchBox
-          cities={cities}
-          regions={regions}
-          features={features}
-          camptypes={camptypes}
-          zipcodes={zipcodes}
-          graphCampgrounds={graphCampgrounds}
-        />
-      }
+      <SearchBox
+        cities={cities}
+        regions={regions}
+        features={features}
+        camptypes={camptypes}
+        zipcodes={zipcodes}
+        graphCampgrounds={graphCampgrounds}
+      />
       <br />
       <MapComponent />
     </>
   );
 }
 
-//gets us front page of campgrounds
+// gets us front page of campgrounds
 export async function getStaticProps() {
   // retreive the regions form prisma
   const regions = await getAllRegions();

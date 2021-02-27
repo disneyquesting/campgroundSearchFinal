@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Form, Formik, Field, useFormik } from "formik";
+import Link from 'next/link';
+import { Form, Formik, Field, useFormik } from 'formik';
 import {
   Paper,
   Grid,
@@ -11,68 +11,81 @@ import {
   Input,
   Chip,
   Button,
-} from "@material-ui/core";
-import { useState, useRef } from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Autorenew } from "@material-ui/icons";
-import router, { useRouter, withRouter } from "next/router";
-import queryString from "query-string";
-import dynamic from "next/dynamic";
+} from '@material-ui/core';
+import { useState, useRef, useEffect } from 'react';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Autorenew } from '@material-ui/icons';
+import { useRouter, withRouter } from 'next/router';
+import querystring from 'querystring';
+import queryString from 'query-string';
+import dynamic from 'next/dynamic';
+import { getCampgroundsByCity } from '../lib/api';
+import { useGeoContext } from '../lib/state';
 
-export const withPageRouter = (Component) => {
-  return withRouter(({ router, ...props }) => {
-    router.query = { ...queryString.parse(router.asPath.split(/\?/)[1]) };
-    return <Component {...props} router={router} />;
-  });
-};
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
-    margin: "auto",
+    margin: 'auto',
     maxWidth: 500,
     padding: theme.spacing(3),
   },
 }));
 
-function SearchBox({
+export default function SearchBox({
   graphCampgrounds,
   regions,
   features,
   camptypes,
-  router,
   singleColumn,
   cities,
+  campgroundsbycity,
 }) {
+  const viewport = useGeoContext();
+  console.log(viewport);
+  const router = useRouter();
+  const { query } = router;
+
+  const latlong = () => {
+    viewport.saveViewport({
+      ...viewport.geoviewport,
+      latitude: campgroundsbycity
+        ? parseFloat(campgroundsbycity.nodes[0].acfDetails.latitude.toFixed(4))
+        : 44.43,
+      longitude: campgroundsbycity
+        ? Math.abs(
+            parseFloat(
+              campgroundsbycity.nodes[0].acfDetails.longitude.toFixed(4)
+            )
+          ) * -1
+        : -72.352,
+      zoom: 11,
+    });
+  };
+
+  const handleSubmit = async values => {
+    latlong();
+    router.push(
+      {
+        pathname: '/camps',
+        query: { ...values, page: 1 },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+
   const classes = useStyles();
   const smValue = singleColumn ? 12 : 6;
 
-  const { query } = router;
-
   const initialValues = {
-    region: query.region || "all",
-    camptype: query.camptype || "all",
-    city: query.city || "all",
-    campfeatures: query.campfeatures || "all",
+    region: query.region || 'all',
+    camptype: query.camptype || 'all',
+    city: query.city || 'all',
+    campfeatures: query.campfeatures || 'all',
   };
 
-  console.log(cities);
-
-  const geosuggestEl = useRef(null);
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={(values) => {
-        router.push(
-          {
-            pathname: "/camps",
-            query: { ...values, page: 1 },
-          },
-          undefined,
-          { shallow: true }
-        );
-      }}
-    >
-      {({ values }) => (
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      {({ values, submitForm }) => (
         <Form>
           <Paper className={classes.paper} elevation={5}>
             <Grid container spacing={3}>
@@ -88,7 +101,7 @@ function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {regions.nodes.map((region) => {
+                    {regions.nodes.map(region => {
                       return (
                         <MenuItem key={region.id} value={region.name}>
                           {region.name}
@@ -111,7 +124,7 @@ function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {camptypes.nodes.map((camp) => {
+                    {camptypes.nodes.map(camp => {
                       return (
                         <MenuItem key={camp.id} value={camp.name}>
                           {camp.name}
@@ -134,7 +147,7 @@ function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {features.nodes.map((cf) => {
+                    {features.nodes.map(cf => {
                       return (
                         <MenuItem key={cf.name} value={cf.name}>
                           {cf.name}
@@ -157,9 +170,12 @@ function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {cities.nodes.map((town) => {
+                    {cities.nodes.map(town => {
                       return (
-                        <MenuItem key={town.acfDetails.city} value={town.acfDetails.city}>
+                        <MenuItem
+                          key={town.acfDetails.city}
+                          value={town.acfDetails.city}
+                        >
                           {town.acfDetails.city}
                         </MenuItem>
                       );
@@ -172,8 +188,9 @@ function SearchBox({
                 <Button
                   color="primary"
                   variant="outlined"
-                  type="submit"
+                  type="button"
                   fullWidth
+                  onClick={submitForm}
                 >
                   Search Campgrounds
                 </Button>
@@ -185,5 +202,3 @@ function SearchBox({
     </Formik>
   );
 }
-
-export default withPageRouter(SearchBox);
