@@ -4,10 +4,6 @@ import { getAllCampgrounds, getSingleCampground, getAllFeatures, getAllTypes, ge
 
 const Campground = ({ campground }) => {
 
-  Campground.getInitialProps = async function () {
-
-  }
-  const router = useRouter();
 
   console.log(campground.ownerships)
   // validates if theres a campground otherwise it removes it.
