@@ -10,7 +10,7 @@ import {
   getAllCities,
   getCampgroundsByCity,
 } from '../lib/api';
-import { ViewportContext } from '../lib/state';
+import Search from '../components/newsearch';
 import Map from '../components/map';
 
 export default function CampList({
@@ -30,12 +30,10 @@ export default function CampList({
     zoom: 8,
   });
 
-  const totalPages = 0;
-
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={5} md={3} lg={2}>
-        <SearchBox
+        {/* <SearchBox
           singleColumn
           regions={regions}
           features={features}
@@ -45,7 +43,8 @@ export default function CampList({
           cities={cities}
           campgroundsbycity={campgroundsbycity}
           setViewport={setViewport}
-        />
+        /> */}
+        <Search cities={cities} />
       </Grid>
       <Grid item xs={12} sm={7} md={9} lg={10}>
         <Map

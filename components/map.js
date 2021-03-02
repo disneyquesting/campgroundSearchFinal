@@ -4,7 +4,6 @@ import { ViewportContext } from '../lib/state';
 
 export default function Map({ campgrounds, viewport, setViewport }) {
   const markers = campgrounds.map(({ node }) => {
-    console.log(node.acfDetails);
     return (
       <Marker
         key={node.title}

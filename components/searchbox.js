@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -29,27 +28,27 @@ export default function SearchBox({
   singleColumn,
   cities,
   campgroundsbycity,
+  viewport,
+  setViewport,
 }) {
   const router = useRouter();
   const { query } = router;
-  const handleSubmit = async values => {
-    // const latlong = () => {
-    //   setViewport({
-    //     ...viewport,
-    //     latitude: campgroundsbycity
-    //       ? parseFloat(campgroundsbycity.nodes[0].acfDetails.latitude.toFixed(4))
-    //       : 44.43,
-    //     longitude: campgroundsbycity
-    //       ? Math.abs(
-    //           parseFloat(
-    //             campgroundsbycity.nodes[0].acfDetails.longitude.toFixed(4)
-    //           )
-    //         ) * -1
-    //       : -72.352,
-    //     zoom: 11,
-    //   });
-    // };
 
+  const handleSubmit = async values => {
+    // setViewport({
+    //   ...viewport,
+    //   latitude: campgroundsbycity
+    //     ? parseFloat(campgroundsbycity.nodes[0].acfDetails.latitude.toFixed(4))
+    //     : 44.43,
+    //   longitude: campgroundsbycity
+    //     ? Math.abs(
+    //         parseFloat(
+    //           campgroundsbycity.nodes[0].acfDetails.longitude.toFixed(4)
+    //         )
+    //       ) * -1
+    //     : -72.352,
+    //   zoom: 11,
+    // });
     router.push(
       {
         pathname: '/camps',
@@ -69,8 +68,6 @@ export default function SearchBox({
     city: query.city || 'all',
     campfeatures: query.campfeatures || 'all',
   };
-
-  const { data } = useSWR('graphCampgrounds');
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
