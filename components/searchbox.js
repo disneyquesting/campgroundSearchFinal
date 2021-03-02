@@ -7,20 +7,11 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Checkbox,
-  Input,
-  Chip,
   Button,
 } from '@material-ui/core';
-import { useState, useRef, useEffect } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Autorenew } from '@material-ui/icons';
-import { useRouter, withRouter } from 'next/router';
-import querystring from 'querystring';
-import queryString from 'query-string';
-import dynamic from 'next/dynamic';
-import { getCampgroundsByCity } from '../lib/api';
-import { useGeoContext } from '../lib/state';
+import { makeStyles } from '@material-ui/core/styles';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -39,30 +30,26 @@ export default function SearchBox({
   cities,
   campgroundsbycity,
 }) {
-  const viewport = useGeoContext();
-  console.log(viewport);
   const router = useRouter();
   const { query } = router;
-
-  const latlong = () => {
-    viewport.saveViewport({
-      ...viewport.geoviewport,
-      latitude: campgroundsbycity
-        ? parseFloat(campgroundsbycity.nodes[0].acfDetails.latitude.toFixed(4))
-        : 44.43,
-      longitude: campgroundsbycity
-        ? Math.abs(
-            parseFloat(
-              campgroundsbycity.nodes[0].acfDetails.longitude.toFixed(4)
-            )
-          ) * -1
-        : -72.352,
-      zoom: 11,
-    });
-  };
-
   const handleSubmit = async values => {
-    latlong();
+    // const latlong = () => {
+    //   setViewport({
+    //     ...viewport,
+    //     latitude: campgroundsbycity
+    //       ? parseFloat(campgroundsbycity.nodes[0].acfDetails.latitude.toFixed(4))
+    //       : 44.43,
+    //     longitude: campgroundsbycity
+    //       ? Math.abs(
+    //           parseFloat(
+    //             campgroundsbycity.nodes[0].acfDetails.longitude.toFixed(4)
+    //           )
+    //         ) * -1
+    //       : -72.352,
+    //     zoom: 11,
+    //   });
+    // };
+
     router.push(
       {
         pathname: '/camps',
@@ -82,6 +69,8 @@ export default function SearchBox({
     city: query.city || 'all',
     campfeatures: query.campfeatures || 'all',
   };
+
+  const { data } = useSWR('graphCampgrounds');
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>

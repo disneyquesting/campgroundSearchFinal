@@ -1,14 +1,14 @@
-import "../styles/globals.css";
-import Layout from "../components/layout";
-import {GeoContextWrapper} from '../lib/state';
+import '../styles/globals.css';
+import Layout from '../components/layout';
+import { ViewportContextProvider } from '../lib/state';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <GeoContextWrapper>
+    <ViewportContextProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      </GeoContextWrapper>
+    </ViewportContextProvider>
   );
 }
 

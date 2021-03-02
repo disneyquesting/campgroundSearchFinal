@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import styles from '../styles/Home.module.css';
 import CampgroundCards from '../components/campgroundcards';
 
@@ -12,10 +11,6 @@ import {
   getAllZipcodes,
   getAllCities,
 } from '../lib/api';
-
-const MapComponent = dynamic(() => import('../components/map'), {
-  ssr: false,
-});
 
 export default function Home({
   regions,
@@ -49,7 +44,6 @@ export default function Home({
         graphCampgrounds={graphCampgrounds}
       />
       <br />
-      <MapComponent />
     </>
   );
 }

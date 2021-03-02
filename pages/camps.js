@@ -1,5 +1,5 @@
 import { Grid } from '@material-ui/core';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
@@ -10,10 +10,8 @@ import {
   getAllCities,
   getCampgroundsByCity,
 } from '../lib/api';
+import { ViewportContext } from '../lib/state';
 import Map from '../components/map';
-import { useGeoContext } from '../lib/state';
-
-const totalPages = 0;
 
 export default function CampList({
   regions,
@@ -24,7 +22,15 @@ export default function CampList({
   cities,
   campgroundsbycity,
 }) {
-  console.log(campgroundsbycity.nodes);
+  const [viewport, setViewport] = useState({
+    height: '100vh',
+    latitude: 44.0456,
+    longitude: -71.6706,
+    width: '100vw',
+    zoom: 8,
+  });
+
+  const totalPages = 0;
 
   return (
     <Grid container spacing={3}>
@@ -38,11 +44,15 @@ export default function CampList({
           graphCampgrounds={graphCampgrounds}
           cities={cities}
           campgroundsbycity={campgroundsbycity}
+          setViewport={setViewport}
         />
       </Grid>
       <Grid item xs={12} sm={7} md={9} lg={10}>
-        RIGHT
-        <Map />
+        <Map
+          campgrounds={graphCampgrounds}
+          viewport={viewport}
+          setViewport={setViewport}
+        />
         <pre style={{ fontSize: '2.5rem' }}>{}</pre>
       </Grid>
     </Grid>
@@ -51,7 +61,6 @@ export default function CampList({
 
 export async function getServerSideProps(query) {
   const info = query.query;
-  console.log('info is: ', info);
   // retreive the regions form prisma
   const regions = await getAllRegions();
   // retrieve all features in existance
