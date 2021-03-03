@@ -17,7 +17,7 @@ export default function CitySearch({field}) {
   function onSelected (nextViewport, item){
     
     field.value = item.context[0].text
-    console.log({field})
+   
     viewport.saveViewport(nextViewport)
   }
 

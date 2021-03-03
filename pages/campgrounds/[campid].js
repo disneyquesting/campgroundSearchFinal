@@ -5,7 +5,7 @@ import { getAllCampgrounds, getSingleCampground, getAllFeatures, getAllTypes, ge
 const Campground = ({ campground }) => {
 
 
-  console.log(campground.ownerships)
+
   // validates if theres a campground otherwise it removes it.
   if (campground) {
     return (

@@ -33,7 +33,7 @@ export default function CampList({
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={5} md={3} lg={2}>
-        {/* <SearchBox
+        <SearchBox
           singleColumn
           regions={regions}
           features={features}
@@ -42,9 +42,10 @@ export default function CampList({
           graphCampgrounds={graphCampgrounds}
           cities={cities}
           campgroundsbycity={campgroundsbycity}
+          viewport={viewport}
           setViewport={setViewport}
-        /> */}
-        <Search cities={cities} />
+        />
+        {/* <Search cities={cities} /> */}
       </Grid>
       <Grid item xs={12} sm={7} md={9} lg={10}>
         <Map

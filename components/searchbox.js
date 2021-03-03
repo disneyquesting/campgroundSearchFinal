@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Form, Formik, Field, useFormik } from 'formik';
+import Link from "next/link";
+import { Form, Formik, Field, useFormik } from "formik";
 import {
   Paper,
   Grid,
@@ -8,13 +8,39 @@ import {
   Select,
   MenuItem,
   Button,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { useRouter } from 'next/router';
+} from "@material-ui/core";
+import { useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { useRouter } from "next/router";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
 
-const useStyles = makeStyles(theme => ({
+const MAP_CITY_DATA = gql`
+  query MyQuery($string: String) {
+    campgrounds(where: { city: $string }) {
+      nodes {
+        acfDetails {
+          address
+          city
+          closeDate
+          latitude
+          longitude
+          numberOfSites
+          openDate
+          website
+          picture {
+            altText
+            mediaItemUrl
+          }
+        }
+        title
+      }
+    }
+  }
+`;
+
+const useStyles = makeStyles((theme) => ({
   paper: {
-    margin: 'auto',
+    margin: "auto",
     maxWidth: 500,
     padding: theme.spacing(3),
   },
@@ -27,31 +53,45 @@ export default function SearchBox({
   camptypes,
   singleColumn,
   cities,
-  campgroundsbycity,
   viewport,
   setViewport,
 }) {
   const router = useRouter();
   const { query } = router;
 
-  const handleSubmit = async values => {
-    // setViewport({
-    //   ...viewport,
-    //   latitude: campgroundsbycity
-    //     ? parseFloat(campgroundsbycity.nodes[0].acfDetails.latitude.toFixed(4))
-    //     : 44.43,
-    //   longitude: campgroundsbycity
-    //     ? Math.abs(
-    //         parseFloat(
-    //           campgroundsbycity.nodes[0].acfDetails.longitude.toFixed(4)
-    //         )
-    //       ) * -1
-    //     : -72.352,
-    //   zoom: 11,
-    // });
+  const [getCamps, { loading, error, data }] = useLazyQuery(MAP_CITY_DATA, {
+    variables: {
+      string: query.city,
+    },
+  });
+
+  const citycamps = data;
+
+  const handleSubmit = async (values) => {
+    getCamps();
+    const lat = parseFloat(
+      citycamps.campgrounds.nodes[0].acfDetails.latitude.toFixed(4)
+    );
+    const long =
+      Math.abs(
+        parseFloat(
+          citycamps.campgrounds.nodes[0].acfDetails.longitude.toFixed(4)
+        )
+      ) * -1;
+
+    console.log("viewportupdate: ", lat, long);
+    setViewport({
+      ...viewport,
+      latitude: citycamps ? lat : 44.43,
+      longitude: citycamps ? long : -72.352,
+      bearing: 0,
+      pitch: 20,
+      zoom: 11,
+    });
+    
     router.push(
       {
-        pathname: '/camps',
+        pathname: "/camps",
         query: { ...values, page: 1 },
       },
       undefined,
@@ -63,12 +103,13 @@ export default function SearchBox({
   const smValue = singleColumn ? 12 : 6;
 
   const initialValues = {
-    region: query.region || 'all',
-    camptype: query.camptype || 'all',
-    city: query.city || 'all',
-    campfeatures: query.campfeatures || 'all',
+    region: query.region || "all",
+    camptype: query.camptype || "all",
+    city: query.city || "all",
+    campfeatures: query.campfeatures || "all",
   };
 
+  if (error) return `Error! ${error}`;
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, submitForm }) => (
@@ -87,7 +128,7 @@ export default function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {regions.nodes.map(region => {
+                    {regions.nodes.map((region) => {
                       return (
                         <MenuItem key={region.id} value={region.name}>
                           {region.name}
@@ -110,7 +151,7 @@ export default function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {camptypes.nodes.map(camp => {
+                    {camptypes.nodes.map((camp) => {
                       return (
                         <MenuItem key={camp.id} value={camp.name}>
                           {camp.name}
@@ -133,7 +174,7 @@ export default function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {features.nodes.map(cf => {
+                    {features.nodes.map((cf) => {
                       return (
                         <MenuItem key={cf.name} value={cf.name}>
                           {cf.name}
@@ -156,7 +197,7 @@ export default function SearchBox({
                     <MenuItem value="all">
                       <em>All</em>
                     </MenuItem>
-                    {cities.nodes.map(town => {
+                    {cities.nodes.map((town) => {
                       return (
                         <MenuItem
                           key={town.acfDetails.city}

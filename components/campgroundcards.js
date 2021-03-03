@@ -16,10 +16,12 @@ export default function CampgroundCards({ campgrounds }) {
                 )
               })}
             </p>
+            
+            
             <Link href={`/campgrounds/${node.id}`}>
               <img
-                src={node.acfDetails.picture.mediaItemUrl}
-                alt={node.acfDetails.picture.altText}
+                src={node.acfDetails.picture ? node.acfDetails.picture.mediaItemUrl : `/pin.png`}
+                alt={node.acfDetails.picture ? node.acfDetails.picture.altText : `${node.title}`}
                 height="200"
                 width="300"
               />
