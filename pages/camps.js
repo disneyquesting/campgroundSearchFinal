@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+
 import { useState } from 'react';
 import SearchBox from '../components/searchbox';
 import {
@@ -31,8 +31,8 @@ export default function CampList({
   });
 
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} sm={5} md={3} lg={2}>
+    <div >
+      <div >
         <SearchBox
           singleColumn
           regions={regions}
@@ -46,16 +46,16 @@ export default function CampList({
           setViewport={setViewport}
         />
         {/* <Search cities={cities} /> */}
-      </Grid>
-      <Grid item xs={12} sm={7} md={9} lg={10}>
+      </div>
+      <div>
         <Map
           campgrounds={graphCampgrounds}
           viewport={viewport}
           setViewport={setViewport}
         />
         <pre style={{ fontSize: '2.5rem' }}>{}</pre>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 }
 

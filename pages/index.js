@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import CampgroundCards from '../components/campgroundcards';
-import { useState } from 'react';
-import SearchBox from '../components/searchbox';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import CampgroundCards from "../components/campgroundcards";
+import { useState } from "react";
+import SearchBox from "../components/searchbox";
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -10,7 +10,9 @@ import {
   getAllTypes,
   getAllZipcodes,
   getAllCities,
-} from '../lib/api';
+} from "../lib/api";
+
+
 
 
 export default function Home({
@@ -21,13 +23,11 @@ export default function Home({
   graphCampgrounds,
   cities,
 }) {
-
-
   const [viewport, setViewport] = useState({
-    height: '100vh',
+    height: "100vh",
     latitude: 44.0456,
     longitude: -71.6706,
-    width: '100vw',
+    width: "100vw",
     zoom: 8,
   });
 
@@ -44,7 +44,7 @@ export default function Home({
           rel="stylesheet"
         />
       </Head>
-      
+
       <CampgroundCards campgrounds={graphCampgrounds} />
       <br />
       <SearchBox
@@ -55,7 +55,7 @@ export default function Home({
         zipcodes={zipcodes}
         graphCampgrounds={graphCampgrounds}
         viewport={viewport}
-        setViewport = {setViewport}
+        setViewport={setViewport}
       />
       <br />
     </>

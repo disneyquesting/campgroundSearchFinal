@@ -1,17 +1,7 @@
-import Link from 'next/link';
-import { Form, Formik, Field, useFormik } from 'formik';
-import {
-  Paper,
-  Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import Router, { useRouter } from 'next/router';
-import { useQuery, gql } from '@apollo/client';
+import Link from "next/link";
+import { Form, Formik, Field, useFormik } from "formik";
+import Router, { useRouter } from "next/router";
+import { useQuery, gql } from "@apollo/client";
 
 const MAP_CITY_DATA = gql`
   query MyQuery($string: String) {
@@ -37,14 +27,6 @@ const MAP_CITY_DATA = gql`
   }
 `;
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    margin: 'auto',
-    maxWidth: 500,
-    padding: theme.spacing(3),
-  },
-}));
-
 export default function SearchBox({
   graphCampgrounds,
   regions,
@@ -60,9 +42,9 @@ export default function SearchBox({
 
   const { loading, error, data, refetch } = useQuery(MAP_CITY_DATA, {
     variables: {
-      string: query.city === 'all' ? 'Twin Mountain' : query.city,
+      string: query.city === "all" ? "Twin Mountain" : query.city,
     },
-    onCompleted: info => {
+    onCompleted: (info) => {
       const lat = info
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 44.43;
@@ -88,10 +70,10 @@ export default function SearchBox({
 
   const citycamps = data || null;
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values) => {
     Router.push(
       {
-        pathname: '/camps',
+        pathname: "/camps",
         query: { ...values, page: 1 },
       },
       undefined,
@@ -101,131 +83,120 @@ export default function SearchBox({
     });
   };
 
-  const classes = useStyles();
-  const smValue = singleColumn ? 12 : 6;
-
   const initialValues = {
-    region: query.region || 'all',
-    camptype: query.camptype || 'all',
-    city: query.city || 'all',
-    campfeatures: query.campfeatures || 'all',
+    region: query.region || "all",
+    camptype: query.camptype || "all",
+    city: query.city || "all",
+    campfeatures: query.campfeatures || "all",
   };
 
   if (error) return `Error! ${error}`;
+
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, submitForm }) => (
         <Form>
-          <Paper className={classes.paper} elevation={5}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={smValue}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel id="search-region">Region</InputLabel>
-                  <Field
-                    name="region"
-                    as={Select}
-                    labelId="search-region"
-                    label="Region"
-                  >
-                    <MenuItem value="all">
-                      <em>All</em>
-                    </MenuItem>
-                    {regions.nodes.map(region => {
-                      return (
-                        <MenuItem key={region.id} value={region.name}>
-                          {region.name}
-                        </MenuItem>
-                      );
-                    })}
-                  </Field>
-                </FormControl>
-              </Grid>
+          <div className="field">
+            <label className="label" id="search-region">
+              Region
+            </label>
+            <Field
+              name="region"
+              as="select"
+              labelId="search-region"
+              label="Region"
+            >
+              <option value="all">
+                <em>All</em>
+              </option>
+              {regions.nodes.map((region) => {
+                return (
+                  <option key={region.id} value={region.name}>
+                    {region.name}
+                  </option>
+                );
+              })}
+            </Field>
+          </div>
 
-              <Grid item xs={12} sm={smValue}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel id="search-type">Type</InputLabel>
-                  <Field
-                    name="camptype"
-                    as={Select}
-                    labelId="search-type"
-                    label="Type"
-                  >
-                    <MenuItem value="all">
-                      <em>All</em>
-                    </MenuItem>
-                    {camptypes.nodes.map(camp => {
-                      return (
-                        <MenuItem key={camp.id} value={camp.name}>
-                          {camp.name}
-                        </MenuItem>
-                      );
-                    })}
-                  </Field>
-                </FormControl>
-              </Grid>
+          <div className="field">
+            <label id="search-type">Type</label>
+            <Field
+              name="camptype"
+              as="select"
+              labelId="search-type"
+              label="Type"
+            >
+              <option value="all">
+                <em>All</em>
+              </option>
+              {camptypes.nodes.map((camp) => {
+                return (
+                  <option key={camp.id} value={camp.name}>
+                    {camp.name}
+                  </option>
+                );
+              })}
+            </Field>
+          </div>
 
-              <Grid item xs={12} sm={smValue}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel id="search-feat">Features</InputLabel>
-                  <Field
-                    name="campfeatures"
-                    as={Select}
-                    labelId="search-feat"
-                    label="Features"
-                  >
-                    <MenuItem value="all">
-                      <em>All</em>
-                    </MenuItem>
-                    {features.nodes.map(cf => {
-                      return (
-                        <MenuItem key={cf.name} value={cf.name}>
-                          {cf.name}
-                        </MenuItem>
-                      );
-                    })}
-                  </Field>
-                </FormControl>
-              </Grid>
+          <div className="field">
+              <label id="search-feat">Features</label>
+              <Field
+                name="campfeatures"
+                as="select"
+                labelId="search-feat"
+                label="Features"
+              >
+                <option value="all">
+                  <em>All</em>
+                </option>
+                {features.nodes.map((cf) => {
+                  return (
+                    <option key={cf.name} value={cf.name}>
+                      {cf.name}
+                    </option>
+                  );
+                })}
+              </Field>
+          </div>
 
-              <Grid item xs={12} sm={smValue}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel id="search-cities">City</InputLabel>
-                  <Field
-                    name="city"
-                    as={Select}
-                    labelId="search-cities"
-                    label="Cities"
-                  >
-                    <MenuItem value="all">
-                      <em>All</em>
-                    </MenuItem>
-                    {cities.nodes.map(town => {
-                      return (
-                        <MenuItem
-                          key={town.acfDetails.city}
-                          value={town.acfDetails.city}
-                        >
-                          {town.acfDetails.city}
-                        </MenuItem>
-                      );
-                    })}
-                  </Field>
-                </FormControl>
-              </Grid>
+          <div className="field">
+           
+              <label id="search-cities">City</label>
+              <Field
+                name="city"
+                as="select"
+                labelId="search-cities"
+                label="Cities"
+              >
+                <option value="all">
+                  <em>All</em>
+                </option>
+                {cities.nodes.map((town) => {
+                  return (
+                    <option
+                      key={town.acfDetails.city}
+                      value={town.acfDetails.city}
+                    >
+                      {town.acfDetails.city}
+                    </option>
+                  );
+                })}
+              </Field>
+          </div>
 
-              <Grid item xs={12}>
-                <Button
-                  color="primary"
-                  variant="outlined"
-                  type="button"
-                  fullWidth
-                  onClick={submitForm}
-                >
-                  Search Campgrounds
-                </Button>
-              </Grid>
-            </Grid>
-          </Paper>
+          <div className="field">
+            <button
+              color="primary"
+              variant="outlined"
+              type="button"
+              fullWidth
+              onClick={submitForm}
+            >
+              Search Campgrounds
+            </button>
+          </div>
         </Form>
       )}
     </Formik>
