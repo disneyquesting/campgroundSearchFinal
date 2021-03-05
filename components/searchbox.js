@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Form, Formik, Field, useFormik } from "formik";
-import Router, { useRouter } from "next/router";
-import { useQuery, gql } from "@apollo/client";
+import Link from 'next/link';
+import { Form, Formik, Field, useFormik } from 'formik';
+import Router, { useRouter } from 'next/router';
+import { useQuery, gql } from '@apollo/client';
 
 const MAP_CITY_DATA = gql`
   query MyQuery($string: String) {
@@ -42,9 +42,9 @@ export default function SearchBox({
 
   const { loading, error, data, refetch } = useQuery(MAP_CITY_DATA, {
     variables: {
-      string: query.city === "all" ? "Twin Mountain" : query.city,
+      string: query.city === 'all' ? 'Twin Mountain' : query.city,
     },
-    onCompleted: (info) => {
+    onCompleted: info => {
       const lat = info
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 44.43;
@@ -63,17 +63,15 @@ export default function SearchBox({
         longitude: info ? long : -72.352,
         bearing: 0,
         pitch: 20,
-        zoom: 11,
+        zoom: info ? 11 : 2,
       });
     },
   });
 
-  const citycamps = data || null;
-
-  const handleSubmit = async (values) => {
+  const handleSubmit = async values => {
     Router.push(
       {
-        pathname: "/camps",
+        pathname: '/camps',
         query: { ...values, page: 1 },
       },
       undefined,
@@ -84,10 +82,10 @@ export default function SearchBox({
   };
 
   const initialValues = {
-    region: query.region || "all",
-    camptype: query.camptype || "all",
-    city: query.city || "all",
-    campfeatures: query.campfeatures || "all",
+    region: query.region || 'all',
+    camptype: query.camptype || 'all',
+    city: query.city || 'all',
+    campfeatures: query.campfeatures || 'all',
   };
 
   if (error) return `Error! ${error}`;
@@ -97,7 +95,7 @@ export default function SearchBox({
       {({ values, submitForm }) => (
         <Form>
           <div className="field">
-            <label className="label" id="search-region">
+            <label id="search-region" className="label">
               Region
             </label>
             <Field
@@ -105,11 +103,10 @@ export default function SearchBox({
               as="select"
               labelId="search-region"
               label="Region"
+              className="input"
             >
-              <option value="all">
-                <em>All</em>
-              </option>
-              {regions.nodes.map((region) => {
+              <option value="all">All</option>
+              {regions.nodes.map(region => {
                 return (
                   <option key={region.id} value={region.name}>
                     {region.name}
@@ -120,17 +117,18 @@ export default function SearchBox({
           </div>
 
           <div className="field">
-            <label id="search-type">Type</label>
+            <label id="search-type" className="label">
+              Type
+            </label>
             <Field
               name="camptype"
               as="select"
               labelId="search-type"
               label="Type"
+              className="input"
             >
-              <option value="all">
-                <em>All</em>
-              </option>
-              {camptypes.nodes.map((camp) => {
+              <option value="all">All</option>
+              {camptypes.nodes.map(camp => {
                 return (
                   <option key={camp.id} value={camp.name}>
                     {camp.name}
@@ -141,17 +139,20 @@ export default function SearchBox({
           </div>
 
           <div className="field">
-              <label id="search-feat">Features</label>
+            <label id="search-feat" className="label">
+              Features
+            </label>
+            <div className="select is-multiple">
               <Field
                 name="campfeatures"
                 as="select"
                 labelId="search-feat"
                 label="Features"
+                className="input select"
+                multiple
               >
-                <option value="all">
-                  <em>All</em>
-                </option>
-                {features.nodes.map((cf) => {
+                <option value="all">All</option>
+                {features.nodes.map(cf => {
                   return (
                     <option key={cf.name} value={cf.name}>
                       {cf.name}
@@ -159,31 +160,32 @@ export default function SearchBox({
                   );
                 })}
               </Field>
+            </div>
           </div>
 
           <div className="field">
-           
-              <label id="search-cities">City</label>
-              <Field
-                name="city"
-                as="select"
-                labelId="search-cities"
-                label="Cities"
-              >
-                <option value="all">
-                  <em>All</em>
-                </option>
-                {cities.nodes.map((town) => {
-                  return (
-                    <option
-                      key={town.acfDetails.city}
-                      value={town.acfDetails.city}
-                    >
-                      {town.acfDetails.city}
-                    </option>
-                  );
-                })}
-              </Field>
+            <label id="search-cities" className="label">
+              City
+            </label>
+            <Field
+              name="city"
+              as="select"
+              labelId="search-cities"
+              label="Cities"
+              className="input"
+            >
+              <option value="all">All</option>
+              {cities.nodes.map(town => {
+                return (
+                  <option
+                    key={town.acfDetails.city}
+                    value={town.acfDetails.city}
+                  >
+                    {town.acfDetails.city}
+                  </option>
+                );
+              })}
+            </Field>
           </div>
 
           <div className="field">
@@ -192,6 +194,7 @@ export default function SearchBox({
               variant="outlined"
               type="button"
               fullWidth
+              className="button is-link"
               onClick={submitForm}
             >
               Search Campgrounds

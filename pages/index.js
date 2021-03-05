@@ -1,8 +1,9 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import CampgroundCards from "../components/campgroundcards";
-import { useState } from "react";
-import SearchBox from "../components/searchbox";
+import Head from 'next/head';
+import { useState } from 'react';
+import Autocomplete from 'react-autocomplete';
+import styles from '../styles/Home.module.css';
+import CampgroundCards from '../components/campgroundcards';
+import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -10,10 +11,8 @@ import {
   getAllTypes,
   getAllZipcodes,
   getAllCities,
-} from "../lib/api";
-
-
-
+} from '../lib/api';
+import Nav from '../components/nav';
 
 export default function Home({
   regions,
@@ -23,41 +22,78 @@ export default function Home({
   graphCampgrounds,
   cities,
 }) {
-  const [viewport, setViewport] = useState({
-    height: "100vh",
-    latitude: 44.0456,
-    longitude: -71.6706,
-    width: "100vw",
-    zoom: 8,
-  });
+  const [value, setValue] = useState('All');
+  const [viewport, setViewport] = useState({});
 
   return (
     <>
       <Head>
         <title>NH Campground Association</title>
-        <link
-          href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-          rel="stylesheet"
-        />
-        <link
-          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css"
-          rel="stylesheet"
-        />
       </Head>
+      <section
+        className="hero is-info is-fullheight"
+        style={{
+          backgroundImage: "url('/cover2.jpg')",
+          backgroundSize: 'cover',
+        }}
+      >
+        <div className="hero-head">
+          <Nav />
+        </div>
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <p className="title is-size-1 has-text-weight-light">
+              Where is your next adventure?
+            </p>
+            <div className="columns is-centered">
+              <div className="column is-3">
+                <div className="field has-addons">
+                  <div className="control is-expanded">
+                    <div className="select is-fullwidth">
+                      <select className="input is-rounded" name="city">
+                        <option value="all">All</option>
+                        {cities.nodes.map(town => {
+                          return (
+                            <option
+                              key={town.acfDetails.city}
+                              value={town.acfDetails.city}
+                            >
+                              {town.acfDetails.city}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="control">
+                    <button type="submit" className="button is-primary">
+                      Bon Voyage
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <CampgroundCards campgrounds={graphCampgrounds} />
-      <br />
-      <SearchBox
-        cities={cities}
-        regions={regions}
-        features={features}
-        camptypes={camptypes}
-        zipcodes={zipcodes}
-        graphCampgrounds={graphCampgrounds}
-        viewport={viewport}
-        setViewport={setViewport}
-      />
-      <br />
+      <div className="columns pt-6">
+        <div className="column ml-6 is-3">
+          <SearchBox
+            cities={cities}
+            regions={regions}
+            features={features}
+            camptypes={camptypes}
+            zipcodes={zipcodes}
+            graphCampgrounds={graphCampgrounds}
+            viewport={viewport}
+            setViewport={setViewport}
+          />
+        </div>
+        <div className="column ml-6 is-7">
+          <CampgroundCards campgrounds={graphCampgrounds} />
+        </div>
+      </div>
     </>
   );
 }

@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import Head from 'next/head';
 import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
@@ -10,7 +10,7 @@ import {
   getAllCities,
   getCampgroundsByCity,
 } from '../lib/api';
-import Search from '../components/newsearch';
+import Nav from '../components/nav';
 import Map from '../components/map';
 
 export default function CampList({
@@ -27,35 +27,39 @@ export default function CampList({
     latitude: 44.0456,
     longitude: -71.6706,
     width: '100vw',
-    zoom: 8,
+    zoom: 1,
   });
 
   return (
-    <div >
-      <div >
-        <SearchBox
-          singleColumn
-          regions={regions}
-          features={features}
-          camptypes={camptypes}
-          zipcodes={zipcodes}
-          graphCampgrounds={graphCampgrounds}
-          cities={cities}
-          campgroundsbycity={campgroundsbycity}
-          viewport={viewport}
-          setViewport={setViewport}
-        />
-        {/* <Search cities={cities} /> */}
+    <>
+      <Head>
+        <title>Find a Campground</title>
+      </Head>
+      <Nav />
+      <div className="columns">
+        <div className="column is-2">
+          <SearchBox
+            singleColumn
+            regions={regions}
+            features={features}
+            camptypes={camptypes}
+            zipcodes={zipcodes}
+            graphCampgrounds={graphCampgrounds}
+            cities={cities}
+            campgroundsbycity={campgroundsbycity}
+            viewport={viewport}
+            setViewport={setViewport}
+          />
+        </div>
+        <div className="column is-10">
+          <Map
+            campgrounds={graphCampgrounds}
+            viewport={viewport}
+            setViewport={setViewport}
+          />
+        </div>
       </div>
-      <div>
-        <Map
-          campgrounds={graphCampgrounds}
-          viewport={viewport}
-          setViewport={setViewport}
-        />
-        <pre style={{ fontSize: '2.5rem' }}>{}</pre>
-      </div>
-    </div>
+    </>
   );
 }
 
