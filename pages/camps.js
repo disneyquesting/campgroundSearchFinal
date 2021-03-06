@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import SearchBox from '../components/searchbox';
+import { useState } from "react";
+import Head from "next/head";
+import SearchBox from "../components/searchbox";
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -9,9 +9,9 @@ import {
   getAllZipcodes,
   getAllCities,
   getCampgroundsByCity,
-} from '../lib/api';
-import Nav from '../components/nav';
-import Map from '../components/map';
+} from "../lib/api";
+import SecondNavigation from "../components/subpageNav";
+import Map from "../components/map";
 
 export default function CampList({
   regions,
@@ -23,10 +23,10 @@ export default function CampList({
   campgroundsbycity,
 }) {
   const [viewport, setViewport] = useState({
-    height: '100vh',
-    latitude: 44.0456,
-    longitude: -71.6706,
-    width: '100vw',
+    height: "100vh",
+    latitude: 43.4849,
+    longitude: -71.6553,
+    width: "100vw",
     zoom: 1,
   });
 
@@ -35,22 +35,26 @@ export default function CampList({
       <Head>
         <title>Find a Campground</title>
       </Head>
-      <Nav />
+      <SecondNavigation />
       <div className="columns">
-        <div className="column is-2">
-          <SearchBox
-            singleColumn
-            regions={regions}
-            features={features}
-            camptypes={camptypes}
-            zipcodes={zipcodes}
-            graphCampgrounds={graphCampgrounds}
-            cities={cities}
-            campgroundsbycity={campgroundsbycity}
-            viewport={viewport}
-            setViewport={setViewport}
-          />
-        </div>
+          <div className="column  mt-5 ml-5">
+            <SearchBox
+              singleColumn
+              regions={regions}
+              features={features}
+              camptypes={camptypes}
+              zipcodes={zipcodes}
+              graphCampgrounds={graphCampgrounds}
+              cities={cities}
+              campgroundsbycity={campgroundsbycity}
+              viewport={viewport}
+              setViewport={setViewport}
+            />
+            <div className="column mt-5 is-full">
+            Campground Search Results Will Go Here
+          </div>
+          </div>
+          
         <div className="column is-10">
           <Map
             campgrounds={graphCampgrounds}

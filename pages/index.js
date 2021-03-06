@@ -1,9 +1,9 @@
-import Head from 'next/head';
-import { useState } from 'react';
-import Autocomplete from 'react-autocomplete';
-import styles from '../styles/Home.module.css';
-import CampgroundCards from '../components/campgroundcards';
-import SearchBox from '../components/searchbox';
+import Head from "next/head";
+import { useState } from "react";
+import Autocomplete from "react-autocomplete";
+import styles from "../styles/Home.module.sass";
+import CampgroundCards from "../components/campgroundcards";
+import SearchBox from "../components/searchbox";
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -11,8 +11,8 @@ import {
   getAllTypes,
   getAllZipcodes,
   getAllCities,
-} from '../lib/api';
-import Nav from '../components/nav';
+} from "../lib/api";
+import SimpleSearch from "../components/simpleSearch";
 
 export default function Home({
   regions,
@@ -22,7 +22,7 @@ export default function Home({
   graphCampgrounds,
   cities,
 }) {
-  const [value, setValue] = useState('All');
+  const [value, setValue] = useState("All");
   const [viewport, setViewport] = useState({});
 
   return (
@@ -30,52 +30,7 @@ export default function Home({
       <Head>
         <title>NH Campground Association</title>
       </Head>
-      <section
-        className="hero is-info is-fullheight"
-        style={{
-          backgroundImage: "url('/cover2.jpg')",
-          backgroundSize: 'cover',
-        }}
-      >
-        <div className="hero-head">
-          <Nav />
-        </div>
-        <div className="hero-body">
-          <div className="container has-text-centered">
-            <p className="title is-size-1 has-text-weight-light">
-              Where is your next adventure?
-            </p>
-            <div className="columns is-centered">
-              <div className="column is-3">
-                <div className="field has-addons">
-                  <div className="control is-expanded">
-                    <div className="select is-fullwidth">
-                      <select className="input is-rounded" name="city">
-                        <option value="all">All</option>
-                        {cities.nodes.map(town => {
-                          return (
-                            <option
-                              key={town.acfDetails.city}
-                              value={town.acfDetails.city}
-                            >
-                              {town.acfDetails.city}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="control">
-                    <button type="submit" className="button is-primary">
-                      Bon Voyage
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SimpleSearch cities={cities} />
 
       <div className="columns pt-6">
         <div className="column ml-6 is-3">
@@ -90,8 +45,10 @@ export default function Home({
             setViewport={setViewport}
           />
         </div>
-        <div className="column ml-6 is-7">
+        <div className="column mt-5 ml-6">
+          <div className="columns is-multiline">
           <CampgroundCards campgrounds={graphCampgrounds} />
+          </div>
         </div>
       </div>
     </>

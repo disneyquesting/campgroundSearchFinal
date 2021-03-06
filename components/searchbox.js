@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { Form, Formik, Field, useFormik } from 'formik';
-import Router, { useRouter } from 'next/router';
-import { useQuery, gql } from '@apollo/client';
+import Link from "next/link";
+import { Form, Formik, Field, useFormik } from "formik";
+import Router, { useRouter } from "next/router";
+import { useQuery, gql } from "@apollo/client";
 
 const MAP_CITY_DATA = gql`
   query MyQuery($string: String) {
@@ -44,7 +44,8 @@ export default function SearchBox({
     variables: {
       string: query.city === 'all' ? 'Twin Mountain' : query.city,
     },
-    onCompleted: info => {
+    onCompleted: (info) => {
+      console.log(info);
       const lat = info
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 44.43;
@@ -68,10 +69,10 @@ export default function SearchBox({
     },
   });
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values) => {
     Router.push(
       {
-        pathname: '/camps',
+        pathname: "/camps",
         query: { ...values, page: 1 },
       },
       undefined,
@@ -82,10 +83,10 @@ export default function SearchBox({
   };
 
   const initialValues = {
-    region: query.region || 'all',
-    camptype: query.camptype || 'all',
-    city: query.city || 'all',
-    campfeatures: query.campfeatures || 'all',
+    region: query.region || "all",
+    camptype: query.camptype || "all",
+    city: query.city || "all",
+    campfeatures: query.campfeatures || "all",
   };
 
   if (error) return `Error! ${error}`;
@@ -106,7 +107,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {regions.nodes.map(region => {
+              {regions.nodes.map((region) => {
                 return (
                   <option key={region.id} value={region.name}>
                     {region.name}
@@ -128,7 +129,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {camptypes.nodes.map(camp => {
+              {camptypes.nodes.map((camp) => {
                 return (
                   <option key={camp.id} value={camp.name}>
                     {camp.name}
@@ -152,7 +153,7 @@ export default function SearchBox({
                 multiple
               >
                 <option value="all">All</option>
-                {features.nodes.map(cf => {
+                {features.nodes.map((cf) => {
                   return (
                     <option key={cf.name} value={cf.name}>
                       {cf.name}
@@ -175,7 +176,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {cities.nodes.map(town => {
+              {cities.nodes.map((town) => {
                 return (
                   <option
                     key={town.acfDetails.city}

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import ReactMapGL, { StaticMap, Marker, Popup } from 'react-map-gl';
 import { ViewportContext } from '../lib/state';
+import styles from './map.module.sass';
+import MapCard from '../components/mapcard';
 
 export default function Map({ campgrounds, viewport, setViewport }) {
   const [selectLocation, setSelectedLocation] = useState({});
@@ -8,7 +10,7 @@ export default function Map({ campgrounds, viewport, setViewport }) {
   return (
     <ReactMapGL
       mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
-      mapStyle="mapbox://styles/mapbox/outdoors-v11"
+      mapStyle="mapbox://styles/nhcampground/cklxrdn2662ov17l5jhc72cj7"
       {...viewport}
       onViewportChange={nextViewport => setViewport(nextViewport)}
     >
@@ -39,14 +41,14 @@ export default function Map({ campgrounds, viewport, setViewport }) {
             {selectLocation.title === node.title ? (
               <Popup
                 onClose={() => setSelectedLocation({})}
-                closeOnClick
+                closeOnClick={false}
                 longitude={
                   Math.abs(parseFloat(node.acfDetails.longitude.toFixed(4))) *
                   -1
                 }
                 latitude={parseFloat(node.acfDetails.latitude.toFixed(4))}
               >
-                {node.title}
+                <MapCard campground={selectLocation}/>
               </Popup>
             ) : (
               false

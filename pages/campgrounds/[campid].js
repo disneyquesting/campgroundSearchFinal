@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Nav from '../../components/nav';
+import SecondNavigation from '../../components/subpageNav';
 import {
   getAllCampgrounds,
   getSingleCampground,
@@ -17,7 +17,7 @@ const Campground = ({ campground }) => {
         <Head>
           <title>{campground.title}</title>
         </Head>
-        <Nav />
+        <SecondNavigation />
         <div>
           <h1>{campground.title}</h1>
           <p>{campground.ownerships.nodes[0].name}</p>

@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Navigation() {
+export default function SecondNavigation() {
   return (
-    <div className="hero-head">
-        <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item">
           <Link href="/">
@@ -31,6 +30,5 @@ export default function Navigation() {
         </div>
       </div>
     </nav>
-    </div>
   );
 }
