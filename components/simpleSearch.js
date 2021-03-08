@@ -27,7 +27,7 @@ export default function SimpleSearch({ cities }) {
 
   return (
     <section
-      className="hero is-info is-fullheight"
+      className="hero is-info is-fullheight is-full"
       style={{
         backgroundImage: "url('/cover2.jpg')",
         backgroundSize: 'cover',
@@ -38,7 +38,7 @@ export default function SimpleSearch({ cities }) {
       </div>
       <div className="hero-body">
         <div className="container has-text-centered">
-          <p className="title has-text-info is-size-1 has-text-weight-light">
+          <p className="title has-text-white is-size-1 has-text-weight-light">
             Where is your next adventure?
           </p>
           <div className="columns is-centered">

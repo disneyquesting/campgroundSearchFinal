@@ -1,7 +1,27 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import './subpageNav.module.sass';
+import Link from "next/link";
+import Image from "next/image";
+
+import { useState, useImperativeHandle, forwardRef } from "react";
+import "./subpageNav.module.sass";
+
+const NHLogo = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => ({
+    alertMessge: () => {
+      alert("Hello world");
+    },
+  }));
+
+  return (
+    <div>
+      <Image
+        src="/campgroundlogo.png"
+        alt="NH Campground Owners Association"
+        height={500}
+        width={500}
+      />
+    </div>
+  );
+});
 
 export default function SecondNavigation() {
   const [isActive, setisActive] = useState(false);
@@ -14,12 +34,7 @@ export default function SecondNavigation() {
       <div className="navbar-brand ">
         <a className="navbar-item">
           <Link href="/">
-            <Image
-              src="/campgroundlogo.png"
-              alt="NH Campground Owners Association"
-              height={500}
-              width={500}
-            />
+            <NHLogo />
           </Link>
         </a>
         <a
@@ -31,7 +46,7 @@ export default function SecondNavigation() {
           }}
           role="button"
           tabIndex={0}
-          className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+          className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarMainMenu"
@@ -46,17 +61,17 @@ export default function SecondNavigation() {
         <div
           id="navbarMainMenu"
           className={`navbar-menu is-size-7 is-uppercase ${
-            isActive ? 'is-active' : ''
+            isActive ? "is-active" : ""
           }`}
         >
-          <a className="navbar-item">
+          <section className="navbar-item">
             <Link href="/">Home</Link>
-          </a>
-          <a className="navbar-item">
+          </section>
+          <section className="navbar-item">
             <Link href="/camps?region=all&camptype=all&city=all&page=1">
               Find a Campground
             </Link>
-          </a>
+          </section>
         </div>
       </div>
     </nav>

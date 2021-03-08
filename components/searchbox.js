@@ -102,7 +102,7 @@ export default function SearchBox({
             <Field
               name="region"
               as="select"
-              labelId="search-region"
+              labelid="search-region"
               label="Region"
               className="input"
             >
@@ -124,7 +124,7 @@ export default function SearchBox({
             <Field
               name="camptype"
               as="select"
-              labelId="search-type"
+              labelid="search-type"
               label="Type"
               className="input"
             >
@@ -147,15 +147,15 @@ export default function SearchBox({
               <Field
                 name="campfeatures"
                 as="select"
-                labelId="search-feat"
+                labelid="search-feat"
                 label="Features"
                 className="input select"
                 multiple
               >
-                <option value="all">All</option>
+                <option value={["all"]}>All</option>
                 {features.nodes.map((cf) => {
                   return (
-                    <option key={cf.name} value={cf.name}>
+                    <option key={cf.name} value={[cf.name]}>
                       {cf.name}
                     </option>
                   );
@@ -171,7 +171,7 @@ export default function SearchBox({
             <Field
               name="city"
               as="select"
-              labelId="search-cities"
+              labelid="search-cities"
               label="Cities"
               className="input"
             >
@@ -194,7 +194,6 @@ export default function SearchBox({
               color="primary"
               variant="outlined"
               type="button"
-              fullWidth
               className="button is-link"
               onClick={submitForm}
             >

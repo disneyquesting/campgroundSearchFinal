@@ -1,7 +1,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useImperativeHandle, forwardRef } from 'react';
 import styles from './nav.module.sass';
+
+const MyComponent = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => ({
+    alertMessge: () => {
+      alert('Hello world');
+    }
+  }));
+
+  return (
+    <div><Image   src="/campgroundlogo.png"
+    alt="NH Campground Owners Association"
+    height={500}
+    width={500} /></div>
+  )
+});
 
 export default function Navigation() {
   const [isActive, setisActive] = useState(false);
@@ -9,16 +24,12 @@ export default function Navigation() {
     <div className="hero-head">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand ">
-          <a className="navbar-item">
+          <section className="navbar-item">
             <Link href="/">
-              <Image
-                src="/campgroundlogo.png"
-                alt="NH Campground Owners Association"
-                height={500}
-                width={500}
+              <MyComponent
               />
             </Link>
-          </a>
+          </section>
           <a
             onClick={() => {
               setisActive(!isActive);
@@ -33,9 +44,9 @@ export default function Navigation() {
             aria-expanded="false"
             data-target="navbarMainMenu"
           >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </a>
         </div>
         <div className="navbar-start" />
@@ -46,14 +57,14 @@ export default function Navigation() {
               isActive ? 'is-active' : ''
             }`}
           >
-            <a className="navbar-item">
+            <section className="navbar-item">
               <Link href="/">Home</Link>
-            </a>
-            <a className="navbar-item">
+            </section>
+            <section className="navbar-item">
               <Link href="/camps?region=all&camptype=all&city=all&page=1">
                 Find a Campground
               </Link>
-            </a>
+            </section>
           </div>
         </div>
       </nav>

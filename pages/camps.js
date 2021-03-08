@@ -10,7 +10,7 @@ import {
   getAllCities,
   getCampgroundsByCity,
 } from '../lib/api';
-import SecondNavigation from '../components/subpageNav';
+import SecondNavigation from '../components/secondNavigation';
 import Map from '../components/map';
 
 export default function CampList({

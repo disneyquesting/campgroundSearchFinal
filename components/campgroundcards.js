@@ -30,26 +30,26 @@ export default function CampgroundCards({ campgrounds }) {
               <div className="card-content">
                 <div className="media-content">
                   <h2 className="title is-4">{node.title}</h2>
-                  <p className="subtitle is-6 pt-2 has-text-weight-medium">
+                  <section className="subtitle is-6 pt-2 has-text-weight-medium">
                     {node.regions.nodes.map(region => {
                       return (
                         <h3
-                          className="is-size-7 is-uppercase has-text-info-dark"
+                          className="is-size-7 is-uppercase has-text-success"
                           key={region.id}
                         >
                           {region.name}
                         </h3>
                       );
                     })}
-                  </p>
+                  </section>
                 </div>
                 <div className="content pt-2">
-                  <p className="is-italic">
-                    Features:
+                  <section className="is-italic">
+                    <p>Features:</p>
                     {node.features.nodes.map(feature => {
                       return <li>{feature.name}</li>;
                     })}
-                  </p>
+                  </section>
                 </div>
               </div>
             </div>
