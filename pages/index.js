@@ -1,9 +1,9 @@
-import Head from "next/head";
-import { useState } from "react";
-import Autocomplete from "react-autocomplete";
-import styles from "../styles/Home.module.sass";
-import CampgroundCards from "../components/campgroundcards";
-import SearchBox from "../components/searchbox";
+import Head from 'next/head';
+import { useState } from 'react';
+import Autocomplete from 'react-autocomplete';
+import styles from '../styles/Home.module.sass';
+import CampgroundCards from '../components/campgroundcards';
+import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -11,8 +11,8 @@ import {
   getAllTypes,
   getAllZipcodes,
   getAllCities,
-} from "../lib/api";
-import SimpleSearch from "../components/simpleSearch";
+} from '../lib/api';
+import SimpleSearch from '../components/simpleSearch';
 
 export default function Home({
   regions,
@@ -22,7 +22,7 @@ export default function Home({
   graphCampgrounds,
   cities,
 }) {
-  const [value, setValue] = useState("All");
+  const [value, setValue] = useState('All');
   const [viewport, setViewport] = useState({});
 
   return (
@@ -33,7 +33,7 @@ export default function Home({
       <SimpleSearch cities={cities} />
 
       <div className="columns pt-6">
-        <div className="column ml-6 is-3">
+        <div className="column is-centered is-3 ml-2 mr-2">
           <SearchBox
             cities={cities}
             regions={regions}
@@ -45,9 +45,9 @@ export default function Home({
             setViewport={setViewport}
           />
         </div>
-        <div className="column mt-5 ml-6">
-          <div className="columns is-multiline">
-          <CampgroundCards campgrounds={graphCampgrounds} />
+        <div className="column is-centered mt-5">
+          <div className="columns is-multiline ml-5 mr-5">
+            <CampgroundCards campgrounds={graphCampgrounds} />
           </div>
         </div>
       </div>

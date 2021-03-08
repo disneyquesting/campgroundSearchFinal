@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Head from "next/head";
-import SearchBox from "../components/searchbox";
+import { useState } from 'react';
+import Head from 'next/head';
+import SearchBox from '../components/searchbox';
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -9,9 +9,9 @@ import {
   getAllZipcodes,
   getAllCities,
   getCampgroundsByCity,
-} from "../lib/api";
-import SecondNavigation from "../components/subpageNav";
-import Map from "../components/map";
+} from '../lib/api';
+import SecondNavigation from '../components/subpageNav';
+import Map from '../components/map';
 
 export default function CampList({
   regions,
@@ -23,10 +23,10 @@ export default function CampList({
   campgroundsbycity,
 }) {
   const [viewport, setViewport] = useState({
-    height: "100vh",
+    height: '91.5vh',
+    width: '100vw',
     latitude: 43.4849,
     longitude: -71.6553,
-    width: "100vw",
     zoom: 1,
   });
 
@@ -37,25 +37,25 @@ export default function CampList({
       </Head>
       <SecondNavigation />
       <div className="columns">
-          <div className="column  mt-5 ml-5">
-            <SearchBox
-              singleColumn
-              regions={regions}
-              features={features}
-              camptypes={camptypes}
-              zipcodes={zipcodes}
-              graphCampgrounds={graphCampgrounds}
-              cities={cities}
-              campgroundsbycity={campgroundsbycity}
-              viewport={viewport}
-              setViewport={setViewport}
-            />
-            <div className="column mt-5 is-full">
+        <div className="column is-centered m-5">
+          <SearchBox
+            singleColumn
+            regions={regions}
+            features={features}
+            camptypes={camptypes}
+            zipcodes={zipcodes}
+            graphCampgrounds={graphCampgrounds}
+            cities={cities}
+            campgroundsbycity={campgroundsbycity}
+            viewport={viewport}
+            setViewport={setViewport}
+          />
+          <div className="column mt-5 is-full">
             Campground Search Results Will Go Here
           </div>
-          </div>
-          
-        <div className="column is-10">
+        </div>
+
+        <div className="column is-centered mr-5">
           <Map
             campgrounds={graphCampgrounds}
             viewport={viewport}
