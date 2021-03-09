@@ -18,6 +18,7 @@ export default function CampList({
   features,
   camptypes,
   zipcodes,
+  object,
   graphCampgrounds,
   cities,
   campgroundsbycity,
@@ -29,7 +30,6 @@ export default function CampList({
     longitude: -71.6553,
     zoom: 1,
   });
-
   return (
     <>
       <Head>
@@ -39,7 +39,7 @@ export default function CampList({
       <div className="columns">
         <div className="column is-centered m-5">
           <SearchBox
-            singleColumn
+            selectObjects={object}
             regions={regions}
             features={features}
             camptypes={camptypes}
@@ -83,8 +83,17 @@ export async function getServerSideProps(query) {
   const graphCampgrounds = await getAllCampgrounds();
 
   // retrieve all campgrounds by a city
-
   const campgroundsbycity = await getCampgroundsByCity(info.city);
+
+  // create object for features
+  const object = [];
+
+  features.nodes.map(feature => {
+    return object.push({
+      label: feature.label,
+      value: feature.label,
+    });
+  });
 
   return {
     props: {
@@ -92,6 +101,7 @@ export async function getServerSideProps(query) {
       features,
       camptypes,
       zipcodes,
+      object,
       graphCampgrounds,
       cities,
       campgroundsbycity,
