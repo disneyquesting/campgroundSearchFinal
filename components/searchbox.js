@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Form, Formik, Field, FieldProps } from 'formik';
 import Router, { useRouter } from 'next/router';
 import { useQuery, gql } from '@apollo/client';
-// import MultiSelect from 'react-multi-select-component';
+import MultiSelect from 'react-multi-select-component';
 import { useState } from 'react';
 import SelectField from './CustomSelect';
 
@@ -156,8 +156,17 @@ export default function SearchBox({
             />
           </div>
 
-          {/* 
-          <div className="field">
+          {/* <Field
+            component={MultiSelect}
+            name='campfeatures'
+            labelid='search-feat'
+            label='Features'
+            options={selectObjects}
+            value={selectedValue}
+            onChange={setSelectedValue}
+            /> */}
+
+          {/* <div className="field">
             <label id="search-feat" className="label">
               Features
             </label>
