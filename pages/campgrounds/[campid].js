@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import SecondNavigation from '../../components/subpageNav';
+import SecondNavigation from '../../components/secondNavigation';
 import {
   getAllCampgrounds,
   getSingleCampground,
