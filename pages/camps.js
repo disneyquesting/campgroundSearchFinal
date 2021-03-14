@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import SearchBox from '../components/searchbox';
+import { useState } from "react";
+import Head from "next/head";
+import SearchBox from "../components/searchbox";
 import {
   getAllCampgrounds,
   getAllFeatures,
@@ -9,9 +9,9 @@ import {
   getAllZipcodes,
   getAllCities,
   getCampgroundsByCity,
-} from '../lib/api';
-import SecondNavigation from '../components/secondNavigation';
-import Map from '../components/map';
+} from "../lib/api";
+import SecondNavigation from "../components/secondNavigation";
+import Map from "../components/map";
 
 export default function CampList({
   regions,
@@ -24,8 +24,8 @@ export default function CampList({
   campgroundsbycity,
 }) {
   const [viewport, setViewport] = useState({
-    height: '91.5vh',
-    width: '100vw',
+    height: "91.5vh",
+    width: "100vw",
     latitude: 43.4849,
     longitude: -71.6553,
     zoom: 1,
@@ -88,7 +88,7 @@ export async function getServerSideProps(query) {
   // create object for features
   const object = [];
 
-  features.nodes.map(feature => {
+  features.nodes.map((feature) => {
     return object.push({
       label: feature.label,
       value: feature.label,

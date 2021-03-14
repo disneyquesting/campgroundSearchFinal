@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { Form, Formik, Field, FieldProps } from 'formik';
-import Router, { useRouter } from 'next/router';
-import { useQuery, gql } from '@apollo/client';
-import MultiSelect from 'react-multi-select-component';
-import { useState } from 'react';
-import SelectField from './CustomSelect';
+import Link from "next/link";
+import { Form, Formik, Field, FieldProps } from "formik";
+import Router, { useRouter } from "next/router";
+import { useQuery, gql } from "@apollo/client";
+import MultiSelect from "react-multi-select-component";
+import { useState } from "react";
+import SelectField from "./CustomSelect";
 
 const MAP_CITY_DATA = gql`
   query MyQuery($string: String) {
@@ -45,17 +45,17 @@ export default function SearchBox({
   const { query } = router;
 
   const initialValues = {
-    region: query.region || 'all',
-    camptype: query.camptype || 'all',
-    city: query.city || 'all',
-    campfeatures: query.campfeatures || 'all',
+    region: query.region || "all",
+    camptype: query.camptype || "all",
+    city: query.city || "all",
+    campfeatures: query.campfeatures || "all",
   };
 
   const { loading, error, data, refetch } = useQuery(MAP_CITY_DATA, {
     variables: {
-      string: query.city === 'all' ? 'Twin Mountain' : query.city,
+      string: query.city === "all" ? "Twin Mountain" : query.city,
     },
-    onCompleted: info => {
+    onCompleted: (info) => {
       const lat = info
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 44.43;
@@ -79,10 +79,11 @@ export default function SearchBox({
     },
   });
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values) => {
+    console.log(JSON.stringify(values));
     Router.push(
       {
-        pathname: '/camps',
+        pathname: "/camps",
         query: { ...values, page: 1 },
       },
       undefined,
@@ -94,7 +95,6 @@ export default function SearchBox({
 
   if (error) return `Error! ${error}`;
 
-  const [selectedValue, setSelectedValue] = useState([]);
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, submitForm }) => (
@@ -111,7 +111,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {regions.nodes.map(region => {
+              {regions.nodes.map((region) => {
                 return (
                   <option key={region.id} value={region.name}>
                     {region.name}
@@ -133,7 +133,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {camptypes.nodes.map(camp => {
+              {camptypes.nodes.map((camp) => {
                 return (
                   <option key={camp.id} value={camp.name}>
                     {camp.name}
@@ -156,41 +156,6 @@ export default function SearchBox({
             />
           </div>
 
-          {/* <Field
-            component={MultiSelect}
-            name='campfeatures'
-            labelid='search-feat'
-            label='Features'
-            options={selectObjects}
-            value={selectedValue}
-            onChange={setSelectedValue}
-            /> */}
-
-          {/* <div className="field">
-            <label id="search-feat" className="label">
-              Features
-            </label>
-            <div className="select is-multiple">
-              <Field
-                name="campfeatures"
-                as="select"
-                labelid="search-feat"
-                label="Features"
-                className="input select"
-                multiple
-              >
-                <option value={['all']}>All</option>
-                {features.nodes.map(cf => {
-                  return (
-                    <option key={cf.label} value={[cf.value]}>
-                      {cf.label}
-                    </option>
-                  );
-                })}
-              </Field>
-            </div>
-          </div> */}
-
           <div className="field">
             <label id="search-cities" className="label">
               City
@@ -203,7 +168,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {cities.nodes.map(town => {
+              {cities.nodes.map((town) => {
                 return (
                   <option
                     key={town.acfDetails.city}

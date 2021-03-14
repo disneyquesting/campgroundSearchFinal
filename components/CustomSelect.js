@@ -1,25 +1,24 @@
-import Select from 'react-select';
-import { useField } from 'formik';
-import { useState, useCallback } from 'react';
+import Select from "react-select";
+import { useField } from "formik";
+import { useState, useCallback } from "react";
 
 export default function SelectField(props) {
   const [field, state, { setValue, setTouched }] = useField(props.field.name);
 
-  const onChange = ({ value }) => {
-    setValue(value.value);
+  // value is an array now
+  const onChange = (value) => {
+    console.log("on change: ", value);
+    setValue(value);
   };
 
+  // use value to make this a  controlled component
+  // now when the form receives a value for 'campfeatures' it will populate as expected
   return (
     <Select
-      isMulti
-      isClearable
       {...props}
-      onChange={e => {
-        e.map(feature => {
-          console.log(feature.label);
-          return setValue(feature.value);
-        });
-      }}
+      value={state?.value}
+      isMulti
+      onChange={onChange}
       onBlur={setTouched}
     />
   );
