@@ -81,10 +81,14 @@ export default function SearchBox({
 
   const handleSubmit = async (values) => {
     console.log(JSON.stringify(values));
+
+    const campfeatures = Array.isArray(values.campfeatures)
+      ? values.campfeatures.map(({ value }) => value).join(",")
+      : (values.campfeatures = "all");
     Router.push(
       {
         pathname: "/camps",
-        query: { ...values, page: 1 },
+        query: { ...values, campfeatures, page: 1 },
       },
       undefined,
       { shallow: true }
@@ -153,6 +157,7 @@ export default function SearchBox({
               labelid="search-feat"
               label="Features"
               options={selectObjects}
+              initialValues={initialValues.campfeatures}
             />
           </div>
 

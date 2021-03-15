@@ -5,9 +5,10 @@ import { useState, useCallback } from "react";
 export default function SelectField(props) {
   const [field, state, { setValue, setTouched }] = useField(props.field.name);
 
+  console.log("props: ", props.initialValues);
+
   // value is an array now
   const onChange = (value) => {
-    console.log("on change: ", value);
     setValue(value);
   };
 
