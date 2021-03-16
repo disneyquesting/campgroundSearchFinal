@@ -26,17 +26,18 @@ const NHLogo = forwardRef((props, ref) => {
 export default function SecondNavigation() {
   const [isActive, setisActive] = useState(false);
   return (
-    <nav
-      className="navbar has-background-info-light"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand ">
-        <a className="navbar-item">
-          <Link href="/">
-            <NHLogo />
-          </Link>
-        </a>
+        <Link href="/">
+          <a className="navbar-item">
+            <Image
+              src="/campgroundlogo.png"
+              alt="NH Campground Owners Association"
+              height={500}
+              width={500}
+            />
+          </a>
+        </Link>
         <a
           onClick={() => {
             setisActive(!isActive);
@@ -56,24 +57,23 @@ export default function SecondNavigation() {
           <span aria-hidden="true" />
         </a>
       </div>
-      <div className="navbar-start" />
-      <div className="navbar-end" id="navbarMain">
-        <div
-          id="navbarMainMenu"
-          className={`navbar-menu is-size-7 is-uppercase ${
-            isActive ? "is-active" : ""
-          }`}
-        >
-          <section className="navbar-item">
-            <Link href="/">Home</Link>
-          </section>
-          <section className="navbar-item">
-            <Link href="/camps?region=all&camptype=all&city=all&page=1">
-              Find a Campground
-            </Link>
-          </section>
+      <div
+        id="navbarMainMenu"
+        className={`navbar-menu is-size-7 is-uppercase ${
+          isActive ? "is-active" : ""
+        }`}
+      >
+        <div className="navbar-start" id="navbarMain">
+          <Link href="/">
+            <a className="navbar-item">Home</a>
+          </Link>
+          <Link href="/camps?region=all&camptype=all&city=all&page=1">
+            <a className="navbar-item">Find a Campground</a>
+          </Link>
         </div>
       </div>
+
+      <div className="navbar-end"></div>
     </nav>
   );
 }
