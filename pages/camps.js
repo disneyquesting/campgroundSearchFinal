@@ -30,6 +30,8 @@ export default function CampList({
     longitude: -71.6553,
     zoom: 1,
   });
+
+  console.log("features: ", features);
   return (
     <>
       <Head>
