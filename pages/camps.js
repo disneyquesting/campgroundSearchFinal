@@ -9,6 +9,7 @@ import {
   getAllZipcodes,
   getAllCities,
   getCampgroundsByCity,
+  getCampgroundsByFeature,
 } from "../lib/api";
 import SecondNavigation from "../components/secondNavigation";
 import Map from "../components/map";
@@ -22,6 +23,7 @@ export default function CampList({
   graphCampgrounds,
   cities,
   campgroundsbycity,
+  campgroundsbyfeature,
 }) {
   const [viewport, setViewport] = useState({
     height: "91.5vh",
@@ -30,6 +32,8 @@ export default function CampList({
     longitude: -71.6553,
     zoom: 1,
   });
+
+  const test = ["Fishing", "Laundry"];
 
   console.log("features: ", features);
   return (
@@ -87,6 +91,9 @@ export async function getServerSideProps(query) {
   // retrieve all campgrounds by a city
   const campgroundsbycity = await getCampgroundsByCity(info.city);
 
+  // retrieve all campgrounds by feature(s)
+  const campgroundsbyfeature = await getCampgroundsByFeature();
+
   // create object for features
   const object = [];
 
@@ -107,6 +114,7 @@ export async function getServerSideProps(query) {
       graphCampgrounds,
       cities,
       campgroundsbycity,
+      campgroundsbyfeature,
     },
   };
 }
