@@ -6,7 +6,7 @@ export default function SimpleSearch({ cities }) {
   const router = useRouter();
   const { query } = router;
 
-  const [city, setSelect] = useState("All");
+  const [city, setSelect] = useState("all");
 
   const handleChange = (e) => {
     setSelect(e.target.value);
@@ -19,7 +19,7 @@ export default function SimpleSearch({ cities }) {
       {
         pathname: "/camps",
         query: {
-          city: city != "all" ? city : "Twin Mountain",
+          city: city,
           campfeatures: "all",
           region: "all",
           camptype: "all",
