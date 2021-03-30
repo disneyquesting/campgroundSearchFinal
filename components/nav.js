@@ -52,7 +52,7 @@ export default function Navigation() {
               <a className="navbar-item">Home</a>
             </Link>
 
-            <Link href="/camps?region=all&camptype=all&city=all&page=1">
+            <Link href="/camps?region=all&camptype=all&city=all&campfeatures=all">
               <a className="navbar-item">Find a Campground</a>
             </Link>
           </div>

@@ -1,41 +1,14 @@
 import Link from "next/link";
 import { Form, Formik, Field, FieldProps } from "formik";
 import Router, { useRouter } from "next/router";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
 import MultiSelect from "react-multi-select-component";
 import { useState } from "react";
 import SelectField from "./CustomSelect";
 
-const MAP_CITY_DATA = gql`
-  query MyQuery($string: String) {
-    campgrounds(where: { city: $string }) {
-      nodes {
-        acfDetails {
-          address
-          city
-          closeDate
-          latitude
-          longitude
-          numberOfSites
-          openDate
-          website
-          picture {
-            altText
-            mediaItemUrl
-          }
-        }
-        title
-      }
-    }
-  }
-`;
-
 export default function SearchBox({
-  graphCampgrounds,
   regions,
-  features,
   camptypes,
-  singleColumn,
   cities,
   viewport,
   selectObjects,
@@ -44,6 +17,105 @@ export default function SearchBox({
   const router = useRouter();
   const { query } = router;
 
+  const GET_SEARCH_RESULTS = gql`
+    query campfeatures(
+      $features: [String!]
+      $regions: [String!]!
+      $ownerships: [String!]!
+    ) {
+      campgrounds(
+        where: {
+          taxQuery: {
+            taxArray: [
+              {
+                terms: $features
+                taxonomy: FEATURE
+                operator: AND
+                field: SLUG
+              }
+              { terms: $regions, taxonomy: REGION, operator: AND, field: SLUG }
+              {
+                terms: $ownerships
+                taxonomy: OWNERSHIP
+                operator: AND
+                field: SLUG
+              }
+            ]
+            relation: AND
+          }
+        }
+      ) {
+        nodes {
+          acfDetails {
+            address
+            city
+            closeDate
+            latitude
+            longitude
+            numberOfSites
+            openDate
+            website
+            picture {
+              altText
+              mediaItemUrl
+            }
+          }
+          title
+          features {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const MAP_CITY_DATA = gql`
+    query MyQuery($string: String) {
+      campgrounds(where: { city: $string }) {
+        nodes {
+          acfDetails {
+            address
+            city
+            closeDate
+            latitude
+            longitude
+            numberOfSites
+            openDate
+            website
+            picture {
+              altText
+              mediaItemUrl
+            }
+          }
+          title
+        }
+      }
+    }
+  `;
+
+  const CITY_LIST = gql`
+    query MyQuery($string: [String!]!) {
+      regions(where: { name: $string }) {
+        nodes {
+          campgrounds {
+            edges {
+              node {
+                acfDetails {
+                  city
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  let initialCityList = [];
+  let [citylist, setCityList] = useState([]);
+
   const initialValues = {
     region: query.region || "all",
     camptype: query.camptype || "all",
@@ -51,7 +123,33 @@ export default function SearchBox({
     campfeatures: query.campfeatures || "all",
   };
 
-  const { loading, error, data, refetch } = useQuery(MAP_CITY_DATA, {
+  const {
+    loading: citylistLoading,
+    error: citylistError,
+    data: citylistData,
+  } = useQuery(CITY_LIST, {
+    variables: {
+      string: query.region,
+    },
+    onCompleted: (info) => {
+      setCityList(initialCityList);
+      info.regions.nodes.length >= 1
+        ? info.regions.nodes[0].campgrounds.edges.map((cities) => {
+            setCityList((prevState) => [
+              ...prevState,
+              cities.node.acfDetails.city,
+            ]);
+            console.log("City in Region: ", cities.node.acfDetails.city);
+          })
+        : setCityList(["all"]);
+    },
+  });
+
+  const {
+    loading: cityDataLoading,
+    error: cityDataError,
+    data: cityData,
+  } = useQuery(MAP_CITY_DATA, {
     variables: {
       string: query.city === "all" ? "Twin Mountain" : query.city,
     },
@@ -76,19 +174,38 @@ export default function SearchBox({
         pitch: 20,
         zoom: info ? 11 : 2,
       });
+
+      console.log("City updated.");
     },
   });
 
-  const handleSubmit = async (values) => {
-    console.log(JSON.stringify(values));
+  let features;
+  const { loading, error, data, refetch } = useQuery(GET_SEARCH_RESULTS, {
+    variables: {
+      features:
+        query.campfeatures != "all" ? query.campfeatures?.split(",") : [""],
+      regions: query.region != "all" ? query.region : [""],
+      ownerships: query.camptype != "all" ? query.camptype : [""],
+    },
+    onCompleted: (info) => {
+      info.campgrounds.nodes.length >= 1
+        ? info.campgrounds.nodes.map((campground) => {
+            console.log(campground.title);
+          })
+        : console.log("No campgrounds found");
+    },
+  });
 
+  if (error) return `Error! ${error} Please try again.`;
+
+  const handleSubmit = async (values) => {
     const campfeatures = Array.isArray(values.campfeatures)
       ? values.campfeatures.map(({ value }) => value).join(",")
       : (values.campfeatures = "all");
     Router.push(
       {
         pathname: "/camps",
-        query: { ...values, campfeatures, page: 1 },
+        query: { ...values, campfeatures },
       },
       undefined,
       { shallow: true }
@@ -96,8 +213,6 @@ export default function SearchBox({
       refetch();
     });
   };
-
-  if (error) return `Error! ${error}`;
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -163,7 +278,7 @@ export default function SearchBox({
 
           <div className="field">
             <label id="search-cities" className="label">
-              City
+              City in Region
             </label>
             <Field
               name="city"
@@ -173,13 +288,11 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {cities.nodes.map((town) => {
+
+              {citylist.map((town) => {
                 return (
-                  <option
-                    key={town.acfDetails.city}
-                    value={town.acfDetails.city}
-                  >
-                    {town.acfDetails.city}
+                  <option key={town} value={town}>
+                    {town}
                   </option>
                 );
               })}

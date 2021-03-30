@@ -1,24 +1,29 @@
-import Router, { useRouter } from 'next/router';
-import { useState } from 'react';
-import Nav from './nav';
+import Router, { useRouter } from "next/router";
+import { useState } from "react";
+import Nav from "./nav";
 
 export default function SimpleSearch({ cities }) {
   const router = useRouter();
   const { query } = router;
 
-  const [city, setSelect] = useState('All');
+  const [city, setSelect] = useState("All");
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setSelect(e.target.value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     Router.push(
       {
-        pathname: '/camps',
-        query: { city: city !== 'All' ? city : 'Twin Mountain' },
+        pathname: "/camps",
+        query: {
+          city: city != "all" ? city : "Twin Mountain",
+          campfeatures: "all",
+          region: "all",
+          camptype: "all",
+        },
       },
       undefined,
       { shallow: true }
@@ -30,7 +35,7 @@ export default function SimpleSearch({ cities }) {
       className="hero is-info is-fullheight is-full"
       style={{
         backgroundImage: "url('/cover2.jpg')",
-        backgroundSize: 'cover',
+        backgroundSize: "cover",
       }}
     >
       <div className="hero-head">
@@ -53,7 +58,7 @@ export default function SimpleSearch({ cities }) {
                         onChange={handleChange}
                       >
                         <option value="all">All</option>
-                        {cities.nodes.map(town => {
+                        {cities.nodes.map((town) => {
                           return (
                             <option
                               key={town.acfDetails.city}

@@ -9,7 +9,7 @@ import {
   getAllZipcodes,
   getAllCities,
   getCampgroundsByCity,
-  getCampgroundsByFeature,
+  getCampgroundsBySearchQueries,
 } from "../lib/api";
 import SecondNavigation from "../components/secondNavigation";
 import Map from "../components/map";
@@ -23,7 +23,6 @@ export default function CampList({
   graphCampgrounds,
   cities,
   campgroundsbycity,
-  campgroundsbyfeature,
 }) {
   const [viewport, setViewport] = useState({
     height: "91.5vh",
@@ -33,9 +32,6 @@ export default function CampList({
     zoom: 1,
   });
 
-  const test = ["Fishing", "Laundry"];
-
-  console.log("features: ", features);
   return (
     <>
       <Head>
@@ -74,6 +70,7 @@ export default function CampList({
 }
 
 export async function getServerSideProps(query) {
+  console.log("Query is: ", query.query);
   const info = query.query;
   // retreive the regions form prisma
   const regions = await getAllRegions();
@@ -90,9 +87,6 @@ export async function getServerSideProps(query) {
 
   // retrieve all campgrounds by a city
   const campgroundsbycity = await getCampgroundsByCity(info.city);
-
-  // retrieve all campgrounds by feature(s)
-  const campgroundsbyfeature = await getCampgroundsByFeature();
 
   // create object for features
   const object = [];
@@ -114,7 +108,6 @@ export async function getServerSideProps(query) {
       graphCampgrounds,
       cities,
       campgroundsbycity,
-      campgroundsbyfeature,
     },
   };
 }
