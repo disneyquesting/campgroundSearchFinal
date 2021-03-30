@@ -141,7 +141,7 @@ export default function SearchBox({
             ]);
             console.log("City in Region: ", cities.node.acfDetails.city);
           })
-        : setCityList(["all"]);
+        : setCityList(initialCityList);
     },
   });
 
