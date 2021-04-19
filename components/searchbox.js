@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { Form, Formik, Field, FieldProps } from "formik";
-import Router, { useRouter } from "next/router";
-import { useQuery, useLazyQuery, gql } from "@apollo/client";
-import MultiSelect from "react-multi-select-component";
-import { useState } from "react";
-import SelectField from "./CustomSelect";
+import Link from 'next/link';
+import { Form, Formik, Field, FieldProps } from 'formik';
+import Router, { useRouter } from 'next/router';
+import { useQuery, useLazyQuery, gql } from '@apollo/client';
+import MultiSelect from 'react-multi-select-component';
+import { useState } from 'react';
+import SelectField from './CustomSelect';
 
 export default function SearchBox({
   regions,
@@ -113,37 +113,43 @@ export default function SearchBox({
     }
   `;
 
-  let initialCityList = [];
-  let [citylist, setCityList] = useState([]);
+  const initialCityList = [];
+  const [citylist, setCityList] = useState([]);
+
+  let uniqueData = {};
 
   const initialValues = {
-    region: query.region || "all",
-    camptype: query.camptype || "all",
-    city: query.city || "all",
-    campfeatures: query.campfeatures || "all",
+    region: query.region || 'all',
+    camptype: query.camptype || 'all',
+    city: query.city || 'all',
+    campfeatures: query.campfeatures || 'all',
   };
 
   const {
     loading: citylistLoading,
     error: citylistError,
     data: citylistData,
-  } = useQuery(CITY_LIST, {
-    variables: {
-      string: query.region,
+  } = useQuery(
+    CITY_LIST,
+    {
+      variables: {
+        string: query.region,
+      },
+      onCompleted: info => {
+        setCityList(initialCityList);
+        info.regions.nodes.length >= 1
+          ? info.regions.nodes[0].campgrounds.edges.map(cities => {
+              setCityList(prevState => [
+                ...prevState,
+                cities.node.acfDetails.city,
+              ]);
+              console.log('City in Region: ', cities.node.acfDetails.city);
+            })
+          : setCityList(initialCityList);
+      },
     },
-    onCompleted: (info) => {
-      setCityList(initialCityList);
-      info.regions.nodes.length >= 1
-        ? info.regions.nodes[0].campgrounds.edges.map((cities) => {
-            setCityList((prevState) => [
-              ...prevState,
-              cities.node.acfDetails.city,
-            ]);
-            console.log("City in Region: ", cities.node.acfDetails.city);
-          })
-        : setCityList(initialCityList);
-    },
-  });
+    (uniqueData = [...new Set(citylist.map(town => town))])
+  );
 
   const {
     loading: cityDataLoading,
@@ -151,9 +157,9 @@ export default function SearchBox({
     data: cityData,
   } = useQuery(MAP_CITY_DATA, {
     variables: {
-      string: query.city === "all" ? "Twin Mountain" : query.city,
+      string: query.city === 'all' ? 'Twin Mountain' : query.city,
     },
-    onCompleted: (info) => {
+    onCompleted: info => {
       const lat = info
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 44.43;
@@ -175,7 +181,7 @@ export default function SearchBox({
         zoom: info ? 11 : 2,
       });
 
-      console.log("City updated.");
+      console.log('City updated.');
     },
   });
 
@@ -183,28 +189,28 @@ export default function SearchBox({
   const { loading, error, data, refetch } = useQuery(GET_SEARCH_RESULTS, {
     variables: {
       features:
-        query.campfeatures != "all" ? query.campfeatures?.split(",") : [""],
-      regions: query.region != "all" ? query.region : [""],
-      ownerships: query.camptype != "all" ? query.camptype : [""],
+        query.campfeatures != 'all' ? query.campfeatures?.split(',') : [''],
+      regions: query.region != 'all' ? query.region : [''],
+      ownerships: query.camptype != 'all' ? query.camptype : [''],
     },
-    onCompleted: (info) => {
+    onCompleted: info => {
       info.campgrounds.nodes.length >= 1
-        ? info.campgrounds.nodes.map((campground) => {
+        ? info.campgrounds.nodes.map(campground => {
             console.log(campground.title);
           })
-        : console.log("No campgrounds found");
+        : console.log('No campgrounds found');
     },
   });
 
   if (error) return `Error! ${error} Please try again.`;
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async values => {
     const campfeatures = Array.isArray(values.campfeatures)
-      ? values.campfeatures.map(({ value }) => value).join(",")
-      : (values.campfeatures = "all");
+      ? values.campfeatures.map(({ value }) => value).join(',')
+      : (values.campfeatures = 'all');
     Router.push(
       {
-        pathname: "/camps",
+        pathname: '/camps',
         query: { ...values, campfeatures },
       },
       undefined,
@@ -219,7 +225,7 @@ export default function SearchBox({
       {({ values, submitForm }) => (
         <Form>
           <div className="field">
-            <label id="search-region" className="label">
+            <label id="search-region" className="label" htmlFor="region">
               Region
             </label>
             <Field
@@ -230,7 +236,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {regions.nodes.map((region) => {
+              {regions.nodes.map(region => {
                 return (
                   <option key={region.id} value={region.name}>
                     {region.name}
@@ -252,7 +258,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {camptypes.nodes.map((camp) => {
+              {camptypes.nodes.map(camp => {
                 return (
                   <option key={camp.id} value={camp.name}>
                     {camp.name}
@@ -276,28 +282,32 @@ export default function SearchBox({
             />
           </div>
 
-          <div className="field">
-            <label id="search-cities" className="label">
-              City in Region
-            </label>
-            <Field
-              name="city"
-              as="select"
-              labelid="search-cities"
-              label="Cities"
-              className="input"
-            >
-              <option value="all">All</option>
+          {query.region !== 'all' ? (
+            <div className="field">
+              <label id="search-cities" className="label" htmlFor="city">
+                City in Region
+              </label>
+              <Field
+                name="city"
+                as="select"
+                labelid="search-cities"
+                label="Cities"
+                className="input"
+              >
+                <option value="all">All</option>
 
-              {citylist.map((town) => {
-                return (
-                  <option key={town} value={town}>
-                    {town}
-                  </option>
-                );
-              })}
-            </Field>
-          </div>
+                {uniqueData.map(town => {
+                  return (
+                    <option key={town} value={town}>
+                      {town}
+                    </option>
+                  );
+                })}
+              </Field>
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div className="field">
             <button
