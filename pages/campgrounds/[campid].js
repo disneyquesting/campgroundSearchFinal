@@ -21,14 +21,7 @@ const Campground = ({ campground }) => {
         <div>
           <h1>{campground.title}</h1>
           <p>{campground.ownerships.nodes[0].name}</p>
-          {campground.acfDetails.picture.mediaItemUrl ? (
-            <img
-              src={campground.acfDetails.picture.mediaItemUrl}
-              alt={campground.acfDetails.picture.altText}
-            />
-          ) : (
-            <></>
-          )}
+
           <p>{campground.acfDetails.description}</p>
         </div>
       </>
