@@ -21,9 +21,13 @@ export default function MapCard({ campground }) {
       </Link>
       <div className="m-2">
         <div className="media-content">
-          <h2 className="title is-4 is-uppercase cardTitle has-text-centered">
-            {campground.title}
-          </h2>
+          <Link href={`/campgrounds/${campground.id}`}>
+            <div>
+              <h2 className="title is-4 is-uppercase cardTitle has-text-centered">
+                {campground.title}
+              </h2>
+            </div>
+          </Link>
           <p className="subtitle is-6 pt-5 has-text-weight-medium cardSubtitle has-text-centered">
             {campground.regions.nodes.map((region) => {
               return (
