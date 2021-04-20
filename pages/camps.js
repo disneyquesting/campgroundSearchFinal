@@ -25,8 +25,6 @@ export default function CampList({
   campgroundsbycity,
 }) {
   const [viewport, setViewport] = useState({
-    height: "91.5vh",
-    width: "100vw",
     latitude: 43.4849,
     longitude: -71.6553,
     zoom: 1,

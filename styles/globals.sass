@@ -7,23 +7,69 @@ $link: $sand
 $navbar-background-color: $sand
 $navbar-item-color: $green
 $navbar-item-hover-color: black
-
+$title-color: #F3F3DD
+$subtitle-color: #F3F3DD
 @import "~bulma/sass/utilities/_all"
 @import "~bulma/bulma.sass"
 
+.mapboxgl-popup
+    z-index: 4
+
+.mapboxgl-popup-content 
+    color: #F3F3DD
+    background-color: #46624b
+    border-color: #354b39
+    max-width: 325px
+    padding: 0
+    box-shadow: 3px 3px 2px #1d291f
+
 .mapboxgl-popup-close-button
-    color: red
-    font-size: 40px
+    color: white
+    font-size: 50px
     z-index: 999
-    margin-right: 5px
-    background-color: white
-    border-radius: 15px
-    opacity: .6
+    font-weight: bold
     transition: opacity 0.3s
+    left: 0
     &:hover
-        background-color: white
-        opacity: 1
+        background: transparent
+        opacity: .6
 
 .mapboxgl-marker
     span
         font-size: 35px
+        z-index: 555
+
+.card-image
+    margin-top: 25px
+    margin-left: auto
+    margin-right: auto
+    max-width: 50%
+    cursor: pointer
+    transition: opacity 0.3s
+    opacity: 1
+    &:hover
+        opacity: .8
+
+
+.cardTitle
+    cursor: pointer
+    opacity: 1
+    transition: opacity 0.3s
+    &:hover
+        background: transparent
+        opacity: .8
+    
+.cardFeatures ul
+    list-style: none
+    height: 200px
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+
+.cardFeatures li
+    width: 50%
+    margin-left: 10px
+    &:last-child
+        border: unset
+
+.cardPop
