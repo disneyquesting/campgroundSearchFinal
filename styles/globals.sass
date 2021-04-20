@@ -15,6 +15,18 @@ $subtitle-color: #F3F3DD
 .mapboxgl-popup
     z-index: 4
 
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip
+    border-left-color:#46624b
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip
+    border-left-color:#46624b
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip
+    border-left-color:#46624b
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip
+    border-left-color:#46624b
+
 .mapboxgl-popup-content 
     color: #F3F3DD
     background-color: #46624b
@@ -59,16 +71,19 @@ $subtitle-color: #F3F3DD
         background: transparent
         opacity: .8
     
-.cardFeatures ul
-    list-style: none
-    height: 200px
+.cardFeatures
     display: flex
-    flex-direction: column
-    flex-wrap: wrap
+
+.cardFeatures ul
+    margin-left: auto
+    margin-right: auto
+    list-style: none
+    margin-bottom: 5px
+    column-count: 2
 
 .cardFeatures li
-    width: 50%
-    margin-left: 10px
+    text-align: left
+    font-size: 12px
     &:last-child
         border: unset
 

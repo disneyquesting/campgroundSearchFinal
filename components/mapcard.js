@@ -34,13 +34,15 @@ export default function MapCard({ campground }) {
             })}
           </p>
         </div>
-        <div className="pt-4 is-italic cardFeatures">
+        <div className="pt-4 is-italic">
           <p className="is-size-5 mb-0 has-text-centered">Features:</p>
-          <ul className="mt-2 mr-5 has-text-centered">
-            {campground.features.nodes.map((feature) => {
-              return <li>{feature.name}</li>;
-            })}
-          </ul>
+          <div className="cardFeatures">
+            <ul className="mt-2">
+              {campground.features.nodes.map((feature) => {
+                return <li>{feature.name}</li>;
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
