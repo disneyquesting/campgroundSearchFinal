@@ -23,12 +23,19 @@ export default function Home({
   const [value, setValue] = useState("All");
   const [viewport, setViewport] = useState({});
 
+  let uniqueCities = [];
+
+  uniqueCities = [...new Set(cities.nodes.map((town) => town.acfDetails.city))];
+
+  uniqueCities.sort();
+
+  console.log(uniqueCities);
   return (
     <>
       <Head>
         <title>NH Campground Association</title>
       </Head>
-      <SimpleSearch cities={cities} />
+      <SimpleSearch cities={uniqueCities} />
     </>
   );
 }

@@ -58,13 +58,10 @@ export default function SimpleSearch({ cities }) {
                         onChange={handleChange}
                       >
                         <option value="all">All</option>
-                        {cities.nodes.map((town) => {
+                        {cities.map((town) => {
                           return (
-                            <option
-                              key={town.acfDetails.city}
-                              value={town.acfDetails.city}
-                            >
-                              {town.acfDetails.city}
+                            <option key={town} value={town}>
+                              {town}
                             </option>
                           );
                         })}

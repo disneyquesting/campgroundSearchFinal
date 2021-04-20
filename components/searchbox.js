@@ -95,7 +95,7 @@ export default function SearchBox({
     }
   `;
 
-  const CITY_LIST = gql`
+  const REGION_INFO = gql`
     query MyQuery($string: [String!]!) {
       regions(where: { name: $string }) {
         nodes {
@@ -107,6 +107,10 @@ export default function SearchBox({
                 }
               }
             }
+          }
+          regioncoord {
+            latitude
+            longitude
           }
         }
       }
@@ -125,25 +129,43 @@ export default function SearchBox({
     campfeatures: query.campfeatures || "all",
   };
 
+  // returns cities in region selected and coords for that
   const {
     loading: citylistLoading,
     error: citylistError,
     data: citylistData,
   } = useQuery(
-    CITY_LIST,
+    REGION_INFO,
     {
       variables: {
         string: query.region,
       },
       onCompleted: (info) => {
+        const lat = info.regions.nodes[0]
+          ? parseFloat(info.regions.nodes[0].regioncoord.latitude.toFixed(4))
+          : 43.986886;
+
+        const long = info.regions.nodes[0]
+          ? parseFloat(info.regions.nodes[0].regioncoord.longitude.toFixed(4)) *
+            -1
+          : -71.407367;
+
+        setViewport({
+          ...viewport,
+          latitude: info.regions.nodes[0] ? lat : 43.986886,
+          longitude: info.regions.nodes[0] ? long : -71.407367,
+          bearing: 0,
+          pitch: 20,
+          zoom: 8.5,
+        });
+
         setCityList(initialCityList);
-        info.regions.nodes.length >= 1
+        info.regions.nodes[0]
           ? info.regions.nodes[0].campgrounds.edges.map((cities) => {
               setCityList((prevState) => [
                 ...prevState,
                 cities.node.acfDetails.city,
               ]);
-              console.log("City in Region: ", cities.node.acfDetails.city);
             })
           : setCityList(initialCityList);
       },
@@ -151,41 +173,42 @@ export default function SearchBox({
     (uniqueData = [...new Set(citylist.map((town) => town))])
   );
 
+  //returns coords of the city selected
   const {
     loading: cityDataLoading,
     error: cityDataError,
     data: cityData,
   } = useQuery(MAP_CITY_DATA, {
     variables: {
-      string: query.city === "all" ? "Twin Mountain" : query.city,
+      string: query.city,
     },
     onCompleted: (info) => {
-      const lat = info
+      const lat = info.campgrounds.nodes[0]
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
-        : 44.43;
+        : 43.986886;
 
-      const long = info
+      const long = info.campgrounds.nodes[0]
         ? Math.abs(
             parseFloat(
               info.campgrounds.nodes[0].acfDetails.longitude.toFixed(4)
             )
           ) * -1
-        : -72.352;
+        : -71.407367;
 
       setViewport({
         ...viewport,
-        latitude: info ? lat : 44.43,
-        longitude: info ? long : -72.352,
+        latitude: info.campgrounds.nodes[0] ? lat : 43.986886,
+        longitude: info.campgrounds.nodes[0] ? long : -71.407367,
         bearing: 0,
         pitch: 20,
-        zoom: info ? 11 : 2,
+        zoom: info.campgrounds.nodes[0] ? 11 : 7.5,
       });
-
-      console.log("City updated.");
     },
   });
 
+  // returns campgrounds that match features selected
   let features;
+
   const { loading, error, data, refetch } = useQuery(GET_SEARCH_RESULTS, {
     variables: {
       features:
@@ -194,7 +217,7 @@ export default function SearchBox({
       ownerships: query.camptype != "all" ? query.camptype : [""],
     },
     onCompleted: (info) => {
-      info.campgrounds.nodes.length >= 1
+      info.campgrounds.nodes[0]
         ? info.campgrounds.nodes.map((campground) => {
             console.log(campground.title);
           })
@@ -205,6 +228,8 @@ export default function SearchBox({
   if (error) return `Error! ${error} Please try again.`;
 
   const handleSubmit = async (values) => {
+    // uniqueData = [...new Set(citylist.map((town) => town))];
+    // console.log(uniqueData.includes(query.city));
     const campfeatures = Array.isArray(values.campfeatures)
       ? values.campfeatures.map(({ value }) => value).join(",")
       : (values.campfeatures = "all");

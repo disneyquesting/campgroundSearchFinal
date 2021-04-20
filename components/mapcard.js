@@ -4,7 +4,9 @@ import styles from "./mapcard.module.sass";
 export default function MapCard({ campground }) {
   return (
     <div>
-      <Link href={`/campgrounds/${campground.id}`}>
+      <Link
+        href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
+      >
         <div className="card-image has-text-centered">
           {campground.acfDetails.picture ? (
             <figure className="cardImage">
@@ -21,7 +23,9 @@ export default function MapCard({ campground }) {
       </Link>
       <div className="m-2">
         <div className="media-content">
-          <Link href={`/campgrounds/${campground.id}`}>
+          <Link
+            href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
+          >
             <div>
               <h2 className="title is-4 is-uppercase cardTitle has-text-centered">
                 {campground.title}
@@ -43,7 +47,7 @@ export default function MapCard({ campground }) {
           <div className="cardFeatures">
             <ul className="mt-2">
               {campground.features.nodes.map((feature) => {
-                return <li>{feature.name}</li>;
+                return <li key={feature.name}>{feature.name}</li>;
               })}
             </ul>
           </div>

@@ -45,6 +45,8 @@ export default function Map({ campgrounds, viewport, setViewport }) {
       eventRecognizerOptions={eventRecognizerOptions}
       width="90vw"
       height="90vh"
+      center={(43.1939, 71.5724)}
+      minZoom={7}
     >
       <GeolocateControl
         style={geolocateControlStyle}
@@ -83,7 +85,13 @@ export default function Map({ campgrounds, viewport, setViewport }) {
                 anchor={"right"}
                 offsetLeft={-50}
                 className={"cardPop"}
-                onClose={() => setSelectedLocation({})}
+                onClose={() => {
+                  setSelectedLocation({});
+                  setViewport({
+                    ...viewport,
+                    zoom: 9,
+                  });
+                }}
                 closeOnClick={false}
                 longitude={
                   Math.abs(parseFloat(node.acfDetails.longitude.toFixed(4))) *
