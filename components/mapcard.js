@@ -7,7 +7,7 @@ export default function MapCard({ campground }) {
       <Link href={`/campgrounds/${campground.id}`}>
         <div className="card-image has-text-centered">
           {campground.acfDetails.picture ? (
-            <figure className="image is-3by2">
+            <figure className="cardImage">
               <img
                 src={campground.acfDetails.picture.mediaItemUrl}
                 alt={`${campground.title}`}
