@@ -13,6 +13,7 @@ import {
 } from "../lib/api";
 import SecondNavigation from "../components/secondNavigation";
 import Map from "../components/map";
+import CampgroundResults from "../components/campresults";
 
 export default function CampList({
   regions,
@@ -24,10 +25,12 @@ export default function CampList({
   cities,
   campgroundsbycity,
 }) {
+  const [campResults, setcampResults] = useState("Hey There");
+
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
     longitude: 71.5724,
-    zoom: 7,
+    zoom: 6,
   });
 
   return (
@@ -49,9 +52,11 @@ export default function CampList({
             campgroundsbycity={campgroundsbycity}
             viewport={viewport}
             setViewport={setViewport}
+            campResults={campResults}
+            setcampResults={setcampResults}
           />
           <div className="column mt-5 is-full">
-            Campground Search Results Will Go Here
+            <CampgroundResults campResults={campResults} />
           </div>
         </div>
 

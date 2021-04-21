@@ -13,6 +13,8 @@ export default function SearchBox({
   viewport,
   selectObjects,
   setViewport,
+  campResults,
+  setcampResults,
 }) {
   const router = useRouter();
   const { query } = router;
@@ -118,7 +120,10 @@ export default function SearchBox({
   `;
 
   const initialCityList = [];
+
   const [citylist, setCityList] = useState([]);
+
+  let vartest = 1;
 
   let uniqueData = {};
 
@@ -220,8 +225,9 @@ export default function SearchBox({
       info.campgrounds.nodes[0]
         ? info.campgrounds.nodes.map((campground) => {
             console.log(campground.title);
+            setcampResults(campground.title);
           })
-        : console.log("No campgrounds found");
+        : setcampResults("No campgrounds found");
     },
   });
 
@@ -230,6 +236,7 @@ export default function SearchBox({
   const handleSubmit = async (values) => {
     // uniqueData = [...new Set(citylist.map((town) => town))];
     // console.log(uniqueData.includes(query.city));
+
     const campfeatures = Array.isArray(values.campfeatures)
       ? values.campfeatures.map(({ value }) => value).join(",")
       : (values.campfeatures = "all");
