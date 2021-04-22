@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
+import client from "../lib/apollo/apollo-client";
 import Head from "next/head";
 import SearchBox from "../components/searchbox";
 import {
@@ -72,26 +74,93 @@ export default function CampList({
   );
 }
 
-export async function getServerSideProps(query) {
-  console.log("Query is: ", query.query);
-  const info = query.query;
-  // retreive the regions form prisma
-  const regions = await getAllRegions();
-  // retrieve all features in existance
-  const features = await getAllFeatures();
-  // retrieve all types of campgrounds
-  const camptypes = await getAllTypes();
-  // retrieve all zip codes of campgrounds
-  const zipcodes = await getAllZipcodes();
-  // get all cities of campgrounds
-  const cities = await getAllCities();
-  // retrieve all campgrounds
-  const graphCampgrounds = await getAllCampgrounds();
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query MyQuery {
+        features(first: 300) {
+          nodes {
+            label: name
+            value: name
+          }
+        }
+        regions(first: 300) {
+          nodes {
+            id
+            name
+            regioncoord {
+              latitude
+              longitude
+            }
+          }
+        }
+        ownerships(first: 300) {
+          nodes {
+            id
+            name
+          }
+        }
+        campgrounds(first: 300) {
+          edges {
+            node {
+              acfDetails {
+                additionalNotes
+                address
+                city
+                closeDate
+                description
+                eMailAddress
+                fieldGroupName
+                latitude
+                longitude
+                maxAmps
+                maximumRvLength
+                numberOfSites
+                openDate
+                phoneNumber
+                picture {
+                  altText
+                  mediaItemUrl
+                }
+                state
+                website
+                zipCode
+              }
+              id
+              title
+              features {
+                nodes {
+                  name
+                }
+              }
+              regions {
+                nodes {
+                  name
+                }
+              }
+              ownerships {
+                nodes {
+                  name
+                }
+              }
+              uri
+            }
+          }
+        }
+      }
+    `,
+  });
 
-  // retrieve all campgrounds by a city
-  const campgroundsbycity = await getCampgroundsByCity(info.city);
+  const features = data.features;
 
-  // create object for features
+  const cities = [];
+
+  data.campgrounds.edges.map((city) => {
+    return cities.push({
+      city: city.node.acfDetails.city,
+    });
+  });
+
   const object = [];
 
   features.nodes.map((feature) => {
@@ -103,14 +172,55 @@ export async function getServerSideProps(query) {
 
   return {
     props: {
-      regions,
-      features,
-      camptypes,
-      zipcodes,
+      allCampInfo: data,
+      regions: data.regions,
+      camptypes: data.ownerships,
       object,
-      graphCampgrounds,
+      graphCampgrounds: data.campgrounds.edges,
       cities,
-      campgroundsbycity,
     },
   };
 }
+
+// export async function getServerSideProps(query) {
+//   console.log("Query is: ", query.query);
+//   const info = query.query;
+//   // retreive the regions form prisma
+//   const regions = await getAllRegions();
+//   // retrieve all features in existance
+//   const features = await getAllFeatures();
+//   // retrieve all types of campgrounds
+//   const camptypes = await getAllTypes();
+//   // retrieve all zip codes of campgrounds
+//   const zipcodes = await getAllZipcodes();
+//   // get all cities of campgrounds
+//   const cities = await getAllCities();
+//   // retrieve all campgrounds
+//   const graphCampgrounds = await getAllCampgrounds();
+
+//   // retrieve all campgrounds by a city
+//   const campgroundsbycity = await getCampgroundsByCity(info.city);
+
+//   // create object for features
+//   const object = [];
+
+//   features.nodes.map((feature) => {
+//     return object.push({
+//       label: feature.label,
+//       value: feature.label,
+//     });
+//   });
+
+//   return {
+//     props: {
+//       regions,
+//       features,
+//       camptypes,
+//       zipcodes,
+//       object,
+//       graphCampgrounds,
+//       cities,
+//       campgroundsbycity,
+//     },
+//   };
+// }
