@@ -30,7 +30,7 @@ export default function CampList({
   cities,
   campgroundsbycity,
 }) {
-  const [campResults, setcampResults] = useState("Hey There");
+  const [campResults, setcampResults] = useState(["No Campgrounds Found"]);
 
   // const [viewport, setViewport] = useState({
   //   latitude: 43.1939,
@@ -38,6 +38,7 @@ export default function CampList({
   //   zoom: 6,
   // });
 
+  console.log("campresults: ", campResults);
   return (
     <>
       <Head>
@@ -60,6 +61,14 @@ export default function CampList({
             campResults={campResults}
             setcampResults={setcampResults}
           />
+<<<<<<< HEAD
+=======
+          <div className="column mt-5 is-full">
+            <CampgroundResults
+              campResults={campResults}
+              setViewport={setViewport}
+            />
+>>>>>>> staticversion
           </div>
         <div className="column mt-5 is-full">
           <CampgroundResults campResults={campResults} />

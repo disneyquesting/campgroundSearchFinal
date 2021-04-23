@@ -63,6 +63,8 @@ export default function SearchBox({
             }
           }
           title
+          uri
+          link
           features {
             nodes {
               name
@@ -213,7 +215,7 @@ export default function SearchBox({
 
   // returns campgrounds that match features selected
   let features;
-
+  const initialResultValues = [];
   const { loading, error, data, refetch } = useQuery(GET_SEARCH_RESULTS, {
     variables: {
       features:
@@ -222,12 +224,24 @@ export default function SearchBox({
       ownerships: query.camptype != "all" ? query.camptype : [""],
     },
     onCompleted: (info) => {
+      setcampResults(initialResultValues);
       info.campgrounds.nodes[0]
         ? info.campgrounds.nodes.map((campground) => {
-            console.log(campground.title);
-            setcampResults(campground.title);
+            setcampResults((prevState) => [
+              ...prevState,
+              {
+                name: campground.title,
+                address: campground.acfDetails.address,
+                city: campground.acfDetails.city,
+                state: campground.acfDetails.state,
+                latitude: campground.acfDetails.latitude,
+                longitude: campground.acfDetails.longitude,
+                link: campground.link,
+                features: campground.features.nodes.name,
+              },
+            ]);
           })
-        : setcampResults("No campgrounds found");
+        : setcampResults(["No Campgrounds Found"]);
     },
   });
 
