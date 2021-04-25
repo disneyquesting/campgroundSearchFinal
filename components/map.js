@@ -43,9 +43,10 @@ export default function Map({ campgrounds, viewport, setViewport }) {
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
       transitionInterpolator={new FlyToInterpolator()}
       eventRecognizerOptions={eventRecognizerOptions}
-      width="90vw"
-      height="90vh"
+      className="mapBoxProper"
       center={(43.1939, 71.5724)}
+      width="100vw"
+      height="100%"
       minZoom={7}
     >
       <GeolocateControl

@@ -1,7 +1,5 @@
 import Head from "next/head";
 import { useState } from "react";
-import CampgroundCards from "../components/campgroundcards";
-import SearchBox from "../components/searchbox";
 import {
   getAllCampgrounds,
   getAllFeatures,

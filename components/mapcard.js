@@ -27,7 +27,7 @@ export default function MapCard({ campground }) {
             href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
           >
             <div>
-              <h2 className="title is-4 is-uppercase cardTitle has-text-centered">
+              <h2 className="title is-uppercase cardTitle has-text-centered">
                 {campground.title}
               </h2>
             </div>

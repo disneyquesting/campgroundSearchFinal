@@ -1,16 +1,84 @@
-$sand:  #f4e496 
+/* color inits */
+$sand:  #f4e496
+$transparentWhite: #d3beb3
+$nhblue: #003e7e
 $green: #4b8856
-$success: $green
-$info: $sand
-$card-header-padding: 0rem
-$link: $sand
-$navbar-background-color: $sand
-$navbar-item-color: $green
-$navbar-item-hover-color: black
-$title-color: #F3F3DD
-$subtitle-color: #F3F3DD
+
+/* navbar */
+$navbar-background-color: white
+$navbar-dropdown-arrow: $nhblue
+$navbar-item-color: $nhblue
+$navbar-item-hover-color: white
+$navbar-item-hover-background-color: transparent
+$navbar-height: 4.5rem
+$navbar-burger-color: black
+
+/*buttons */
+$button-background-color: white
+$button-color: $green
+$button-hover-color: #36573c
+$button-hover-border-color: $green
+
 @import "~bulma/sass/utilities/_all"
 @import "~bulma/bulma.sass"
+
+/* navbar */
+.navbar
+    border-bottom: 2px solid $green
+    &::before
+        content: ""
+        background-image: url("/headerbg.jpg")
+        opacity: .4
+        background-size: cover
+        position: absolute
+        top: 0px
+        right: 0px
+        left: 0px
+        bottom: 0px
+
+.navbar-burger
+    height: unset
+
+.navbar-start
+    margin-left: auto
+    margin-right: auto
+
+.navbar-item
+    font-size: 24px
+    padding-right: 20px
+    padding-left: 10px
+    font-family: "Bebas Neue", serif
+
+.navbar-item
+    position: relative
+    margin-left: 5px
+    transition: 0.3s ease-in-out
+    &::after
+        content: ''
+        height: 50%
+        width: 2px
+        position: absolute
+        right: 0
+        top: 25%
+        background-color: white
+    &:last-child
+        &::after
+            height: 0
+
+.sitelogo
+    margin-left: 25px
+    margin-top: 5px
+
+.siteTitle
+    color: black
+    margin-left: 5px
+    font-size: 8px
+    max-width: 20px
+    margin-top: 10px
+
+/* map */
+.mapColumn
+   height: 100vh
 
 .mapboxgl-popup
     z-index: 4
@@ -51,6 +119,10 @@ $subtitle-color: #F3F3DD
         font-size: 35px
         z-index: 555
 
+/* campground cards */
+.cardSubtitle
+    color: $sand
+
 .card-image
     margin-top: 25px
     margin-left: auto
@@ -62,11 +134,11 @@ $subtitle-color: #F3F3DD
     &:hover
         opacity: .8
 
-
 .cardTitle
     cursor: pointer
     opacity: 1
     transition: opacity 0.3s
+    color: $sand
     &:hover
         background: transparent
         opacity: .8
@@ -88,11 +160,31 @@ $subtitle-color: #F3F3DD
         border: unset
 
 .cardPop
+    color: black
+
+/* campground results */
 
 .buttonCard
     margin-bottom: 10px
-    border-bottom: 1px solid black
+    border: 1px solid black
 
 .buttonCard a 
     color: blue
     font-size: 10px
+
+.searchResults
+    background-color: $green
+    font-style: italic
+    font-size: 10px
+    text-align: center
+    a   
+        color: white
+        font-size: 12px
+    p
+        color: $sand
+
+@media screen and ( max-width: 768px )
+    .cardTitle
+        font-size: 20px
+    .mapColumn
+        height: 50vh

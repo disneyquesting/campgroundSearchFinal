@@ -248,9 +248,6 @@ export default function SearchBox({
   if (error) return `Error! ${error} Please try again.`;
 
   const handleSubmit = async (values) => {
-    // uniqueData = [...new Set(citylist.map((town) => town))];
-    // console.log(uniqueData.includes(query.city));
-
     const campfeatures = Array.isArray(values.campfeatures)
       ? values.campfeatures.map(({ value }) => value).join(",")
       : (values.campfeatures = "all");
@@ -356,13 +353,7 @@ export default function SearchBox({
           )}
 
           <div className="field">
-            <button
-              color="primary"
-              variant="outlined"
-              type="button"
-              className="button is-link"
-              onClick={submitForm}
-            >
+            <button type="button" className="button" onClick={submitForm}>
               Search Campgrounds
             </button>
           </div>

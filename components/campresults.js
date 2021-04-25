@@ -10,7 +10,7 @@ export default function campgroundResults({
     setViewport({
       latitude: latitude,
       longitude: longitude,
-      zoom: 15,
+      zoom: 13,
     });
   };
   return (
@@ -22,8 +22,9 @@ export default function campgroundResults({
               {campground.link.length > 1 ? (
                 <div className="buttonCard">
                   <a href={campground.link}>
-                    <li>{campground.name}</li>
+                    <li key={campground.name}>{campground.name}</li>
                   </a>
+                  <p>{campground.city}</p>
                   <button
                     type="button"
                     onClick={(e) => {

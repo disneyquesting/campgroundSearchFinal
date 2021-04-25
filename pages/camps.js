@@ -13,7 +13,7 @@ import {
   getCampgroundsByCity,
   getCampgroundsBySearchQueries,
 } from "../lib/api";
-import SecondNavigation from "../components/secondNavigation";
+import Nav from "../components/nav";
 import Map from "../components/map";
 import CampgroundResults from "../components/campresults";
 
@@ -41,7 +41,7 @@ export default function CampList({
       <Head>
         <title>Find a Campground</title>
       </Head>
-      <SecondNavigation />
+      <Nav />
       <div className="columns">
         <div className="column is-centered m-5">
           <SearchBox
@@ -58,7 +58,7 @@ export default function CampList({
             campResults={campResults}
             setcampResults={setcampResults}
           />
-          <div className="column mt-5 is-full">
+          <div className="column mt-5 is-full campgroundResults">
             <CampgroundResults
               campResults={campResults}
               setViewport={setViewport}
@@ -66,7 +66,7 @@ export default function CampList({
           </div>
         </div>
 
-        <div className="column is-centered mr-5">
+        <div className="column is-centered mr-5 mapColumn">
           <Map
             campgrounds={graphCampgrounds}
             viewport={viewport}
