@@ -2,7 +2,7 @@ import Select from "react-select";
 import { useField } from "formik";
 import { useState, useCallback } from "react";
 
-export default function SelectField(props) {
+export default function SelectField(props, initialValues) {
   const [field, state, { setValue, setTouched }] = useField(props.field.name);
 
   // value is an array now

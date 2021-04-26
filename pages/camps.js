@@ -25,6 +25,15 @@ export default function CampList({
     zoom: 6,
   });
 
+  const [paginationInfo, setpaginationInfo] = useState([
+    {
+      endCursor: "",
+      hasNextPage: "",
+      hasPreviousPage: "",
+      startCursor: "",
+    },
+  ]);
+
   return (
     <>
       <Head>
@@ -46,6 +55,8 @@ export default function CampList({
             setViewport={setViewport}
             campResults={campResults}
             setcampResults={setcampResults}
+            setpaginationInfo={setpaginationInfo}
+            paginationInfo={paginationInfo}
           />
           <div className="column mt-5 is-full campgroundResults">
             {campResults[0] != "No Campgrounds Found" ? (
@@ -60,6 +71,7 @@ export default function CampList({
             <CampgroundResults
               campResults={campResults}
               setViewport={setViewport}
+              paginationInfo={paginationInfo}
             />
           </div>
         </div>
@@ -102,7 +114,7 @@ export async function getStaticProps() {
             name
           }
         }
-        campgrounds(first: 300) {
+        campgrounds(first: 150) {
           edges {
             node {
               acfDetails {

@@ -13,6 +13,8 @@ export default function campgroundResults({
       zoom: 13,
     });
   };
+  campResults.sort();
+  console.log("results: ", campResults);
   return (
     <>
       {campResults.map((campground, index) => {
