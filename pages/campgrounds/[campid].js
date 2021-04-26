@@ -1,13 +1,13 @@
-import { useRouter } from "next/router";
-import Head from "next/head";
-import SecondNavigation from "../../components/secondNavigation";
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+
 import {
   getAllCampgrounds,
   getSingleCampground,
   getAllFeatures,
   getAllTypes,
   getAllRegions,
-} from "../../lib/api";
+} from '../../lib/api';
 
 const Campground = ({ campground }) => {
   // validates if theres a campground otherwise it removes it.
@@ -17,7 +17,7 @@ const Campground = ({ campground }) => {
         <Head>
           <title>{campground.title}</title>
         </Head>
-        <SecondNavigation />
+
         <div>
           <h1>{campground.title}</h1>
           <p>{campground.ownerships.nodes[0].name}</p>
@@ -41,7 +41,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }
 

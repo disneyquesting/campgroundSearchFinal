@@ -1,10 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { useState, useImperativeHandle, forwardRef } from "react";
-import "./subpageNav.module.sass";
+import { useState, useImperativeHandle, forwardRef } from 'react';
+import './subpageNav.module.sass';
 
-export default function SecondNavigation() {
+export default function Navigation() {
   const [isActive, setisActive] = useState(false);
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -30,7 +30,7 @@ export default function SecondNavigation() {
           }}
           role="button"
           tabIndex={0}
-          className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
+          className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarMainMenu"
@@ -43,7 +43,7 @@ export default function SecondNavigation() {
       <div
         id="navbarMainMenu"
         className={`navbar-menu is-size-7 is-uppercase ${
-          isActive ? "is-active" : ""
+          isActive ? 'is-active' : ''
         } `}
       >
         <div className="navbar-start" id="navbarMain">
@@ -161,7 +161,7 @@ export default function SecondNavigation() {
         </div>
       </div>
 
-      <div className="navbar-end"></div>
+      <div className="navbar-end" />
     </nav>
   );
 }

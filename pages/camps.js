@@ -1,21 +1,11 @@
-import { useState } from "react";
-import { useQuery, useLazyQuery, gql } from "@apollo/client";
-import client from "../lib/apollo/apollo-client";
-import Head from "next/head";
-import SearchBox from "../components/searchbox";
-import {
-  getAllCampgrounds,
-  getAllFeatures,
-  getAllRegions,
-  getAllTypes,
-  getAllZipcodes,
-  getAllCities,
-  getCampgroundsByCity,
-  getCampgroundsBySearchQueries,
-} from "../lib/api";
-import Nav from "../components/nav";
-import Map from "../components/map";
-import CampgroundResults from "../components/campresults";
+import { useState } from 'react';
+import { useQuery, useLazyQuery, gql } from '@apollo/client';
+import Head from 'next/head';
+import client from '../lib/apollo/apollo-client';
+import SearchBox from '../components/searchbox';
+import Nav from '../components/nav';
+import Map from '../components/map';
+import CampgroundResults from '../components/campresults';
 
 export default function CampList({
   regions,
@@ -27,7 +17,7 @@ export default function CampList({
   cities,
   campgroundsbycity,
 }) {
-  const [campResults, setcampResults] = useState(["No Campgrounds Found"]);
+  const [campResults, setcampResults] = useState(['No Campgrounds Found']);
 
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
@@ -35,7 +25,6 @@ export default function CampList({
     zoom: 6,
   });
 
-  console.log("campresults: ", campResults);
   return (
     <>
       <Head>
@@ -155,11 +144,11 @@ export async function getStaticProps() {
     `,
   });
 
-  const features = data.features;
+  const { features } = data;
 
   const cities = [];
 
-  data.campgrounds.edges.map((city) => {
+  data.campgrounds.edges.map(city => {
     return cities.push({
       city: city.node.acfDetails.city,
     });
@@ -167,7 +156,7 @@ export async function getStaticProps() {
 
   const object = [];
 
-  features.nodes.map((feature) => {
+  features.nodes.map(feature => {
     return object.push({
       label: feature.label,
       value: feature.label,
