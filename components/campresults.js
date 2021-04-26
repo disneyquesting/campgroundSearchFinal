@@ -15,32 +15,30 @@ export default function campgroundResults({
   };
   return (
     <>
-      <ul>
-        {campResults.map((campground) => {
-          return (
-            <div className="searchResults">
-              {campground.link.length > 1 ? (
-                <div className="buttonCard">
-                  <a href={campground.link}>
-                    <li key={campground.name}>{campground.name}</li>
-                  </a>
-                  <p>{campground.city}</p>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      handleClick(campground.latitude, campground.longitude);
-                    }}
-                  >
-                    View on Map
-                  </button>
-                </div>
-              ) : (
-                <li>{campground.name}</li>
-              )}
-            </div>
-          );
-        })}
-      </ul>
+      {campResults.map((campground, index) => {
+        return (
+          <div className="searchResults" key={index}>
+            {campground.link.length > 1 ? (
+              <div className="buttonCard">
+                <a href={campground.link}>
+                  <h2>{campground.name}</h2>
+                </a>
+                <p>{campground.city}</p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    handleClick(campground.latitude, campground.longitude);
+                  }}
+                >
+                  View on Map
+                </button>
+              </div>
+            ) : (
+              <h2>{campground.name}</h2>
+            )}
+          </div>
+        );
+      })}
     </>
   );
 }

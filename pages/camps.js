@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useQuery, useLazyQuery, gql } from '@apollo/client';
-import Head from 'next/head';
-import client from '../lib/apollo/apollo-client';
-import SearchBox from '../components/searchbox';
-import Nav from '../components/nav';
-import Map from '../components/map';
-import CampgroundResults from '../components/campresults';
+import { useState } from "react";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
+import Head from "next/head";
+import client from "../lib/apollo/apollo-client";
+import SearchBox from "../components/searchbox";
+import Nav from "../components/nav";
+import Map from "../components/map";
+import CampgroundResults from "../components/campresults";
 
 export default function CampList({
   regions,
@@ -17,7 +17,7 @@ export default function CampList({
   cities,
   campgroundsbycity,
 }) {
-  const [campResults, setcampResults] = useState(['No Campgrounds Found']);
+  const [campResults, setcampResults] = useState(["No Campgrounds Found"]);
 
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
@@ -48,6 +48,15 @@ export default function CampList({
             setcampResults={setcampResults}
           />
           <div className="column mt-5 is-full campgroundResults">
+            {campResults[0] != "No Campgrounds Found" ? (
+              <div className="campgroundresultsHeader">
+                <p>Results:</p>
+              </div>
+            ) : (
+              <div className="campgroundresultsHeader">
+                <p>No Campground's Found, Please Search Again.</p>
+              </div>
+            )}
             <CampgroundResults
               campResults={campResults}
               setViewport={setViewport}
@@ -148,7 +157,7 @@ export async function getStaticProps() {
 
   const cities = [];
 
-  data.campgrounds.edges.map(city => {
+  data.campgrounds.edges.map((city) => {
     return cities.push({
       city: city.node.acfDetails.city,
     });
@@ -156,7 +165,7 @@ export async function getStaticProps() {
 
   const object = [];
 
-  features.nodes.map(feature => {
+  features.nodes.map((feature) => {
     return object.push({
       label: feature.label,
       value: feature.label,

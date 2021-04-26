@@ -57,6 +57,7 @@ export default function SearchBox({
             numberOfSites
             openDate
             website
+            state
             picture {
               altText
               mediaItemUrl
@@ -64,6 +65,7 @@ export default function SearchBox({
           }
           title
           uri
+          id
           link
           features {
             nodes {
@@ -238,6 +240,7 @@ export default function SearchBox({
                 longitude: campground.acfDetails.longitude,
                 link: campground.link,
                 features: campground.features.nodes.name,
+                id: campground.id,
               },
             ]);
           })

@@ -3,7 +3,7 @@ import styles from "./mapcard.module.sass";
 
 export default function MapCard({ campground }) {
   return (
-    <div>
+    <div className="cardInitDiv">
       <Link
         href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
       >
@@ -17,7 +17,7 @@ export default function MapCard({ campground }) {
               />
             </figure>
           ) : (
-            <></>
+            <div className="noImageCard"></div>
           )}
         </div>
       </Link>
@@ -32,7 +32,7 @@ export default function MapCard({ campground }) {
               </h2>
             </div>
           </Link>
-          <p className="subtitle is-6 pt-5 has-text-weight-medium cardSubtitle has-text-centered">
+          <p className="subtitle is-6 has-text-weight-medium cardRegion has-text-centered">
             {campground.regions.nodes.map((region) => {
               return (
                 <h3 className="is-size-7 is-uppercase" key={region.id}>
@@ -42,8 +42,8 @@ export default function MapCard({ campground }) {
             })}
           </p>
         </div>
-        <div className="pt-4 is-italic">
-          <p className="is-size-5 mb-0 has-text-centered">Features:</p>
+        <div className="pt-4 is-italic cardFeaturesDiv">
+          <p className="mb-0 has-text-centered">Features:</p>
           <div className="cardFeatures">
             <ul className="mt-2">
               {campground.features.nodes.map((feature) => {

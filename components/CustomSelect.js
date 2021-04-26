@@ -17,8 +17,10 @@ export default function SelectField(props) {
       {...props}
       value={state?.value}
       isMulti
+      aria-label="Select Features to Search By"
       onChange={onChange}
       onBlur={setTouched}
+      instanceId="campFeatures"
     />
   );
 }

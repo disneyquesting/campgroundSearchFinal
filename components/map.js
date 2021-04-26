@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import ReactMapGL, {
   FlyToInterpolator,
   StaticMap,
@@ -15,6 +15,32 @@ import MapCard from "../components/mapcard";
 const geolocateControlStyle = {
   left: 50,
   top: 10,
+};
+
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addEventListener("change", (e) => updateTarget(e));
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeEventListener("change", (e) => updateTarget(e));
+  }, []);
+
+  return targetReached;
 };
 
 export default function Map({ campgrounds, viewport, setViewport }) {
@@ -34,6 +60,8 @@ export default function Map({ campgrounds, viewport, setViewport }) {
       transitionDuration: 1000,
     });
   }
+
+  const isBreakpoint = useMediaQuery(768);
 
   return (
     <ReactMapGL
@@ -81,7 +109,34 @@ export default function Map({ campgrounds, viewport, setViewport }) {
                 </span>
               </a>
             </Marker>
-            {selectLocation.title === node.title ? (
+            {// mobile map
+            isBreakpoint ? (
+              selectLocation.title === node.title ? (
+                <Popup
+                  anchor={"right"}
+                  offsetLeft={100}
+                  className={"cardPop"}
+                  onClose={() => {
+                    setSelectedLocation({});
+                    setViewport({
+                      ...viewport,
+                      zoom: 9,
+                    });
+                  }}
+                  closeOnClick={false}
+                  longitude={
+                    Math.abs(parseFloat(node.acfDetails.longitude.toFixed(4))) *
+                    -1
+                  }
+                  latitude={parseFloat(node.acfDetails.latitude.toFixed(4))}
+                >
+                  <MapCard campground={selectLocation} />
+                </Popup>
+              ) : (
+                false
+              )
+            ) : // desktop map
+            selectLocation.title === node.title ? (
               <Popup
                 anchor={"right"}
                 offsetLeft={-50}
