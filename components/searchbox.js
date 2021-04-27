@@ -3,13 +3,13 @@ import { Form, Formik, Field, FieldProps } from "formik";
 import Router, { useRouter } from "next/router";
 import { useQuery, useLazyQuery, gql } from "@apollo/client";
 import MultiSelect from "react-multi-select-component";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SelectField from "./CustomSelect";
+import CampgroundResults from "../components/campresults";
 
 export default function SearchBox({
   regions,
   camptypes,
-  cities,
   viewport,
   selectObjects,
   setViewport,
@@ -20,6 +20,7 @@ export default function SearchBox({
 }) {
   const router = useRouter();
   const { query } = router;
+  const [regionField, setregionField] = useState("all");
 
   const updateQuery = (previousResult, { fetchMoreResult }) => {
     if (fetchMoreResult.campgrounds.nodes.length > 1) {
@@ -83,6 +84,85 @@ export default function SearchBox({
     }
     return {};
   };
+
+  // FULLY search everything.
+  const GET_SEARCH_RESULTS_WITH_CITY = gql`
+    query campfeatures(
+      $city: String
+      $features: [String!]
+      $regions: [String!]!
+      $ownerships: [String!]!
+      $first: Int
+      $last: Int
+      $after: String
+      $before: String
+    ) {
+      campgrounds(
+        where: {
+          taxQuery: {
+            taxArray: [
+              {
+                terms: $features
+                taxonomy: FEATURE
+                operator: AND
+                field: SLUG
+              }
+              { terms: $regions, taxonomy: REGION, operator: AND, field: SLUG }
+              {
+                terms: $ownerships
+                taxonomy: OWNERSHIP
+                operator: AND
+                field: SLUG
+              }
+            ]
+            relation: AND
+          }
+          orderby: { field: TITLE, order: ASC }
+          city: $city
+        }
+        first: $first
+        last: $last
+        after: $after
+        before: $before
+      ) {
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
+        edges {
+          cursor
+        }
+        nodes {
+          acfDetails {
+            address
+            city
+            closeDate
+            latitude
+            longitude
+            numberOfSites
+            openDate
+            website
+            state
+            picture {
+              altText
+              mediaItemUrl
+            }
+          }
+          title
+          uri
+          id
+          link
+          features {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  `;
 
   const GET_SEARCH_RESULTS = gql`
     query campfeatures(
@@ -161,10 +241,26 @@ export default function SearchBox({
   `;
 
   const MAP_CITY_DATA = gql`
-    query MyQuery($string: String) {
+    query MyQuery(
+      $string: String
+      $first: Int
+      $last: Int
+      $after: String
+      $before: String
+    ) {
       campgrounds(
-        where: { city: $string, orderby: { field: TITLE, order: ASC } }
+        where: { city: $string }
+        after: $after
+        before: $before
+        first: $first
+        last: $last
       ) {
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
         nodes {
           acfDetails {
             address
@@ -193,6 +289,12 @@ export default function SearchBox({
   const REGION_INFO = gql`
     query MyQuery($string: [String!]!) {
       regions(where: { name: $string, orderby: NAME }) {
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
         nodes {
           campgrounds {
             edges {
@@ -232,6 +334,15 @@ export default function SearchBox({
         string: query.region,
       },
       onCompleted: (info) => {
+        setpaginationInfo([
+          {
+            endCursor: info.regions.pageInfo.endCursor,
+            hasNextPage: info.regions.pageInfo.hasNextPage,
+            hasPreviousPage: info.regions.pageInfo.hasPreviousPage,
+            startCursor: info.regions.pageInfo.startCursor,
+          },
+        ]);
+
         const lat = info.regions.nodes[0]
           ? parseFloat(info.regions.nodes[0].regioncoord.latitude.toFixed(4))
           : 43.986886;
@@ -274,6 +385,15 @@ export default function SearchBox({
       string: query.city,
     },
     onCompleted: (info) => {
+      setpaginationInfo([
+        {
+          endCursor: info.campgrounds.pageInfo.endCursor,
+          hasNextPage: info.campgrounds.pageInfo.hasNextPage,
+          hasPreviousPage: info.campgrounds.pageInfo.hasPreviousPage,
+          startCursor: info.campgrounds.pageInfo.startCursor,
+        },
+      ]);
+
       const lat = info.campgrounds.nodes[0]
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 43.986886;
@@ -320,7 +440,7 @@ export default function SearchBox({
   let features;
   const initialResultValues = [];
   const { loading, error, data, refetch, fetchMore } = useQuery(
-    GET_SEARCH_RESULTS,
+    query.city == "all" ? GET_SEARCH_RESULTS : GET_SEARCH_RESULTS_WITH_CITY,
     {
       variables: {
         features:
@@ -368,9 +488,11 @@ export default function SearchBox({
   if (error) return `Error! ${error} Please try again.`;
 
   const handleSubmit = async (values) => {
+    console.log("values: ", values);
     const campfeatures = Array.isArray(values.campfeatures)
       ? values.campfeatures.map(({ value }) => value).join(",")
       : (values.campfeatures = "all");
+
     Router.push(
       {
         pathname: "/camps",
@@ -393,10 +515,10 @@ export default function SearchBox({
   return (
     <Formik
       initialValues={initialValues}
-      enableReinitialize
+      enableReinitialize={true}
       onSubmit={handleSubmit}
     >
-      {({ values, submitForm }) => (
+      {({ values, submitForm, setFieldValue }) => (
         <Form>
           <div className="field">
             <label id="search-region" className="label" htmlFor="region">
@@ -408,6 +530,11 @@ export default function SearchBox({
               labelid="search-region"
               label="Region"
               className="input"
+              onChange={(e) => {
+                setFieldValue("city", "all"),
+                  setFieldValue("region", e.target.value);
+              }}
+              value={values.region}
             >
               <option value="all">All</option>
               {regions.nodes.map((region) => {
@@ -442,26 +569,20 @@ export default function SearchBox({
             </Field>
           </div>
 
-          {query.city == "all" ? (
-            <div className="field">
-              <label id="search-feat" className="label" htmlFor="search-feat">
-                Features:
-              </label>
-              <Field
-                component={SelectField}
-                name="campfeatures"
-                labelid="search-feat"
-                label="Features"
-                options={selectObjects}
-              />
-            </div>
-          ) : (
-            <div>
-              <p>Feature Search Only Available for All Cities.</p>
-            </div>
-          )}
+          <div className="field">
+            <label id="search-feat" className="label" htmlFor="search-feat">
+              Features:
+            </label>
+            <Field
+              component={SelectField}
+              name="campfeatures"
+              labelid="search-feat"
+              label="Features"
+              options={selectObjects}
+            />
+          </div>
 
-          {query.region !== "all" && query.campfeatures == "all" ? (
+          {query.region != "all" ? (
             <div className="field">
               <label id="search-cities" className="label" htmlFor="city">
                 City in Region
@@ -494,6 +615,23 @@ export default function SearchBox({
             </button>
           </div>
 
+          <div className="column mt-5 is-full campgroundResults">
+            {campResults[0] != "No Campgrounds Found" ? (
+              <div className="campgroundresultsHeader">
+                <p>Results:</p>
+              </div>
+            ) : (
+              <div className="campgroundresultsHeader">
+                <p>No Campground's Found, Please Search Again.</p>
+              </div>
+            )}
+            <CampgroundResults
+              campResults={campResults}
+              setViewport={setViewport}
+              paginationInfo={paginationInfo}
+            />
+          </div>
+
           <div className="pageButtons">
             {paginationInfo[0].hasPreviousPage ? (
               <button
@@ -509,7 +647,7 @@ export default function SearchBox({
                   });
                 }}
               >
-                Previous
+                Previous Listings
               </button>
             ) : null}
 
@@ -527,7 +665,7 @@ export default function SearchBox({
                   });
                 }}
               >
-                Next
+                Next Listings
               </button>
             ) : null}
           </div>

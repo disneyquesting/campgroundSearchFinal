@@ -14,7 +14,6 @@ export default function campgroundResults({
     });
   };
   campResults.sort();
-  console.log("results: ", campResults);
   return (
     <>
       {campResults.map((campground, index) => {

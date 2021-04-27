@@ -16,8 +16,106 @@ export default function CampList({
   graphCampgrounds,
   cities,
   campgroundsbycity,
+  endCursor,
 }) {
-  const [campResults, setcampResults] = useState(["No Campgrounds Found"]);
+  // const DATA_SET_TWO = gql`
+  //   query allCamps($endcursor: String) {
+  //     features(first: 300) {
+  //       nodes {
+  //         label: name
+  //         value: name
+  //       }
+  //     }
+  //     regions(first: 300) {
+  //       nodes {
+  //         id
+  //         name
+  //         regioncoord {
+  //           latitude
+  //           longitude
+  //         }
+  //       }
+  //     }
+  //     ownerships(first: 300) {
+  //       nodes {
+  //         id
+  //         name
+  //       }
+  //     }
+  //     campgrounds(first: 100, after: $endcursor) {
+  //       pageInfo {
+  //         endCursor
+  //         hasNextPage
+  //         hasPreviousPage
+  //         startCursor
+  //       }
+  //       edges {
+  //         cursor
+  //         node {
+  //           acfDetails {
+  //             additionalNotes
+  //             address
+  //             city
+  //             closeDate
+  //             description
+  //             eMailAddress
+  //             fieldGroupName
+  //             latitude
+  //             longitude
+  //             maxAmps
+  //             maximumRvLength
+  //             numberOfSites
+  //             openDate
+  //             phoneNumber
+  //             picture {
+  //               altText
+  //               mediaItemUrl
+  //             }
+  //             state
+  //             website
+  //             zipCode
+  //           }
+  //           id
+  //           title
+  //           features {
+  //             nodes {
+  //               name
+  //             }
+  //           }
+  //           regions {
+  //             nodes {
+  //               name
+  //             }
+  //           }
+  //           ownerships {
+  //             nodes {
+  //               name
+  //             }
+  //           }
+  //           title
+  //           uri
+  //           id
+  //           link
+  //         }
+  //       }
+  //     }
+  //   }
+  // `;
+
+  // const {
+  //   loading: citylistLoading,
+  //   error: citylistError,
+  //   data: allData,
+  // } = useQuery(DATA_SET_TWO, {
+  //   variables: {
+  //     endcursor: endCursor,
+  //   },
+  // });
+
+  // let dataset2 = allData;
+
+  // console.log("not enougH: ", dataset2);
+  const [campResults, setcampResults] = useState(["No Results Found"]);
 
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
@@ -48,7 +146,6 @@ export default function CampList({
             features={features}
             camptypes={camptypes}
             zipcodes={zipcodes}
-            graphCampgrounds={graphCampgrounds}
             cities={cities}
             campgroundsbycity={campgroundsbycity}
             viewport={viewport}
@@ -58,22 +155,6 @@ export default function CampList({
             setpaginationInfo={setpaginationInfo}
             paginationInfo={paginationInfo}
           />
-          <div className="column mt-5 is-full campgroundResults">
-            {campResults[0] != "No Campgrounds Found" ? (
-              <div className="campgroundresultsHeader">
-                <p>Results:</p>
-              </div>
-            ) : (
-              <div className="campgroundresultsHeader">
-                <p>No Campground's Found, Please Search Again.</p>
-              </div>
-            )}
-            <CampgroundResults
-              campResults={campResults}
-              setViewport={setViewport}
-              paginationInfo={paginationInfo}
-            />
-          </div>
         </div>
 
         <div className="column is-centered mr-5 mapColumn">
@@ -91,7 +172,7 @@ export default function CampList({
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
-      query MyQuery {
+      query allCamps {
         features(first: 300) {
           nodes {
             label: name
@@ -114,8 +195,15 @@ export async function getStaticProps() {
             name
           }
         }
-        campgrounds(first: 150) {
+        campgrounds(first: 200) {
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
           edges {
+            cursor
             node {
               acfDetails {
                 additionalNotes
@@ -157,7 +245,10 @@ export async function getStaticProps() {
                   name
                 }
               }
+              title
               uri
+              id
+              link
             }
           }
         }
@@ -165,8 +256,94 @@ export async function getStaticProps() {
     `,
   });
 
-  const { features } = data;
+  // const { dataset2 } = await client.query({
+  //   query: gql`
+  //     query allCamps($endcursor: String) {
+  //       features(first: 300) {
+  //         nodes {
+  //           label: name
+  //           value: name
+  //         }
+  //       }
+  //       regions(first: 300) {
+  //         nodes {
+  //           id
+  //           name
+  //           regioncoord {
+  //             latitude
+  //             longitude
+  //           }
+  //         }
+  //       }
+  //       ownerships(first: 300) {
+  //         nodes {
+  //           id
+  //           name
+  //         }
+  //       }
+  //       campgrounds(first: 100, after: $endcursor) {
+  //         pageInfo {
+  //           endCursor
+  //           hasNextPage
+  //           hasPreviousPage
+  //           startCursor
+  //         }
+  //         edges {
+  //           cursor
+  //           node {
+  //             acfDetails {
+  //               additionalNotes
+  //               address
+  //               city
+  //               closeDate
+  //               description
+  //               eMailAddress
+  //               fieldGroupName
+  //               latitude
+  //               longitude
+  //               maxAmps
+  //               maximumRvLength
+  //               numberOfSites
+  //               openDate
+  //               phoneNumber
+  //               picture {
+  //                 altText
+  //                 mediaItemUrl
+  //               }
+  //               state
+  //               website
+  //               zipCode
+  //             }
+  //             id
+  //             title
+  //             features {
+  //               nodes {
+  //                 name
+  //               }
+  //             }
+  //             regions {
+  //               nodes {
+  //                 name
+  //               }
+  //             }
+  //             ownerships {
+  //               nodes {
+  //                 name
+  //               }
+  //             }
+  //             title
+  //             uri
+  //             id
+  //             link
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `,
+  //   variables: { endcursor: data.campgrounds.pageInfo.endCursor },
+  // });
 
+  const { features } = data;
   const cities = [];
 
   data.campgrounds.edges.map((city) => {
@@ -174,6 +351,12 @@ export async function getStaticProps() {
       city: city.node.acfDetails.city,
     });
   });
+
+  // dataset2.campgrounds.edges.map((city) => {
+  //   return cities.push({
+  //     city: city.node.acfDetails.city,
+  //   });
+  // });
 
   const object = [];
 
@@ -195,46 +378,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-// export async function getServerSideProps(query) {
-//   console.log("Query is: ", query.query);
-//   const info = query.query;
-//   // retreive the regions form prisma
-//   const regions = await getAllRegions();
-//   // retrieve all features in existance
-//   const features = await getAllFeatures();
-//   // retrieve all types of campgrounds
-//   const camptypes = await getAllTypes();
-//   // retrieve all zip codes of campgrounds
-//   const zipcodes = await getAllZipcodes();
-//   // get all cities of campgrounds
-//   const cities = await getAllCities();
-//   // retrieve all campgrounds
-//   const graphCampgrounds = await getAllCampgrounds();
-
-//   // retrieve all campgrounds by a city
-//   const campgroundsbycity = await getCampgroundsByCity(info.city);
-
-//   // create object for features
-//   const object = [];
-
-//   features.nodes.map((feature) => {
-//     return object.push({
-//       label: feature.label,
-//       value: feature.label,
-//     });
-//   });
-
-//   return {
-//     props: {
-//       regions,
-//       features,
-//       camptypes,
-//       zipcodes,
-//       object,
-//       graphCampgrounds,
-//       cities,
-//       campgroundsbycity,
-//     },
-//   };
-// }
