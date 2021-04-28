@@ -5,7 +5,6 @@ import client from "../lib/apollo/apollo-client";
 import SearchBox from "../components/searchbox";
 import Nav from "../components/nav";
 import Map from "../components/map";
-import CampgroundResults from "../components/campresults";
 
 export default function CampList({
   regions,
@@ -16,105 +15,9 @@ export default function CampList({
   graphCampgrounds,
   cities,
   campgroundsbycity,
-  endCursor,
+  allCampgrounds,
+  allCampInfo,
 }) {
-  // const DATA_SET_TWO = gql`
-  //   query allCamps($endcursor: String) {
-  //     features(first: 300) {
-  //       nodes {
-  //         label: name
-  //         value: name
-  //       }
-  //     }
-  //     regions(first: 300) {
-  //       nodes {
-  //         id
-  //         name
-  //         regioncoord {
-  //           latitude
-  //           longitude
-  //         }
-  //       }
-  //     }
-  //     ownerships(first: 300) {
-  //       nodes {
-  //         id
-  //         name
-  //       }
-  //     }
-  //     campgrounds(first: 100, after: $endcursor) {
-  //       pageInfo {
-  //         endCursor
-  //         hasNextPage
-  //         hasPreviousPage
-  //         startCursor
-  //       }
-  //       edges {
-  //         cursor
-  //         node {
-  //           acfDetails {
-  //             additionalNotes
-  //             address
-  //             city
-  //             closeDate
-  //             description
-  //             eMailAddress
-  //             fieldGroupName
-  //             latitude
-  //             longitude
-  //             maxAmps
-  //             maximumRvLength
-  //             numberOfSites
-  //             openDate
-  //             phoneNumber
-  //             picture {
-  //               altText
-  //               mediaItemUrl
-  //             }
-  //             state
-  //             website
-  //             zipCode
-  //           }
-  //           id
-  //           title
-  //           features {
-  //             nodes {
-  //               name
-  //             }
-  //           }
-  //           regions {
-  //             nodes {
-  //               name
-  //             }
-  //           }
-  //           ownerships {
-  //             nodes {
-  //               name
-  //             }
-  //           }
-  //           title
-  //           uri
-  //           id
-  //           link
-  //         }
-  //       }
-  //     }
-  //   }
-  // `;
-
-  // const {
-  //   loading: citylistLoading,
-  //   error: citylistError,
-  //   data: allData,
-  // } = useQuery(DATA_SET_TWO, {
-  //   variables: {
-  //     endcursor: endCursor,
-  //   },
-  // });
-
-  // let dataset2 = allData;
-
-  // console.log("not enougH: ", dataset2);
   const [campResults, setcampResults] = useState(["No Results Found"]);
 
   const [viewport, setViewport] = useState({
@@ -173,13 +76,13 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query allCamps {
-        features(first: 300) {
+        features(first: 100) {
           nodes {
             label: name
             value: name
           }
         }
-        regions(first: 300) {
+        regions(first: 100) {
           nodes {
             id
             name
@@ -189,13 +92,13 @@ export async function getStaticProps() {
             }
           }
         }
-        ownerships(first: 300) {
+        ownerships(first: 100) {
           nodes {
             id
             name
           }
         }
-        campgrounds(first: 200) {
+        campgrounds(first: 100) {
           pageInfo {
             endCursor
             hasNextPage
@@ -256,92 +159,70 @@ export async function getStaticProps() {
     `,
   });
 
-  // const { dataset2 } = await client.query({
-  //   query: gql`
-  //     query allCamps($endcursor: String) {
-  //       features(first: 300) {
-  //         nodes {
-  //           label: name
-  //           value: name
-  //         }
-  //       }
-  //       regions(first: 300) {
-  //         nodes {
-  //           id
-  //           name
-  //           regioncoord {
-  //             latitude
-  //             longitude
-  //           }
-  //         }
-  //       }
-  //       ownerships(first: 300) {
-  //         nodes {
-  //           id
-  //           name
-  //         }
-  //       }
-  //       campgrounds(first: 100, after: $endcursor) {
-  //         pageInfo {
-  //           endCursor
-  //           hasNextPage
-  //           hasPreviousPage
-  //           startCursor
-  //         }
-  //         edges {
-  //           cursor
-  //           node {
-  //             acfDetails {
-  //               additionalNotes
-  //               address
-  //               city
-  //               closeDate
-  //               description
-  //               eMailAddress
-  //               fieldGroupName
-  //               latitude
-  //               longitude
-  //               maxAmps
-  //               maximumRvLength
-  //               numberOfSites
-  //               openDate
-  //               phoneNumber
-  //               picture {
-  //                 altText
-  //                 mediaItemUrl
-  //               }
-  //               state
-  //               website
-  //               zipCode
-  //             }
-  //             id
-  //             title
-  //             features {
-  //               nodes {
-  //                 name
-  //               }
-  //             }
-  //             regions {
-  //               nodes {
-  //                 name
-  //               }
-  //             }
-  //             ownerships {
-  //               nodes {
-  //                 name
-  //               }
-  //             }
-  //             title
-  //             uri
-  //             id
-  //             link
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `,
-  //   variables: { endcursor: data.campgrounds.pageInfo.endCursor },
-  // });
+  const { data: dataset2 } = await client.query({
+    query: gql`
+      query allCamps($endcursor: String) {
+        campgrounds(first: 100, after: $endcursor) {
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
+          edges {
+            cursor
+            node {
+              acfDetails {
+                additionalNotes
+                address
+                city
+                closeDate
+                description
+                eMailAddress
+                fieldGroupName
+                latitude
+                longitude
+                maxAmps
+                maximumRvLength
+                numberOfSites
+                openDate
+                phoneNumber
+                picture {
+                  altText
+                  mediaItemUrl
+                }
+                state
+                website
+                zipCode
+              }
+              id
+              title
+              features {
+                nodes {
+                  name
+                }
+              }
+              regions {
+                nodes {
+                  name
+                }
+              }
+              ownerships {
+                nodes {
+                  name
+                }
+              }
+              title
+              uri
+              id
+              link
+            }
+          }
+        }
+      }
+    `,
+    variables: { endcursor: data.campgrounds.pageInfo.endCursor },
+  });
 
   const { features } = data;
   const cities = [];
@@ -352,11 +233,11 @@ export async function getStaticProps() {
     });
   });
 
-  // dataset2.campgrounds.edges.map((city) => {
-  //   return cities.push({
-  //     city: city.node.acfDetails.city,
-  //   });
-  // });
+  dataset2.campgrounds.edges.map((city) => {
+    return cities.push({
+      city: city.node.acfDetails.city,
+    });
+  });
 
   const object = [];
 
@@ -367,13 +248,15 @@ export async function getStaticProps() {
     });
   });
 
+  const dataset3 = data.campgrounds.edges.concat(dataset2.campgrounds.edges);
+
   return {
     props: {
       allCampInfo: data,
       regions: data.regions,
       camptypes: data.ownerships,
       object,
-      graphCampgrounds: data.campgrounds.edges,
+      graphCampgrounds: dataset3,
       cities,
     },
   };
