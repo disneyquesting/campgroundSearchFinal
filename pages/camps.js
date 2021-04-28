@@ -61,6 +61,7 @@ export default function CampList({
         </div>
 
         <div className="column is-centered mr-5 mapColumn">
+          <a name="map"></a>
           <Map
             campgrounds={graphCampgrounds}
             viewport={viewport}

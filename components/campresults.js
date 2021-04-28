@@ -25,14 +25,16 @@ export default function campgroundResults({
                   <h2>{campground.name}</h2>
                 </a>
                 <p>{campground.city}</p>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    handleClick(campground.latitude, campground.longitude);
-                  }}
-                >
-                  View on Map
-                </button>
+                <a href="#map">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      handleClick(campground.latitude, campground.longitude);
+                    }}
+                  >
+                    View on Map
+                  </button>
+                </a>
               </div>
             ) : (
               <h2>{campground.name}</h2>

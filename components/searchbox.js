@@ -613,8 +613,12 @@ export default function SearchBox({
           )}
 
           <div className="field">
-            <button type="button" className="button" onClick={submitForm}>
-              Search Campgrounds
+            <button
+              className="is-capitalized button"
+              type="button"
+              onClick={submitForm}
+            >
+              SEARCH CAMPGROUNDS
             </button>
           </div>
 
@@ -636,24 +640,6 @@ export default function SearchBox({
           </div>
 
           <div className="pageButtons">
-            {paginationInfo[0].hasPreviousPage ? (
-              <button
-                onClick={() => {
-                  fetchMore({
-                    variables: {
-                      first: null,
-                      after: null,
-                      last: 10,
-                      before: paginationInfo[0].startCursor || null,
-                    },
-                    updateQuery,
-                  });
-                }}
-              >
-                Previous Listings
-              </button>
-            ) : null}
-
             {paginationInfo[0].hasNextPage ? (
               <button
                 onClick={() => {
@@ -669,6 +655,24 @@ export default function SearchBox({
                 }}
               >
                 Next Listings
+              </button>
+            ) : null}
+
+            {paginationInfo[0].hasPreviousPage ? (
+              <button
+                onClick={() => {
+                  fetchMore({
+                    variables: {
+                      first: null,
+                      after: null,
+                      last: 10,
+                      before: paginationInfo[0].startCursor || null,
+                    },
+                    updateQuery,
+                  });
+                }}
+              >
+                Previous Listings
               </button>
             ) : null}
           </div>
