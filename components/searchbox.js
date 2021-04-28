@@ -488,7 +488,6 @@ export default function SearchBox({
   if (error) return `Error! ${error} Please try again.`;
 
   const handleSubmit = async (values) => {
-    console.log("values: ", values);
     const campfeatures = Array.isArray(values.campfeatures)
       ? values.campfeatures.map(({ value }) => value).join(",")
       : (values.campfeatures = "all");
@@ -502,6 +501,7 @@ export default function SearchBox({
       { shallow: true }
     ).then(async () => {
       refetch();
+      values.region == "all" ? setshowCity(false) : setshowCity(true);
     });
   };
 
@@ -511,6 +511,8 @@ export default function SearchBox({
     city: query.city || "all",
     // campfeatures: query.features || "all",
   };
+
+  const [showCity, setshowCity] = useState(false);
 
   return (
     <Formik
@@ -533,6 +535,7 @@ export default function SearchBox({
               onChange={(e) => {
                 setFieldValue("city", "all"),
                   setFieldValue("region", e.target.value);
+                setshowCity(false);
               }}
               value={values.region}
             >
@@ -582,7 +585,7 @@ export default function SearchBox({
             />
           </div>
 
-          {query.region != "all" ? (
+          {showCity == true ? (
             <div className="field">
               <label id="search-cities" className="label" htmlFor="city">
                 City in Region

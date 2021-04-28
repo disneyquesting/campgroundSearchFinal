@@ -8,8 +8,6 @@ import ReactMapGL, {
   GeolocateControl,
   LinearInterpolator,
 } from "react-map-gl";
-import { ViewportContext } from "../lib/state";
-import styles from "./map.module.sass";
 import MapCard from "../components/mapcard";
 
 const geolocateControlStyle = {
