@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function campgroundResults({
   campgroundinfo,
@@ -8,8 +8,8 @@ export default function campgroundResults({
 }) {
   const handleClick = (latitude, longitude) => {
     setViewport({
-      latitude: latitude,
-      longitude: longitude,
+      latitude,
+      longitude,
       zoom: 13,
     });
   };
@@ -28,7 +28,7 @@ export default function campgroundResults({
                 <a href="#map">
                   <button
                     type="button"
-                    onClick={(e) => {
+                    onClick={e => {
                       handleClick(campground.latitude, campground.longitude);
                     }}
                   >

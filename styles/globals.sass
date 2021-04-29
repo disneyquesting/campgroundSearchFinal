@@ -1,5 +1,5 @@
 /* color inits */
-$sand:  #f4e496
+$sand: #f4e496
 $lightsand: #d7dcc6
 $transparentWhite: #d3beb3
 $nhblue: #003e7e
@@ -8,8 +8,9 @@ $green: #4b8856
 /* navbar */
 $navbar-background-color: white
 $navbar-dropdown-arrow: $nhblue
+$navbar-item-hover-color: #e9c51d
 $navbar-item-color: $nhblue
-$navbar-item-hover-color: yellow
+$navbar-dropdown-item-hover-color: #e9c51d
 $navbar-item-hover-background-color: transparent
 $navbar-height: 4.5rem
 $navbar-burger-color: black
@@ -28,7 +29,6 @@ $button-focus-color: yellow
 /* navbar */
 .navbar
     border-bottom: 2px solid $green
-    
 
 .navbar-burger
     height: unset
@@ -88,18 +88,18 @@ $button-focus-color: yellow
         border: unset
 
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip
-    border-left-color:#46624b
+    border-left-color: #46624b
 
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip
-    border-left-color:#46624b
+    border-left-color: #46624b
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip
-    border-left-color:#46624b
+    border-left-color: #46624b
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip
-    border-left-color:#46624b
+    border-left-color: #46624b
 
-.mapboxgl-popup-content 
+.mapboxgl-popup-content
     color: #F3F3DD
     background-color: #46624b
     border-color: #354b39
@@ -141,7 +141,7 @@ $button-focus-color: yellow
     &:hover
         opacity: .8
     @media screen and (max-width: 768px)
- 
+
 .cardTitle
     cursor: pointer
     opacity: 1
@@ -187,7 +187,8 @@ $button-focus-color: yellow
 /* campground results */
 
 .pageButtons button
-    font-size: 20px
+    font-size: 15px
+    text-transform: uppercase
     margin-top: 15px
     margin-right: 5px
 
@@ -201,24 +202,27 @@ $button-focus-color: yellow
 .buttonCard
     margin-bottom: 10px
     border-bottom: 1px solid black
-
-.buttonCard a 
-    color: blue
-    font-size: 10px
+    a
+        color: blue
+    h2
+        font-size: 15px
+    h2:hover
+        text-decoration: underline
 
 .searchResults
     font-style: italic
     font-size: 10px
     text-align: center
-    a   
+    a
         color: $nhblue
         font-size: 12px
     p
         color: black
+        font-size: 14px
     button
         padding: 10px
-        font-size: 15px
+        font-size: 12px
         text-transform: uppercase
         font-family: Arial, Helvetica, sans-serif
-        margin-top: 15px
-        margin-bottom: 15px
+        margin-top: 10px
+        margin-bottom: 10px

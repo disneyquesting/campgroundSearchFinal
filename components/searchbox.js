@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { Form, Formik, Field, FieldProps } from "formik";
-import Router, { useRouter } from "next/router";
-import { useQuery, useLazyQuery, gql } from "@apollo/client";
-import MultiSelect from "react-multi-select-component";
-import { useState, useEffect } from "react";
-import SelectField from "./CustomSelect";
-import CampgroundResults from "../components/campresults";
+import Link from 'next/link';
+import { Form, Formik, Field, FieldProps } from 'formik';
+import Router, { useRouter } from 'next/router';
+import { useQuery, useLazyQuery, gql } from '@apollo/client';
+import MultiSelect from 'react-multi-select-component';
+import { useState, useEffect } from 'react';
+import SelectField from './CustomSelect';
+import CampgroundResults from './campresults';
 
 export default function SearchBox({
   regions,
@@ -20,7 +20,7 @@ export default function SearchBox({
 }) {
   const router = useRouter();
   const { query } = router;
-  const [regionField, setregionField] = useState("all");
+  const [regionField, setregionField] = useState('all');
 
   const updateQuery = (previousResult, { fetchMoreResult }) => {
     if (fetchMoreResult.campgrounds.nodes.length > 1) {
@@ -35,8 +35,8 @@ export default function SearchBox({
 
       setcampResults(initialResultValues);
       fetchMoreResult.campgrounds.nodes[0]
-        ? fetchMoreResult.campgrounds.nodes.map((campground) => {
-            setcampResults((prevState) => [
+        ? fetchMoreResult.campgrounds.nodes.map(campground => {
+            setcampResults(prevState => [
               ...prevState,
               {
                 name: campground.title,
@@ -51,7 +51,7 @@ export default function SearchBox({
               },
             ]);
           })
-        : setcampResults(["No Campgrounds Found"]);
+        : setcampResults(['No Campgrounds Found']);
     } else {
       setpaginationInfo([
         {
@@ -64,8 +64,8 @@ export default function SearchBox({
 
       setcampResults(initialResultValues);
       previousResult.campgrounds.nodes[0]
-        ? previousResult.campgrounds.nodes.map((campground) => {
-            setcampResults((prevState) => [
+        ? previousResult.campgrounds.nodes.map(campground => {
+            setcampResults(prevState => [
               ...prevState,
               {
                 name: campground.title,
@@ -80,7 +80,7 @@ export default function SearchBox({
               },
             ]);
           })
-        : setcampResults(["No Campgrounds Found"]);
+        : setcampResults(['No Campgrounds Found']);
     }
     return {};
   };
@@ -318,7 +318,7 @@ export default function SearchBox({
 
   const [citylist, setCityList] = useState([]);
 
-  let vartest = 1;
+  const vartest = 1;
 
   let uniqueData = {};
 
@@ -333,7 +333,7 @@ export default function SearchBox({
       variables: {
         string: query.region,
       },
-      onCompleted: (info) => {
+      onCompleted: info => {
         setpaginationInfo([
           {
             endCursor: info.regions.pageInfo.endCursor,
@@ -363,8 +363,8 @@ export default function SearchBox({
 
         setCityList(initialCityList);
         info.regions.nodes[0]
-          ? info.regions.nodes[0].campgrounds.edges.map((cities) => {
-              setCityList((prevState) => [
+          ? info.regions.nodes[0].campgrounds.edges.map(cities => {
+              setCityList(prevState => [
                 ...prevState,
                 cities.node.acfDetails.city,
               ]);
@@ -372,10 +372,10 @@ export default function SearchBox({
           : setCityList(initialCityList);
       },
     },
-    (uniqueData = [...new Set(citylist.map((town) => town))])
+    (uniqueData = [...new Set(citylist.map(town => town))])
   );
 
-  //returns coords of the city selected
+  // returns coords of the city selected
   const {
     loading: cityDataLoading,
     error: cityDataError,
@@ -384,7 +384,7 @@ export default function SearchBox({
     variables: {
       string: query.city,
     },
-    onCompleted: (info) => {
+    onCompleted: info => {
       setpaginationInfo([
         {
           endCursor: info.campgrounds.pageInfo.endCursor,
@@ -417,8 +417,8 @@ export default function SearchBox({
 
       setcampResults(initialResultValues);
       info.campgrounds.nodes[0]
-        ? info.campgrounds.nodes.map((campground) => {
-            setcampResults((prevState) => [
+        ? info.campgrounds.nodes.map(campground => {
+            setcampResults(prevState => [
               ...prevState,
               {
                 name: campground.title,
@@ -432,7 +432,7 @@ export default function SearchBox({
               },
             ]);
           })
-        : setcampResults(["No Campgrounds Found"]);
+        : setcampResults(['No Campgrounds Found']);
     },
   });
 
@@ -440,20 +440,20 @@ export default function SearchBox({
   let features;
   const initialResultValues = [];
   const { loading, error, data, refetch, fetchMore } = useQuery(
-    query.city == "all" ? GET_SEARCH_RESULTS : GET_SEARCH_RESULTS_WITH_CITY,
+    query.city == 'all' ? GET_SEARCH_RESULTS : GET_SEARCH_RESULTS_WITH_CITY,
     {
       variables: {
         features:
-          query.campfeatures != "all" ? query.campfeatures?.split(",") : [""],
-        regions: query.region != "all" ? query.region : [""],
-        ownerships: query.camptype != "all" ? query.camptype : [""],
-        city: query.city != "all" ? query.city : ["all"],
+          query.campfeatures != 'all' ? query.campfeatures?.split(',') : [''],
+        regions: query.region != 'all' ? query.region : [''],
+        ownerships: query.camptype != 'all' ? query.camptype : [''],
+        city: query.city != 'all' ? query.city : ['all'],
         first: 10,
         last: null,
         before: null,
         after: null,
       },
-      onCompleted: (info) => {
+      onCompleted: info => {
         setpaginationInfo([
           {
             endCursor: info.campgrounds.pageInfo.endCursor,
@@ -464,8 +464,8 @@ export default function SearchBox({
         ]);
         setcampResults(initialResultValues);
         info.campgrounds.nodes[0]
-          ? info.campgrounds.nodes.map((campground) => {
-              setcampResults((prevState) => [
+          ? info.campgrounds.nodes.map(campground => {
+              setcampResults(prevState => [
                 ...prevState,
                 {
                   name: campground.title,
@@ -480,35 +480,35 @@ export default function SearchBox({
                 },
               ]);
             })
-          : setcampResults(["No Campgrounds Found"]);
+          : setcampResults(['No Campgrounds Found']);
       },
     }
   );
 
   if (error) return `Error! ${error} Please try again.`;
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async values => {
     const campfeatures = Array.isArray(values.campfeatures)
-      ? values.campfeatures.map(({ value }) => value).join(",")
-      : (values.campfeatures = "all");
+      ? values.campfeatures.map(({ value }) => value).join(',')
+      : (values.campfeatures = 'all');
 
     Router.push(
       {
-        pathname: "/camps",
+        pathname: '/camps',
         query: { ...values, campfeatures },
       },
       undefined,
       { shallow: true }
     ).then(async () => {
       refetch();
-      values.region == "all" ? setshowCity(false) : setshowCity(true);
+      values.region == 'all' ? setshowCity(false) : setshowCity(true);
     });
   };
 
   const initialValues = {
-    region: query.region || "all",
-    camptype: query.camptype || "all",
-    city: query.city || "all",
+    region: query.region || 'all',
+    camptype: query.camptype || 'all',
+    city: query.city || 'all',
     // campfeatures: query.features || "all",
   };
 
@@ -517,7 +517,7 @@ export default function SearchBox({
   return (
     <Formik
       initialValues={initialValues}
-      enableReinitialize={true}
+      enableReinitialize
       onSubmit={handleSubmit}
     >
       {({ values, submitForm, setFieldValue }) => (
@@ -532,15 +532,15 @@ export default function SearchBox({
               labelid="search-region"
               label="Region"
               className="input"
-              onChange={(e) => {
-                setFieldValue("city", "all"),
-                  setFieldValue("region", e.target.value);
+              onChange={e => {
+                setFieldValue('city', 'all'),
+                  setFieldValue('region', e.target.value);
                 setshowCity(false);
               }}
               value={values.region}
             >
               <option value="all">All</option>
-              {regions.nodes.map((region) => {
+              {regions.nodes.map(region => {
                 return (
                   <option key={region.id} value={region.name}>
                     {region.name}
@@ -562,7 +562,7 @@ export default function SearchBox({
               className="input"
             >
               <option value="all">All</option>
-              {camptypes.nodes.map((camp) => {
+              {camptypes.nodes.map(camp => {
                 return (
                   <option key={camp.id} value={camp.name}>
                     {camp.name}
@@ -599,7 +599,7 @@ export default function SearchBox({
               >
                 <option value="all">All</option>
                 {uniqueData.sort()}
-                {uniqueData.map((town) => {
+                {uniqueData.map(town => {
                   return (
                     <option key={town} value={town}>
                       {town}
@@ -623,7 +623,7 @@ export default function SearchBox({
           </div>
 
           <div className="column mt-5 is-full campgroundResults">
-            {campResults[0] != "No Campgrounds Found" ? (
+            {campResults[0] != 'No Campgrounds Found' ? (
               <div className="campgroundresultsHeader">
                 <p>Results:</p>
               </div>
