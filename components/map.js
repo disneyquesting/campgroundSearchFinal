@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import ReactMapGL, {
   FlyToInterpolator,
   StaticMap,
@@ -9,7 +9,7 @@ import ReactMapGL, {
   LinearInterpolator,
 } from "react-map-gl";
 import MapCard from "../components/mapcard";
-import useOnclickOutside from "react-cool-onclickoutside";
+import { useClickAway } from "react-use";
 
 const geolocateControlStyle = {
   left: 50,
@@ -67,6 +67,16 @@ export default function Map({
 
   const isBreakpoint = useMediaQuery(768);
 
+  const ref = useRef(null);
+  useClickAway(ref, () => {
+    togglePopup(false);
+    setViewport({
+      ...viewport,
+    });
+  });
+
+  const [showPopup, togglePopup] = useState(false);
+
   return (
     <ReactMapGL
       mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
@@ -96,16 +106,18 @@ export default function Map({
                 offsetLeft={-17.5}
                 offsetTop={-35}
                 onClick={() => {
+                  togglePopup(true);
                   setSelectedLocation(node);
                   setNewView(node.latitude, node.longitude);
                 }}
               >
                 <a
                   onKeyDown={() => {
-                    setSelectedLocation(node);
+                    togglePopup(true);
                   }}
-                  onMouseEnter={() => {
+                  onMouseOver={() => {
                     setSelectedLocation(node);
+                    isBreakpoint ? null : togglePopup(true);
                   }}
                   role="button"
                   tabIndex={0}
@@ -116,54 +128,59 @@ export default function Map({
                 </a>
               </Marker>
               {// mobile map
-              isBreakpoint ? (
-                selectLocation.title === node.name ? (
-                  <Popup
-                    anchor={"right"}
-                    offsetLeft={100}
-                    className={"cardPop"}
-                    onClose={() => {
-                      setSelectedLocation({});
-                      setViewport({
-                        ...viewport,
-                        zoom: 9,
-                      });
-                    }}
-                    closeOnClick={false}
-                    longitude={
-                      Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
-                    }
-                    latitude={parseFloat(node.latitude.toFixed(4))}
-                  >
-                    <MapCard campground={selectLocation} />
-                  </Popup>
-                ) : (
-                  false
-                )
-              ) : // desktop map
-              selectLocation.title === node.name ? (
-                <Popup
-                  anchor={"right"}
-                  offsetLeft={-50}
-                  className={"cardPop"}
-                  onClose={() => {
-                    setSelectedLocation({});
-                    setViewport({
-                      ...viewport,
-                      zoom: 9,
-                    });
-                  }}
-                  closeOnClick={false}
-                  longitude={
-                    Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
-                  }
-                  latitude={parseFloat(node.latitude.toFixed(4))}
-                >
-                  <MapCard campground={selectLocation} />
-                </Popup>
-              ) : (
-                false
-              )}
+              isBreakpoint
+                ? selectLocation.title === node.name
+                  ? showPopup && (
+                      <Popup
+                        anchor={"right"}
+                        offsetLeft={100}
+                        dynamicPosition={false}
+                        className={"cardPop"}
+                        onClose={() => {
+                          setSelectedLocation({});
+                          setViewport({
+                            ...viewport,
+                            zoom: 8.5,
+                          });
+                        }}
+                        closeOnClick={false}
+                        longitude={
+                          Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
+                        }
+                        latitude={parseFloat(node.latitude.toFixed(4))}
+                      >
+                        <div ref={ref}>
+                          <MapCard campground={selectLocation} />
+                        </div>
+                      </Popup>
+                    )
+                  : false
+                : // desktop map
+                selectLocation.title === node.name
+                ? showPopup && (
+                    <Popup
+                      anchor={"right"}
+                      offsetLeft={-50}
+                      className={"cardPop"}
+                      closeOnClick={false}
+                      onClose={() => {
+                        setSelectedLocation({});
+                        setViewport({
+                          ...viewport,
+                          zoom: 8.5,
+                        });
+                      }}
+                      longitude={
+                        Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
+                      }
+                      latitude={parseFloat(node.latitude.toFixed(4))}
+                    >
+                      <div ref={ref}>
+                        <MapCard campground={selectLocation} />
+                      </div>
+                    </Popup>
+                  )
+                : false}
             </div>
           );
         })
