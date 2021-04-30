@@ -551,7 +551,10 @@ export default function SearchBox({
     ).then(async () => {
       refetch();
       values.region == "all" ? setshowCity(false) : setshowCity(true);
-      console.log(campResults);
+      setViewport({
+        ...viewport,
+        zoom: 8.5,
+      });
     });
   };
 
