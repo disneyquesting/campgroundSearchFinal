@@ -371,15 +371,23 @@ export default function SearchBox({
           ? parseFloat(info.regions.nodes[0].regioncoord.longitude.toFixed(4)) *
             -1
           : -71.407367;
-
-        setViewport({
-          ...viewport,
-          latitude: info.regions.nodes[0] ? lat : 43.986886,
-          longitude: info.regions.nodes[0] ? long : -71.407367,
-          bearing: 0,
-          pitch: 20,
-          zoom: 8.5,
-        });
+        query.region != "all"
+          ? setViewport({
+              ...viewport,
+              latitude: info.regions.nodes[0] ? lat : 43.986886,
+              longitude: info.regions.nodes[0] ? long : -71.407367,
+              bearing: 0,
+              pitch: 20,
+              zoom: 8.5,
+            })
+          : setViewport({
+              ...viewport,
+              latitude: info.regions.nodes[0] ? lat : 43.986886,
+              longitude: info.regions.nodes[0] ? long : -71.407367,
+              bearing: 0,
+              pitch: 20,
+              zoom: 7.5,
+            });
 
         setCityList(initialCityList);
         info.regions.nodes[0]
@@ -543,6 +551,7 @@ export default function SearchBox({
     ).then(async () => {
       refetch();
       values.region == "all" ? setshowCity(false) : setshowCity(true);
+      console.log(campResults);
     });
   };
 
@@ -697,7 +706,9 @@ export default function SearchBox({
               >
                 Next Listings
               </button>
-            ) : null}
+            ) : (
+              <></>
+            )}
 
             {paginationInfo[0].hasPreviousPage ? (
               <button
@@ -715,7 +726,9 @@ export default function SearchBox({
               >
                 Previous Listings
               </button>
-            ) : null}
+            ) : (
+              <></>
+            )}
           </div>
         </Form>
       )}

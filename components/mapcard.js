@@ -2,7 +2,6 @@ import Link from "next/link";
 import styles from "./mapcard.module.sass";
 
 export default function MapCard({ campground }) {
-  console.log(campground);
   return (
     <div className="cardInitDiv">
       <a

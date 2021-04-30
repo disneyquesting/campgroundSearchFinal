@@ -15,15 +15,13 @@ export default function CampList({
   graphCampgrounds,
   cities,
   campgroundsbycity,
-  allCampgrounds,
-  allCampInfo,
 }) {
-  const [campResults, setcampResults] = useState(["No Results Found"]);
+  const [campResults, setcampResults] = useState(["No Campgrounds Found"]);
 
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
     longitude: 71.5724,
-    zoom: 6,
+    zoom: 5,
   });
 
   const [paginationInfo, setpaginationInfo] = useState([
@@ -254,7 +252,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      allCampInfo: data,
       regions: data.regions,
       camptypes: data.ownerships,
       object,

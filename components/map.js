@@ -9,6 +9,7 @@ import ReactMapGL, {
   LinearInterpolator,
 } from "react-map-gl";
 import MapCard from "../components/mapcard";
+import useOnclickOutside from "react-cool-onclickoutside";
 
 const geolocateControlStyle = {
   left: 50,
@@ -85,64 +86,41 @@ export default function Map({
         positionOptions={{ enableHighAccuracy: true }}
         trackUserLocation={true}
       />
-      {campResults.length > 1
-        ? campResults.map((node) => {
-            return (
-              <div key={node.name}>
-                <Marker
-                  longitude={
-                    Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
-                  }
-                  latitude={parseFloat(node.latitude.toFixed(4))}
-                  offsetLeft={-17.5}
-                  offsetTop={-35}
-                  onClick={() => {
+      {campResults[0] != "No Campgrounds Found" ? (
+        campResults.map((node) => {
+          return (
+            <div key={node.name}>
+              <Marker
+                longitude={Math.abs(parseFloat(node.longitude.toFixed(4))) * -1}
+                latitude={parseFloat(node.latitude.toFixed(4))}
+                offsetLeft={-17.5}
+                offsetTop={-35}
+                onClick={() => {
+                  setSelectedLocation(node);
+                  setNewView(node.latitude, node.longitude);
+                }}
+              >
+                <a
+                  onKeyDown={() => {
                     setSelectedLocation(node);
-                    setNewView(node.latitude, node.longitude);
                   }}
+                  onMouseEnter={() => {
+                    setSelectedLocation(node);
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <a
-                    onKeyDown={() => {
-                      setSelectedLocation(node);
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <span role="img" aria-label="push-pin">
-                      🏕️
-                    </span>
-                  </a>
-                </Marker>
-                {// mobile map
-                isBreakpoint ? (
-                  selectLocation.title === node.name ? (
-                    <Popup
-                      anchor={"right"}
-                      offsetLeft={100}
-                      className={"cardPop"}
-                      onClose={() => {
-                        setSelectedLocation({});
-                        setViewport({
-                          ...viewport,
-                          zoom: 9,
-                        });
-                      }}
-                      closeOnClick={false}
-                      longitude={
-                        Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
-                      }
-                      latitude={parseFloat(node.latitude.toFixed(4))}
-                    >
-                      <MapCard campground={selectLocation} />
-                    </Popup>
-                  ) : (
-                    false
-                  )
-                ) : // desktop map
+                  <span role="img" aria-label="push-pin">
+                    🏕️
+                  </span>
+                </a>
+              </Marker>
+              {// mobile map
+              isBreakpoint ? (
                 selectLocation.title === node.name ? (
                   <Popup
                     anchor={"right"}
-                    offsetLeft={-50}
+                    offsetLeft={100}
                     className={"cardPop"}
                     onClose={() => {
                       setSelectedLocation({});
@@ -161,98 +139,37 @@ export default function Map({
                   </Popup>
                 ) : (
                   false
-                )}
-              </div>
-            );
-          })
-        : campgrounds.map(({ node }) => {
-            return (
-              <div key={node.title}>
-                <Marker
-                  longitude={
-                    Math.abs(parseFloat(node.acfDetails.longitude.toFixed(4))) *
-                    -1
-                  }
-                  latitude={parseFloat(node.acfDetails.latitude.toFixed(4))}
-                  offsetLeft={-17.5}
-                  offsetTop={-35}
-                  onClick={() => {
-                    setSelectedLocation(node);
-                    setNewView(
-                      node.acfDetails.latitude,
-                      node.acfDetails.longitude
-                    );
+                )
+              ) : // desktop map
+              selectLocation.title === node.name ? (
+                <Popup
+                  anchor={"right"}
+                  offsetLeft={-50}
+                  className={"cardPop"}
+                  onClose={() => {
+                    setSelectedLocation({});
+                    setViewport({
+                      ...viewport,
+                      zoom: 9,
+                    });
                   }}
+                  closeOnClick={false}
+                  longitude={
+                    Math.abs(parseFloat(node.longitude.toFixed(4))) * -1
+                  }
+                  latitude={parseFloat(node.latitude.toFixed(4))}
                 >
-                  <a
-                    onKeyDown={() => {
-                      setSelectedLocation(node);
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <span role="img" aria-label="push-pin">
-                      🏕️
-                    </span>
-                  </a>
-                </Marker>
-                {// mobile map
-                isBreakpoint ? (
-                  selectLocation.title === node.title ? (
-                    <Popup
-                      anchor={"right"}
-                      offsetLeft={100}
-                      className={"cardPop"}
-                      onClose={() => {
-                        setSelectedLocation({});
-                        setViewport({
-                          ...viewport,
-                          zoom: 9,
-                        });
-                      }}
-                      closeOnClick={false}
-                      longitude={
-                        Math.abs(
-                          parseFloat(node.acfDetails.longitude.toFixed(4))
-                        ) * -1
-                      }
-                      latitude={parseFloat(node.acfDetails.latitude.toFixed(4))}
-                    >
-                      <MapCard campground={selectLocation} />
-                    </Popup>
-                  ) : (
-                    false
-                  )
-                ) : // desktop map
-                selectLocation.title === node.title ? (
-                  <Popup
-                    anchor={"right"}
-                    offsetLeft={-50}
-                    className={"cardPop"}
-                    onClose={() => {
-                      setSelectedLocation({});
-                      setViewport({
-                        ...viewport,
-                        zoom: 9,
-                      });
-                    }}
-                    closeOnClick={false}
-                    longitude={
-                      Math.abs(
-                        parseFloat(node.acfDetails.longitude.toFixed(4))
-                      ) * -1
-                    }
-                    latitude={parseFloat(node.acfDetails.latitude.toFixed(4))}
-                  >
-                    <MapCard campground={selectLocation} />
-                  </Popup>
-                ) : (
-                  false
-                )}
-              </div>
-            );
-          })}
-      }
+                  <MapCard campground={selectLocation} />
+                </Popup>
+              ) : (
+                false
+              )}
+            </div>
+          );
+        })
+      ) : (
+        <></>
+      )}
     </ReactMapGL>
   );
 }
