@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { useQuery, useLazyQuery, gql } from '@apollo/client';
-import Head from 'next/head';
-import client from '../lib/apollo/apollo-client';
-import SearchBox from '../components/searchbox';
-import Nav from '../components/nav';
-import Map from '../components/map';
+import { useState } from "react";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
+import Head from "next/head";
+import client from "../lib/apollo/apollo-client";
+import SearchBox from "../components/searchbox";
+import Nav from "../components/nav";
+import Map from "../components/map";
 
 export default function CampList({
   regions,
@@ -18,7 +18,7 @@ export default function CampList({
   allCampgrounds,
   allCampInfo,
 }) {
-  const [campResults, setcampResults] = useState(['No Results Found']);
+  const [campResults, setcampResults] = useState(["No Results Found"]);
 
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
@@ -28,10 +28,10 @@ export default function CampList({
 
   const [paginationInfo, setpaginationInfo] = useState([
     {
-      endCursor: '',
-      hasNextPage: '',
-      hasPreviousPage: '',
-      startCursor: '',
+      endCursor: "",
+      hasNextPage: "",
+      hasPreviousPage: "",
+      startCursor: "",
     },
   ]);
 
@@ -66,6 +66,7 @@ export default function CampList({
             campgrounds={graphCampgrounds}
             viewport={viewport}
             setViewport={setViewport}
+            campResults={campResults}
           />
         </div>
       </div>
@@ -228,13 +229,13 @@ export async function getStaticProps() {
   const { features } = data;
   const cities = [];
 
-  data.campgrounds.edges.map(city => {
+  data.campgrounds.edges.map((city) => {
     return cities.push({
       city: city.node.acfDetails.city,
     });
   });
 
-  dataset2.campgrounds.edges.map(city => {
+  dataset2.campgrounds.edges.map((city) => {
     return cities.push({
       city: city.node.acfDetails.city,
     });
@@ -242,7 +243,7 @@ export async function getStaticProps() {
 
   const object = [];
 
-  features.nodes.map(feature => {
+  features.nodes.map((feature) => {
     return object.push({
       label: feature.label,
       value: feature.label,

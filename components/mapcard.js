@@ -2,13 +2,15 @@ import Link from "next/link";
 import styles from "./mapcard.module.sass";
 
 export default function MapCard({ campground }) {
+  console.log(campground);
   return (
     <div className="cardInitDiv">
-      <Link
+      <a
         href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
+        target="_blank"
       >
         <div className="card-image has-text-centered">
-          {campground.acfDetails.picture ? (
+          {campground.acfDetails.picture.mediaItemUrl != null ? (
             <figure className="cardImage">
               <img
                 src={campground.acfDetails.picture.mediaItemUrl}
@@ -20,26 +22,23 @@ export default function MapCard({ campground }) {
             <div className="noImageCard"></div>
           )}
         </div>
-      </Link>
+      </a>
       <div className="m-2">
         <div className="media-content">
-          <Link
+          <a
             href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
+            target="_blank"
           >
             <div>
               <h2 className="title is-uppercase cardTitle has-text-centered">
                 {campground.title}
               </h2>
             </div>
-          </Link>
+          </a>
           <p className="subtitle is-6 has-text-weight-medium cardRegion has-text-centered">
-            {campground.regions.nodes.map((region) => {
-              return (
-                <h3 className="is-size-7 is-uppercase" key={region.id}>
-                  {region.name}
-                </h3>
-              );
-            })}
+            {campground.acfDetails.city
+              ? campground.acfDetails.city
+              : campground.city}
           </p>
         </div>
         <div className="pt-4 is-italic cardFeaturesDiv">
