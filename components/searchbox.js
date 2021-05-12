@@ -49,6 +49,8 @@ export default function SearchBox({
                 link: campground.link,
                 uri: campground.uri,
                 features: campground.features,
+                phone: campground.acfDetails.phoneNumber,
+                website: campground.acfDetails.website,
                 id: campground.id,
                 acfDetails: {
                   picture: {
@@ -88,6 +90,8 @@ export default function SearchBox({
                 link: campground.link,
                 uri: campground.uri,
                 features: campground.features,
+                phone: campground.acfDetails.phoneNumber,
+                website: campground.acfDetails.website,
                 id: campground.id,
                 acfDetails: {
                   picture: {
@@ -162,6 +166,7 @@ export default function SearchBox({
             latitude
             longitude
             numberOfSites
+            phoneNumber
             openDate
             website
             state
@@ -238,6 +243,7 @@ export default function SearchBox({
             latitude
             longitude
             numberOfSites
+            phoneNumber
             openDate
             website
             state
@@ -289,6 +295,7 @@ export default function SearchBox({
             latitude
             longitude
             numberOfSites
+            phoneNumber
             openDate
             website
             state
@@ -459,6 +466,8 @@ export default function SearchBox({
                 link: campground.link,
                 uri: campground.uri,
                 features: campground.features,
+                phone: campground.acfDetails.phoneNumber,
+                website: campground.acfDetails.website,
                 id: campground.id,
                 acfDetails: {
                   picture: {
@@ -517,6 +526,8 @@ export default function SearchBox({
                   link: campground.link,
                   uri: campground.uri,
                   features: campground.features,
+                  phone: campground.acfDetails.phoneNumber,
+                  website: campground.acfDetails.website,
                   id: campground.id,
                   acfDetails: {
                     picture: {
@@ -553,7 +564,7 @@ export default function SearchBox({
       values.region == "all" ? setshowCity(false) : setshowCity(true);
       setViewport({
         ...viewport,
-        zoom: 8.5,
+        zoom: 7.5,
       });
     });
   };
@@ -673,23 +684,6 @@ export default function SearchBox({
             >
               SEARCH CAMPGROUNDS
             </button>
-          </div>
-
-          <div className="column mt-5 is-full campgroundResults">
-            {campResults[0] != "No Campgrounds Found" ? (
-              <div className="campgroundresultsHeader">
-                <p>Results:</p>
-              </div>
-            ) : (
-              <div className="campgroundresultsHeader">
-                <p>No Campground's Found, Please Search Again.</p>
-              </div>
-            )}
-            <CampgroundResults
-              campResults={campResults}
-              setViewport={setViewport}
-              paginationInfo={paginationInfo}
-            />
           </div>
 
           <div className="pageButtons">

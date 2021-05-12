@@ -5,7 +5,7 @@ import client from "../lib/apollo/apollo-client";
 import SearchBox from "../components/searchbox";
 import Nav from "../components/nav";
 import Map from "../components/map";
-
+import CampgroundResults from "../components/campresults";
 export default function CampList({
   regions,
   features,
@@ -40,7 +40,16 @@ export default function CampList({
       </Head>
       <Nav />
       <div className="columns">
-        <div className="column is-centered m-5">
+        <div className="column is-half is-narrow is-centered mr-5 mapColumn mt-5 ml-5">
+          <a name="map" />
+          <Map
+            campgrounds={graphCampgrounds}
+            viewport={viewport}
+            setViewport={setViewport}
+            campResults={campResults}
+          />
+        </div>
+        <div className="column is-5 is-centered mt-5">
           <SearchBox
             selectObjects={object}
             regions={regions}
@@ -57,14 +66,22 @@ export default function CampList({
             paginationInfo={paginationInfo}
           />
         </div>
-
-        <div className="column is-centered mr-5 mapColumn">
-          <a name="map" />
-          <Map
-            campgrounds={graphCampgrounds}
-            viewport={viewport}
-            setViewport={setViewport}
+      </div>
+      <div className="columns">
+        <div className="column  is-centered m-5">
+          {campResults[0] != "No Campgrounds Found" ? (
+            <div className="campgroundresultsHeader">
+              <p>Results:</p>
+            </div>
+          ) : (
+            <div className="campgroundresultsHeader">
+              <p>No Campground's Found, Please Search Again.</p>
+            </div>
+          )}
+          <CampgroundResults
             campResults={campResults}
+            setViewport={setViewport}
+            paginationInfo={paginationInfo}
           />
         </div>
       </div>

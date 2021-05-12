@@ -87,8 +87,8 @@ export default function Map({
       eventRecognizerOptions={eventRecognizerOptions}
       className="mapBoxProper"
       center={(43.1939, 71.5724)}
-      width="100vw"
-      height="100%"
+      width={isBreakpoint ? "88vw" : "50vw"}
+      height={isBreakpoint ? "90%" : "100%"}
       minZoom={7}
     >
       <GeolocateControl
