@@ -68,7 +68,7 @@ export default function CampList({
         </div>
       </div>
       <div className="columns">
-        <div className="column  is-centered m-5">
+        <div className="column is-centered m-5">
           {campResults[0] != "No Campgrounds Found" ? (
             <div className="campgroundresultsHeader">
               <p>Results:</p>
