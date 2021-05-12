@@ -496,7 +496,7 @@ export default function SearchBox({
         regions: query.region != "all" ? query.region : [""],
         ownerships: query.camptype != "all" ? query.camptype : [""],
         city: query.city != "all" ? query.city : ["all"],
-        first: 10,
+        first: 50,
         last: null,
         before: null,
         after: null,
@@ -689,10 +689,11 @@ export default function SearchBox({
           <div className="pageButtons">
             {paginationInfo[0].hasNextPage ? (
               <button
+                className="button viewMoreButtons"
                 onClick={() => {
                   fetchMore({
                     variables: {
-                      first: 10,
+                      first: 50,
                       after: paginationInfo[0].endCursor || null,
                       last: null,
                       before: null,
@@ -709,12 +710,13 @@ export default function SearchBox({
 
             {paginationInfo[0].hasPreviousPage ? (
               <button
+                className="button viewMoreButtons"
                 onClick={() => {
                   fetchMore({
                     variables: {
                       first: null,
                       after: null,
-                      last: 10,
+                      last: 50,
                       before: paginationInfo[0].startCursor || null,
                     },
                     updateQuery,
