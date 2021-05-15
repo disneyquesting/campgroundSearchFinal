@@ -496,7 +496,7 @@ export default function SearchBox({
         regions: query.region != "all" ? query.region : [""],
         ownerships: query.camptype != "all" ? query.camptype : [""],
         city: query.city != "all" ? query.city : ["all"],
-        first: 50,
+        first: 70,
         last: null,
         before: null,
         after: null,
@@ -693,7 +693,7 @@ export default function SearchBox({
                 onClick={() => {
                   fetchMore({
                     variables: {
-                      first: 50,
+                      first: 70,
                       after: paginationInfo[0].endCursor || null,
                       last: null,
                       before: null,
