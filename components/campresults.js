@@ -5,6 +5,7 @@ export default function campgroundResults({
   campResults,
   setViewport,
   setcampResults,
+  allCampgrounds,
 }) {
   const handleClick = (latitude, longitude) => {
     setViewport({

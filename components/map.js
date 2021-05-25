@@ -7,12 +7,18 @@ import ReactMapGL, {
   Layer,
   GeolocateControl,
   LinearInterpolator,
+  NavigationControl,
 } from "react-map-gl";
 import MapCard from "../components/mapcard";
 import { useClickAway } from "react-use";
 
 const geolocateControlStyle = {
   left: 50,
+  top: 10,
+};
+
+const navControlStyle = {
+  right: 10,
   top: 10,
 };
 
@@ -96,6 +102,7 @@ export default function Map({
         positionOptions={{ enableHighAccuracy: true }}
         trackUserLocation={true}
       />
+      <NavigationControl style={navControlStyle} />
       {campResults[0] != "No Campgrounds Found" ? (
         campResults.map((node) => {
           return (
