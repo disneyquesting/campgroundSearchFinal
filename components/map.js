@@ -48,12 +48,7 @@ const useMediaQuery = (width) => {
   return targetReached;
 };
 
-export default function Map({
-  campgrounds,
-  campResults,
-  viewport,
-  setViewport,
-}) {
+export default function Map({ campResults, viewport, setViewport }) {
   const [selectLocation, setSelectedLocation] = useState({});
 
   const eventRecognizerOptions = {

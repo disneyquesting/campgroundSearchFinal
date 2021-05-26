@@ -13,25 +13,15 @@ export default function CampList({
   zipcodes,
   object,
   cities,
-  graphCampgrounds,
 }) {
   const [campResults, setcampResults] = useState(["No Campgrounds Found"]);
 
-  console.log("campresults: ", graphCampgrounds);
+  console.log("campresults: ", campResults);
   const [viewport, setViewport] = useState({
     latitude: 43.1939,
     longitude: 71.5724,
     zoom: 5,
   });
-
-  const [paginationInfo, setpaginationInfo] = useState([
-    {
-      endCursor: "",
-      hasNextPage: "",
-      hasPreviousPage: "",
-      startCursor: "",
-    },
-  ]);
 
   return (
     <>
@@ -43,7 +33,6 @@ export default function CampList({
         <div className="column is-half is-narrow is-centered mr-5 mapColumn mt-5 ml-5">
           <a name="map" />
           <Map
-            campgrounds={graphCampgrounds}
             viewport={viewport}
             setViewport={setViewport}
             campResults={campResults}
@@ -61,8 +50,6 @@ export default function CampList({
             setViewport={setViewport}
             campResults={campResults}
             setcampResults={setcampResults}
-            setpaginationInfo={setpaginationInfo}
-            paginationInfo={paginationInfo}
           />
         </div>
       </div>
@@ -78,7 +65,6 @@ export default function CampList({
           <CampgroundResults
             campResults={campResults}
             setViewport={setViewport}
-            paginationInfo={paginationInfo}
           />
         </div>
       </div>
@@ -90,13 +76,13 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query allCamps {
-        features(first: 200) {
+        features(first: 100) {
           nodes {
             label: name
             value: name
           }
         }
-        regions(first: 200) {
+        regions(first: 100) {
           nodes {
             id
             name
@@ -106,19 +92,13 @@ export async function getStaticProps() {
             }
           }
         }
-        ownerships(first: 200) {
+        ownerships(first: 100) {
           nodes {
             id
             name
           }
         }
         campgrounds(first: 200) {
-          pageInfo {
-            endCursor
-            hasNextPage
-            hasPreviousPage
-            startCursor
-          }
           edges {
             cursor
             node {
@@ -196,7 +176,6 @@ export async function getStaticProps() {
       regions: data.regions,
       camptypes: data.ownerships,
       object,
-      graphCampgrounds: data,
       cities,
     },
   };

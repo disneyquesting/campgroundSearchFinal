@@ -15,99 +15,10 @@ export default function SearchBox({
   setViewport,
   campResults,
   setcampResults,
-  paginationInfo,
-  setpaginationInfo,
 }) {
   const router = useRouter();
   const { query } = router;
   const [regionField, setregionField] = useState("all");
-
-  const updateQuery = (previousResult, { fetchMoreResult }) => {
-    if (fetchMoreResult.campgrounds.nodes.length > 1) {
-      setpaginationInfo([
-        {
-          endCursor: fetchMoreResult.campgrounds.pageInfo.endCursor,
-          hasNextPage: fetchMoreResult.campgrounds.pageInfo.hasNextPage,
-          hasPreviousPage: fetchMoreResult.campgrounds.pageInfo.hasPreviousPage,
-          startCursor: fetchMoreResult.campgrounds.pageInfo.startCursor,
-        },
-      ]);
-
-      setcampResults(initialResultValues);
-      fetchMoreResult.campgrounds.nodes[0]
-        ? fetchMoreResult.campgrounds.nodes.map((campground) => {
-            setcampResults((prevState) => [
-              ...prevState,
-              {
-                name: campground.title,
-                title: campground.title,
-                address: campground.acfDetails.address,
-                city: campground.acfDetails.city,
-                state: campground.acfDetails.state,
-                latitude: campground.acfDetails.latitude,
-                longitude: campground.acfDetails.longitude,
-                link: campground.link,
-                uri: campground.uri,
-                features: campground.features,
-                phone: campground.acfDetails.phoneNumber,
-                website: campground.acfDetails.website,
-                id: campground.id,
-                acfDetails: {
-                  picture: {
-                    mediaItemUrl:
-                      campground.acfDetails.picture != null
-                        ? campground.acfDetails.picture.mediaItemUrl
-                        : null,
-                  },
-                },
-              },
-            ]);
-          })
-        : setcampResults(["No Campgrounds Found"]);
-    } else {
-      setpaginationInfo([
-        {
-          endCursor: previousResult.campgrounds.pageInfo.endCursor,
-          hasNextPage: previousResult.campgrounds.pageInfo.hasNextPage,
-          hasPreviousPage: previousResult.campgrounds.pageInfo.hasPreviousPage,
-          startCursor: previousResult.campgrounds.pageInfo.startCursor,
-        },
-      ]);
-
-      setcampResults(initialResultValues);
-      previousResult.campgrounds.nodes[0]
-        ? previousResult.campgrounds.nodes.map((campground) => {
-            setcampResults((prevState) => [
-              ...prevState,
-              {
-                name: campground.title,
-                title: campground.title,
-                address: campground.acfDetails.address,
-                city: campground.acfDetails.city,
-                state: campground.acfDetails.state,
-                latitude: campground.acfDetails.latitude,
-                longitude: campground.acfDetails.longitude,
-                link: campground.link,
-                uri: campground.uri,
-                features: campground.features,
-                phone: campground.acfDetails.phoneNumber,
-                website: campground.acfDetails.website,
-                id: campground.id,
-                acfDetails: {
-                  picture: {
-                    mediaItemUrl:
-                      campground.acfDetails.picture != null
-                        ? campground.acfDetails.picture.mediaItemUrl
-                        : null,
-                  },
-                },
-              },
-            ]);
-          })
-        : setcampResults(["No Campgrounds Found"]);
-    }
-    return {};
-  };
 
   // FULLY search everything.
   const GET_SEARCH_RESULTS_WITH_CITY = gql`
@@ -116,10 +27,6 @@ export default function SearchBox({
       $features: [String!]
       $regions: [String!]!
       $ownerships: [String!]!
-      $first: Int
-      $last: Int
-      $after: String
-      $before: String
     ) {
       campgrounds(
         where: {
@@ -144,17 +51,8 @@ export default function SearchBox({
           orderby: { field: TITLE, order: ASC }
           city: $city
         }
-        first: $first
-        last: $last
-        after: $after
-        before: $before
+        first: 200
       ) {
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-          startCursor
-        }
         edges {
           cursor
         }
@@ -194,10 +92,6 @@ export default function SearchBox({
       $features: [String!]
       $regions: [String!]!
       $ownerships: [String!]!
-      $first: Int
-      $last: Int
-      $after: String
-      $before: String
     ) {
       campgrounds(
         where: {
@@ -221,17 +115,8 @@ export default function SearchBox({
           }
           orderby: { field: TITLE, order: ASC }
         }
-        first: $first
-        last: $last
-        after: $after
-        before: $before
+        first: 200
       ) {
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-          startCursor
-        }
         edges {
           cursor
         }
@@ -267,26 +152,8 @@ export default function SearchBox({
   `;
 
   const MAP_CITY_DATA = gql`
-    query MyQuery(
-      $string: String
-      $first: Int
-      $last: Int
-      $after: String
-      $before: String
-    ) {
-      campgrounds(
-        where: { city: $string }
-        after: $after
-        before: $before
-        first: $first
-        last: $last
-      ) {
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-          startCursor
-        }
+    query MyQuery($string: String) {
+      campgrounds(where: { city: $string }, first: 200) {
         nodes {
           acfDetails {
             address
@@ -316,12 +183,6 @@ export default function SearchBox({
   const REGION_INFO = gql`
     query MyQuery($string: [String!]!) {
       regions(where: { name: $string, orderby: NAME }) {
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-          startCursor
-        }
         nodes {
           campgrounds {
             edges {
@@ -361,15 +222,6 @@ export default function SearchBox({
         string: query.region,
       },
       onCompleted: (info) => {
-        setpaginationInfo([
-          {
-            endCursor: info.regions.pageInfo.endCursor,
-            hasNextPage: info.regions.pageInfo.hasNextPage,
-            hasPreviousPage: info.regions.pageInfo.hasPreviousPage,
-            startCursor: info.regions.pageInfo.startCursor,
-          },
-        ]);
-
         const lat = info.regions.nodes[0]
           ? parseFloat(info.regions.nodes[0].regioncoord.latitude.toFixed(4))
           : 43.986886;
@@ -420,15 +272,7 @@ export default function SearchBox({
       string: query.city,
     },
     onCompleted: (info) => {
-      setpaginationInfo([
-        {
-          endCursor: info.campgrounds.pageInfo.endCursor,
-          hasNextPage: info.campgrounds.pageInfo.hasNextPage,
-          hasPreviousPage: info.campgrounds.pageInfo.hasPreviousPage,
-          startCursor: info.campgrounds.pageInfo.startCursor,
-        },
-      ]);
-
+      console.log("info: ", info);
       const lat = info.campgrounds.nodes[0]
         ? parseFloat(info.campgrounds.nodes[0].acfDetails.latitude.toFixed(4))
         : 43.986886;
@@ -487,7 +331,7 @@ export default function SearchBox({
   // returns campgrounds that match features selected
   let features;
   const initialResultValues = [];
-  const { loading, error, data, refetch, fetchMore } = useQuery(
+  const { loading, error, data, refetch } = useQuery(
     query.city == "all" ? GET_SEARCH_RESULTS : GET_SEARCH_RESULTS_WITH_CITY,
     {
       variables: {
@@ -496,20 +340,9 @@ export default function SearchBox({
         regions: query.region != "all" ? query.region : [""],
         ownerships: query.camptype != "all" ? query.camptype : [""],
         city: query.city != "all" ? query.city : ["all"],
-        first: 200,
-        last: null,
-        before: null,
-        after: null,
       },
       onCompleted: (info) => {
-        setpaginationInfo([
-          {
-            endCursor: info.campgrounds.pageInfo.endCursor,
-            hasNextPage: info.campgrounds.pageInfo.hasNextPage,
-            hasPreviousPage: info.campgrounds.pageInfo.hasPreviousPage,
-            startCursor: info.campgrounds.pageInfo.startCursor,
-          },
-        ]);
+        console.log("info: ", info);
         setcampResults(initialResultValues);
         info.campgrounds.nodes[0]
           ? info.campgrounds.nodes.map((campground) => {
@@ -684,50 +517,6 @@ export default function SearchBox({
             >
               SEARCH CAMPGROUNDS
             </button>
-          </div>
-
-          <div className="pageButtons">
-            {paginationInfo[0].hasNextPage ? (
-              <button
-                className="button viewMoreButtons"
-                onClick={() => {
-                  fetchMore({
-                    variables: {
-                      first: 200,
-                      after: paginationInfo[0].endCursor || null,
-                      last: null,
-                      before: null,
-                    },
-                    updateQuery,
-                  });
-                }}
-              >
-                Next Listings
-              </button>
-            ) : (
-              <></>
-            )}
-
-            {paginationInfo[0].hasPreviousPage ? (
-              <button
-                className="button viewMoreButtons"
-                onClick={() => {
-                  fetchMore({
-                    variables: {
-                      first: null,
-                      after: null,
-                      last: 50,
-                      before: paginationInfo[0].startCursor || null,
-                    },
-                    updateQuery,
-                  });
-                }}
-              >
-                Previous Listings
-              </button>
-            ) : (
-              <></>
-            )}
           </div>
         </Form>
       )}
