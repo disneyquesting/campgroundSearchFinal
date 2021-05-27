@@ -8,6 +8,7 @@ import ReactMapGL, {
   GeolocateControl,
   LinearInterpolator,
   NavigationControl,
+  FullscreenControl,
 } from "react-map-gl";
 import MapCard from "../components/mapcard";
 import { useClickAway } from "react-use";
@@ -18,6 +19,11 @@ const geolocateControlStyle = {
 };
 
 const navControlStyle = {
+  right: 10,
+  top: 45,
+};
+
+const FullscreenControlStyle = {
   right: 10,
   top: 10,
 };
@@ -98,6 +104,7 @@ export default function Map({ campResults, viewport, setViewport }) {
         trackUserLocation={true}
       />
       <NavigationControl style={navControlStyle} />
+      <FullscreenControl style={FullscreenControlStyle} />
       {campResults[0] != "No Campgrounds Found" ? (
         campResults.map((node) => {
           return (

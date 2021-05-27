@@ -100,7 +100,6 @@ export async function getStaticProps() {
         }
         campgrounds(first: 200) {
           edges {
-            cursor
             node {
               acfDetails {
                 additionalNotes

@@ -53,9 +53,6 @@ export default function SearchBox({
         }
         first: 200
       ) {
-        edges {
-          cursor
-        }
         nodes {
           acfDetails {
             address
@@ -117,9 +114,6 @@ export default function SearchBox({
         }
         first: 200
       ) {
-        edges {
-          cursor
-        }
         nodes {
           acfDetails {
             address
@@ -184,7 +178,7 @@ export default function SearchBox({
     query MyQuery($string: [String!]!) {
       regions(where: { name: $string, orderby: NAME }) {
         nodes {
-          campgrounds {
+          campgrounds(first: 200) {
             edges {
               node {
                 acfDetails {
@@ -339,7 +333,7 @@ export default function SearchBox({
           query.campfeatures != "all" ? query.campfeatures?.split(",") : [""],
         regions: query.region != "all" ? query.region : [""],
         ownerships: query.camptype != "all" ? query.camptype : [""],
-        city: query.city != "all" ? query.city : ["all"],
+        city: query.city != "all" ? query.city : [""],
       },
       onCompleted: (info) => {
         console.log("info: ", info);
