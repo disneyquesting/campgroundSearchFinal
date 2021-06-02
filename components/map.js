@@ -102,9 +102,13 @@ export default function Map({ campResults, viewport, setViewport }) {
         style={geolocateControlStyle}
         positionOptions={{ enableHighAccuracy: true }}
         trackUserLocation={true}
+        className="mapControls"
       />
-      <NavigationControl style={navControlStyle} />
-      <FullscreenControl style={FullscreenControlStyle} />
+      <NavigationControl style={navControlStyle} className="mapControls" />
+      <FullscreenControl
+        style={FullscreenControlStyle}
+        className="mapControls"
+      />
       {campResults[0] != "No Campgrounds Found" ? (
         campResults.map((node) => {
           return (
