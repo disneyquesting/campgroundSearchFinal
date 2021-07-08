@@ -6,7 +6,7 @@ export default function MapCard({ campground }) {
     <div className="cardGrid">
       <div className="cardRow1">
         <a
-          href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
+          href={`https://www.nhlovescampers.com/${campground.uri}`}
           target="_blank"
         >
           <div>
@@ -32,7 +32,7 @@ export default function MapCard({ campground }) {
               : campground.state}
           </p>
           <a
-            href={`https://wordpress-385567-1777802.cloudwaysapps.com/${campground.uri}`}
+            href={`https://www.nhlovescampers.com/${campground.uri}`}
             target="_blank"
             className="cardProfileLink"
           >
